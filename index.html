@@ -3,21 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website with Menu</title>
-  <link rel="stylesheet" href="style.css"> </head>
+  <title>Left Menu Website</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #menu {
+      width: 200px;
+      background-color: #333;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      overflow-y: auto;
+    }
+    #menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    #menu ul li {
+      padding: 10px;
+      border-bottom: 1px solid #555;
+    }
+    #menu ul li:hover {
+      background-color: #555;
+    }
+    #content {
+      margin-left: 200px;
+      padding: 20px;
+    }
+  </style>
+</head>
 <body>
-  <div class="container">
-    <nav class="sidebar">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-    <main class="content">
-      <h1>Welcome to our Website!</h1>
-      <p>This is the main content area. You can add different sections here based on your needs.</p>
-    </main>
+
+<div id="menu">
+  <ul>
+    <li><a href="#" onclick="showPage('home')">Home</a></li>
+    <li><a href="#" onclick="showPage('about')">About</a></li>
+    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+  </ul>
+</div>
+
+<div id="content">
+  <h1>Welcome to our website!</h1>
+  <div id="home" style="display:none;">
+    <p>This is the home page content.</p>
   </div>
-  <script src="script.js"></script> </body>
+  <div id="about" style="display:none;">
+    <p>About us: We are a company providing amazing services.</p>
+  </div>
+  <div id="contact" style="display:none;">
+    <p>Contact us: Email us at example@example.com</p>
+  </div>
+</div>
+
+<script>
+  function showPage(pageId) {
+    var pages = document.querySelectorAll('#content > div');
+    for (var i = 0; i < pages.length; i++) {
+      pages[i].style.display = 'none';
+    }
+    document.getElementById(pageId).style.display = 'block';
+  }
+</script>
+
+</body>
 </html>
