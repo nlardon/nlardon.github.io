@@ -66,9 +66,41 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Adresse IP</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#tenues-ullum">Tenues ullum</a>
+    <li class="toctree-l2"><a class="reference internal" href="#prerequis-binaire-decimal">Prérequis : Binaire &lt;&gt; Décimal</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#en-base-10">En base 10 :</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#tu-pia-signa-humo-qua-clamat">Tu pia signa humo qua clamat</a>
+    <li class="toctree-l3"><a class="reference internal" href="#en-base-2">En base 2 :</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adresse-ipv4">Adresse IPv4</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#plages-dadresses-prives-ipv4">Plages d'adresses privés IPv4</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adresse-ipv6">Adresse IPv6</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#calcul-de-ladresse-reseau-ipv4">Calcul de l'adresse réseau IPv4</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#calcul-du-nombre-dadresse-disponible-sur-le-reseau">Calcul du nombre d'adresse disponible sur le réseau</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#calcul-des-adresses-utiles-sur-le-reseau">Calcul des adresses utiles sur le réseau</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#calcul-du-masque-reseau">Calcul du masque réseau</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#calcul-de-ladresse-reseau">Calcul de l'adresse réseau</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#calcul-de-la-1ere-adresse-attribuable">Calcul de la 1ere adresse attribuable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#calcul-du-masque-inverse">Calcul du masque inversé</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#calcul-de-ladresse-de-diffusion">Calcul de l'adresse de diffusion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#calcul-de-la-derniere-adresse-attribuable">Calcul de la dernière adresse attribuable</a>
+    </li>
+        </ul>
     </li>
     </ul>
                 </li>
@@ -96,53 +128,806 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="tunc-vitae-somniferam-perdere">Tunc vitae somniferam perdere</h1>
-<h2 id="tenues-ullum">Tenues ullum</h2>
-<p>Lorem markdownum Naides vocem: potuit cum, vulnera ne sine suspicit forumque,
-humo. Removere inobrutus urbis, miles, artus
-<a href="http://aditus-humum.io/stridenteregis">summoveant</a> videt, coniugium tamen
-fratres habes: non. <a href="http://non.org/petecum">Nam</a> procul Auram. Illis
-<strong>obvertit</strong>: amore voce, et quae positi <em>sumpsit</em>: et vestigia mitia qui: nigra
-poenaeque genetrici <em>si</em>. Grata mihi canebat; torpor et, feri molles, aperit
-proles.</p>
+                <h1 id="adresse-ip">Adresse IP</h1>
+<h2 id="prerequis-binaire-decimal">Prérequis : Binaire &lt;&gt; Décimal</h2>
+<p>Base 10 : Décimal : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9<br />
+Base 2 : Binaire : 0, 1<br />
+Base 16 : Hexadécimal : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Base 10</th>
+<th style="text-align: center;">Base 2</th>
+<th style="text-align: center;">Base 16</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0000</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0001</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0010</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0011</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0100</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0101</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0110</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0111</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">1001</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">1010</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">1011</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">1100</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">1101</td>
+<td style="text-align: center;">D</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">1110</td>
+<td style="text-align: center;">E</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">1111</td>
+<td style="text-align: center;">F</td>
+</tr>
+</tbody>
+</table>
+<h3 id="en-base-10">En base 10 :</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">10<sup>3</sup></th>
+<th style="text-align: center;">10<sup>2</sup></th>
+<th style="text-align: center;">10<sup>1</sup></th>
+<th style="text-align: center;">10<sup>0</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Le nombre 4321 peut être décomposé :  </p>
+<blockquote>
+<p>4.10<sup>3</sup> + 3.10<sup>2</sup> + 2.10<sup>1</sup> + 1.10<sup>0</sup><br />
+4<em>1000 + 3</em>100 + 2<em>10 + 1</em>1<br />
+4321</p>
+</blockquote>
+<p>Un nombre en décimal sera écrit avec l'indice 10 :  </p>
+<blockquote>
+<p>4321<sub>10</sub></p>
+</blockquote>
+<h3 id="en-base-2">En base 2 :</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">2<sup>7</sup></th>
+<th style="text-align: center;">2<sup>6</sup></th>
+<th style="text-align: center;">2<sup>5</sup></th>
+<th style="text-align: center;">2<sup>4</sup></th>
+<th style="text-align: center;">2<sup>3</sup></th>
+<th style="text-align: center;">2<sup>2</sup></th>
+<th style="text-align: center;">2<sup>1</sup></th>
+<th style="text-align: center;">2<sup>0</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Le nombre 249<sub>10</sub> peut être converti en bianire par soustraction successive :  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">2<sup>7</sup></th>
+<th style="text-align: center;">2<sup>6</sup></th>
+<th style="text-align: center;">2<sup>5</sup></th>
+<th style="text-align: center;">2<sup>4</sup></th>
+<th style="text-align: center;">2<sup>3</sup></th>
+<th style="text-align: center;">2<sup>2</sup></th>
+<th style="text-align: center;">2<sup>1</sup></th>
+<th style="text-align: center;">2<sup>0</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">249<sub>10</sub></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>On se pose la question est-ce que 128 (2<sup>7</sup>) rentre dans 249<br />
+si faux : 0<br />
+si vrai : 1 et on soustrait 128 à 249  </p>
+</blockquote>
+<p>Ici c'est vrai on met 1 et on soustrait 128 à 249 soit 121  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">2<sup>7</sup></th>
+<th style="text-align: center;">2<sup>6</sup></th>
+<th style="text-align: center;">2<sup>5</sup></th>
+<th style="text-align: center;">2<sup>4</sup></th>
+<th style="text-align: center;">2<sup>3</sup></th>
+<th style="text-align: center;">2<sup>2</sup></th>
+<th style="text-align: center;">2<sup>1</sup></th>
+<th style="text-align: center;">2<sup>0</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">249<sub>10</sub></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>On se pose la question est-ce que 64 (2<sup>6</sup>) rentre dans 121<br />
+si faux : 0<br />
+si vrai : 1 et on soustrait 64 à 121  </p>
+</blockquote>
+<p>Ici c'est vrai on met 1 et on soustrait 64 à 121 soit 57  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">2<sup>7</sup></th>
+<th style="text-align: center;">2<sup>6</sup></th>
+<th style="text-align: center;">2<sup>5</sup></th>
+<th style="text-align: center;">2<sup>4</sup></th>
+<th style="text-align: center;">2<sup>3</sup></th>
+<th style="text-align: center;">2<sup>2</sup></th>
+<th style="text-align: center;">2<sup>1</sup></th>
+<th style="text-align: center;">2<sup>0</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">249<sub>10</sub></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>On se pose la question est-ce que 32 (2<sup>5</sup>) rentre dans 57<br />
+si faux : 0<br />
+si vrai : 1 et on soustrait 32 à 57  </p>
+</blockquote>
+<p>Ici c'est vrai on met 1 et on soustrait 32 à 57 soit 25  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">2<sup>7</sup></th>
+<th style="text-align: center;">2<sup>6</sup></th>
+<th style="text-align: center;">2<sup>5</sup></th>
+<th style="text-align: center;">2<sup>4</sup></th>
+<th style="text-align: center;">2<sup>3</sup></th>
+<th style="text-align: center;">2<sup>2</sup></th>
+<th style="text-align: center;">2<sup>1</sup></th>
+<th style="text-align: center;">2<sup>0</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">249<sub>10</sub></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>On se pose la question est-ce que 16 (2<sup>4</sup>) rentre dans 25<br />
+si faux : 0<br />
+si vrai : 1 et on soustrait 16 à 25  </p>
+</blockquote>
+<p>Ici c'est vrai on met 1 et on soustrait 16 à 25 soit 9  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">2<sup>7</sup></th>
+<th style="text-align: center;">2<sup>6</sup></th>
+<th style="text-align: center;">2<sup>5</sup></th>
+<th style="text-align: center;">2<sup>4</sup></th>
+<th style="text-align: center;">2<sup>3</sup></th>
+<th style="text-align: center;">2<sup>2</sup></th>
+<th style="text-align: center;">2<sup>1</sup></th>
+<th style="text-align: center;">2<sup>0</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">249<sub>10</sub></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>On se pose la question est-ce que 8 (2<sup>3</sup>) rentre dans 9<br />
+si faux : 0<br />
+si vrai : 1 et on soustrait 8 à 9  </p>
+</blockquote>
+<p>Ici c'est vrai on met 1 et on soustrait 8 à 9 soit 1  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">2<sup>7</sup></th>
+<th style="text-align: center;">2<sup>6</sup></th>
+<th style="text-align: center;">2<sup>5</sup></th>
+<th style="text-align: center;">2<sup>4</sup></th>
+<th style="text-align: center;">2<sup>3</sup></th>
+<th style="text-align: center;">2<sup>2</sup></th>
+<th style="text-align: center;">2<sup>1</sup></th>
+<th style="text-align: center;">2<sup>0</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">249<sub>10</sub></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>On se pose la question est-ce que 4 (2<sup>2</sup>) rentre dans 1<br />
+si faux : 0<br />
+si vrai : 1 et on soustrait 4  </p>
+</blockquote>
+<p>Ici c'est faux on met 0   </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">2<sup>7</sup></th>
+<th style="text-align: center;">2<sup>6</sup></th>
+<th style="text-align: center;">2<sup>5</sup></th>
+<th style="text-align: center;">2<sup>4</sup></th>
+<th style="text-align: center;">2<sup>3</sup></th>
+<th style="text-align: center;">2<sup>2</sup></th>
+<th style="text-align: center;">2<sup>1</sup></th>
+<th style="text-align: center;">2<sup>0</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">249<sub>10</sub></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>On se pose la question est-ce que 2 (2<sup>1</sup>) rentre dans 1<br />
+si faux : 0<br />
+si vrai : 1 et on soustrait 2  </p>
+</blockquote>
+<p>Ici c'est faux on met 0   </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">2<sup>7</sup></th>
+<th style="text-align: center;">2<sup>6</sup></th>
+<th style="text-align: center;">2<sup>5</sup></th>
+<th style="text-align: center;">2<sup>4</sup></th>
+<th style="text-align: center;">2<sup>3</sup></th>
+<th style="text-align: center;">2<sup>2</sup></th>
+<th style="text-align: center;">2<sup>1</sup></th>
+<th style="text-align: center;">2<sup>0</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">249<sub>10</sub></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">x</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>On se pose la question est-ce que 1 (2<sup>0</sup>) rentre dans 1<br />
+si faux : 0<br />
+si vrai : 1 et on soustrait 1  </p>
+</blockquote>
+<p>Ici c'est vrai on met 1 et on soustrait 1 à 1 soit 0<br />
+Puisque le reste = 0 notre conversion est finie   </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">2<sup>7</sup></th>
+<th style="text-align: center;">2<sup>6</sup></th>
+<th style="text-align: center;">2<sup>5</sup></th>
+<th style="text-align: center;">2<sup>4</sup></th>
+<th style="text-align: center;">2<sup>3</sup></th>
+<th style="text-align: center;">2<sup>2</sup></th>
+<th style="text-align: center;">2<sup>1</sup></th>
+<th style="text-align: center;">2<sup>0</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">249<sub>10</sub></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Le nombre 249 peut être décomposé :  </p>
+<blockquote>
+<p>1.2<sup>7</sup> + 1.2<sup>6</sup> + 1.2<sup>5</sup> + 1.2<sup>4</sup> + 1.2<sup>3</sup>  + 0.2<sup>2</sup> + 0.2<sup>1</sup>  + 1.2<sup>0</sup><br />
+1x128 + 1x64 + 1x32 + 1x16 + 1x8 + 0x4 + 0x2 + 1x1<br />
+249</p>
+</blockquote>
+<p>Un nombre en binaire sera écrit avec l'indice 2 :  </p>
+<blockquote>
+<p>1111 1001<sub>2</sub> = 249<sub>10</sub>  </p>
+</blockquote>
+<h2 id="adresse-ipv4">Adresse IPv4</h2>
+<p>Une <strong>adresse IPv4</strong> est un nombre de <strong>32 bits</strong> identifiant de manière unique une interface réseau sur un système.<br />
+Une adresse IPv4 s'écrit sous forme de nombres décimaux, divisés en quatre champs de 8 bits séparés par des points. Chaque champ de 8 bits représente un <strong>octet</strong> de l'adresse IPv4.<br />
+Cette forme de représentation des octets d'une adresse IPv4 est appelée format décimal avec points.</p>
+<p>La figure ci-dessous présente les composants d'une adresse IPv4 <code>172.16.50.56</code>.<br />
+<img alt="" src="../img/trad-IPv4.gif" /></p>
+<p>Pour calculer la partie réseau et partie machine, une adresse IP à besoin d'un masque de sous réseau.</p>
+<p>Soit en décimal avec points : <code>255.255.0.0</code><br />
+Soit sous forme CIDR, préfixe de réseau : <code>/16</code>  </p>
+<h3 id="plages-dadresses-prives-ipv4">Plages d'adresses privés IPv4</h3>
+<blockquote>
+<p><code>10.0.0.0 - 10.255.255.255</code><br />
+<code>172.16.0.0 - 172.31.255.255</code><br />
+<code>192.168.0.0 - 192.168.255.255</code>  </p>
+</blockquote>
+<h2 id="adresse-ipv6">Adresse IPv6</h2>
+<p>Une adresse <strong>IPv6</strong> est longue de <strong>128 bits</strong> et se compose de huit champs de 16 bits, chacun étant délimité par deux-points (:). Chaque champ doit contenir un nombre hexadécimal, à la différence de la notation en format décimal avec points des adresses IPv4.<br />
+<em>Format d'adresse IPv6 de base</em><br />
+<img alt="" src="../img/basic-IPv6-address.gif" />  </p>
+<h2 id="calcul-de-ladresse-reseau-ipv4">Calcul de l'adresse réseau IPv4</h2>
+<p>Exemple : Nous cherchons l’adresse réseau de cette adresse IP : <code>10.5.100.16 / 20</code>  </p>
+<p>Etape 1 : On écrit le masque en décimal pointé  </p>
+<blockquote>
+<p>/20 = en binaire 1111 1111 . 1111 1111 . 1111 0000 . 0000 0000 soit 255.255.240.0  </p>
+</blockquote>
+<p>Etape 2 : On réalise l’opération ET bit à bit entre l’adresse réseau et le masque, où le masque est différent de 0 ou 255.  </p>
+<blockquote>
+<p>Si 0, le résultat = 0<br />
+Si 255, le résultat = le nombre de l’adresse réseau<br />
+Si autre opération ET bit à bit  </p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Addresse IP</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr>
+<td>Adresse IP en binaire</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">0110 0100</td>
+<td style="text-align: center;">...</td>
+</tr>
+<tr>
+<td>Masque en décimal</td>
+<td style="text-align: center;">255</td>
+<td style="text-align: center;">255</td>
+<td style="text-align: center;">240</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>Masque en bianire</td>
+<td style="text-align: center;">1111 1111</td>
+<td style="text-align: center;">1111 1111</td>
+<td style="text-align: center;">1111 0000</td>
+<td style="text-align: center;">0000 0000</td>
+</tr>
+<tr>
+<td>Adresse réseau en binaire</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">0110 0000</td>
+<td style="text-align: center;">...</td>
+</tr>
+<tr>
+<td>Adresse réseau en décimale</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">96</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Binaire</th>
+<th style="text-align: center;">Décimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1111 1111</td>
+<td style="text-align: center;">255</td>
+</tr>
+<tr>
+<td>1111 1110</td>
+<td style="text-align: center;">254</td>
+</tr>
+<tr>
+<td>1111 1100</td>
+<td style="text-align: center;">252</td>
+</tr>
+<tr>
+<td>1111 1000</td>
+<td style="text-align: center;">248</td>
+</tr>
+<tr>
+<td>1111 0000</td>
+<td style="text-align: center;">240</td>
+</tr>
+<tr>
+<td>1110 0000</td>
+<td style="text-align: center;">224</td>
+</tr>
+<tr>
+<td>1100 0000</td>
+<td style="text-align: center;">192</td>
+</tr>
+<tr>
+<td>1000 0000</td>
+<td style="text-align: center;">128</td>
+</tr>
+</tbody>
+</table>
+<h2 id="calcul-du-nombre-dadresse-disponible-sur-le-reseau">Calcul du nombre d'adresse disponible sur le réseau</h2>
+<p>Nombre de machine sur notre réseau :  </p>
+<blockquote>
+<p>2<sup>(Nombre “1” dans le masque inversé)</sup> - 2<br />
+<code>0.0.15.255 = 00000000.00000000.00001111.11111111 soit 12 “1”</code><br />
+212 - 2 soit 4094 machines  </p>
+</blockquote>
+<p>ou  </p>
+<blockquote>
+<p>2<sup>(32 - préfixe)</sup> - 2<br />
+32 - préfixe = 32 – 20 = 12<br />
+212 - 2 soit 4094 machines  </p>
+</blockquote>
+<h2 id="calcul-des-adresses-utiles-sur-le-reseau">Calcul des adresses utiles sur le réseau</h2>
 <ul>
-<li>Constitit placuerunt meas saltus tantum</li>
-<li>Gemitumque virgo mutabit si molle Acoetes</li>
-<li>Fossas despicit et lammina Achille</li>
+<li>
+<p>Adresse Réseau = Adresse IP &amp;&amp; Masque  </p>
+</li>
+<li>
+<p>1er Adresse = Adresse Réseau + 1  </p>
+</li>
+<li>
+<p>Masque inversé = M̃ = 255.255.255.255 - Masque  </p>
+</li>
+<li>
+<p>Adresse de diffusion = Adresse Réseau + Masque inversé  </p>
+</li>
+<li>
+<p>Dernière Adresse = Adresse de Diffusion – 1  </p>
+</li>
 </ul>
-<p>Consenuere <strong>inpietatis</strong> revolvor leves esse deprendere carminaque hydros
-tamen, freta non vidit, fontem oras nubibus qua nostri limina. Cavernas melle,
-Fortunae thalamos, is habenis forma non omnes est utile amissamque vectus,
-regna. Telas rogant durataeque <em>guttae stridentibus stet</em> trahens, flores; regia
-nupta, rapi, radiabant patebant Phoebeius virginei clarum. Regalia Daphnidis.</p>
-<p>Puerum duobus nubilibus colit: Cupido ab vulgi, imagine mens Aesacon, lurida
-Ionium <strong>cupiens</strong>. Verbisque late; mater iussis possederat, ubi est conversa
-posses habe ante? Victore <a href="http://www.fingensest.io/leonis.html">pater et</a>
-caput, hanc aut, observata forte sociati opiferque aliquid domum, in Rhesum
-Amphrysos tendere solebat. Placet fervoribus summa turbatque remigioque,
-insistere virique, cogi. Vel nec barbara miscet Alcides retegatur spinae?</p>
-<h2 id="tu-pia-signa-humo-qua-clamat">Tu pia signa humo qua clamat</h2>
-<p>Dicite quam, muro procul aliter ita. <strong>Quem</strong> libet sanguine os ferunt faciem
-locus; dis <em>saxa quorum</em> maior nepotum <em>convellere</em>. Curae Tyrrhenus experiar
-stabat et nisi Haec sonantia laborem sinus, petis semicremoque profuit quoque.
-Achivi <strong>ad</strong> venit vocari sensit plangoris nutrix, Lapithaeae tristia in
-sidera. Luserat liquerunt; non quas membra tangi.</p>
-<ul>
-<li>Tenent enim habentem possit mactatur in forma</li>
-<li>Arces funduntur precor natae tum mitior soluti</li>
-<li>Igni omnia flumina gerunt adapertaque poena</li>
-</ul>
-<p>Per sine callidus iamque, ambustaque dedit requiemque saxo. Reperta ora
-aquaticus simul iuncturas adnuit plebe esse Diomede amictu obductos tumens et
-tetigit capiti et, vina. Intexuit iubent, sic loca uncos, positas Demoleonta
-ponit, hanc mala expers alte si pastor verbis. Exclamo forma decor fumida
-inmurmurat isdem. Ego quoniam agnus, perosa limosi castaque umbris Tereus cava
-canam Phocus passa quis.</p>
-<p>Resolvit dictis Polymestoris longo, laqueo aures, quem imitante, argolico
-sanguine Pelasgae aram. Longave deos cuspide et temptabimus veterum inhospita
-letum.</p>
-<p>Reportat in paventem quoque. Tuentur clamor me ratem motibus, duro esse reddidit
-armento per tanto Theseus, io decoris.</p>
+<p><strong>Exemple</strong>
+Nous avons l'adresse IP : <code>192.168.4.201 / 27</code>  </p>
+<h4 id="calcul-du-masque-reseau">Calcul du masque réseau</h4>
+<blockquote>
+<p>/27 = 1111 1111 . 1111 1111 . 1111 1111 . 1110 0000 = 255.255.255.224  </p>
+</blockquote>
+<h4 id="calcul-de-ladresse-reseau">Calcul de l'adresse réseau</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">IP<sub>10</sub></td>
+<td style="text-align: center;">192</td>
+<td style="text-align: center;">168</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">201</td>
+</tr>
+<tr>
+<td style="text-align: center;">Masque<sub>10</sub></td>
+<td style="text-align: center;">255</td>
+<td style="text-align: center;">255</td>
+<td style="text-align: center;">255</td>
+<td style="text-align: center;">224</td>
+</tr>
+<tr>
+<td style="text-align: center;">IP<sub>2</sub></td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">1100 1001</td>
+</tr>
+<tr>
+<td style="text-align: center;">Masque<sub>2</sub></td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">1110 0000</td>
+</tr>
+<tr>
+<td style="text-align: center;">Réseau<sub>2</sub></td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">1100 0000</td>
+</tr>
+<tr>
+<td style="text-align: center;">Réseau<sub>10</sub></td>
+<td style="text-align: center;">192</td>
+<td style="text-align: center;">168</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">192</td>
+</tr>
+</tbody>
+</table>
+<p>Adresse réseau : <code>192.168.4.192</code>  </p>
+<h4 id="calcul-de-la-1ere-adresse-attribuable">Calcul de la 1ere adresse attribuable</h4>
+<p>1ere adresse attribuable = Adresse réseau + 1<br />
+1ere adresse attribuable = <code>192.168.4.193</code>  </p>
+<h4 id="calcul-du-masque-inverse">Calcul du masque inversé</h4>
+<p>Masque inversé = M̃ = 255.255.255.255 - Masque<br />
+Masque inversé = M̃ = <code>255-255 . 255-255 . 255-255 . 255-224</code><br />
+Masque inversé = M̃ = <code>0 . 0 . 0 . 31</code>  </p>
+<h4 id="calcul-de-ladresse-de-diffusion">Calcul de l'adresse de diffusion</h4>
+<p>Adresse de diffusion = Adresse Réseau + Masque inversé  </p>
+<p>Adresse de diffusion = <code>192.168.4.192 + 0.0.0.31</code>  </p>
+<p>Adresse de diffusion = <code>192.168.4.223</code>  </p>
+<h4 id="calcul-de-la-derniere-adresse-attribuable">Calcul de la dernière adresse attribuable</h4>
+<p>Dernière Adresse = Adresse de Diffusion – 1<br />
+Dernière Adresse = <code>192.168.4.223 - 1</code><br />
+Dernière Adresse = <code>192.168.4.222</code>  </p>
               
             </div>
           </div><footer>
