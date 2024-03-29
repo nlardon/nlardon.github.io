@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>MicroPython - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "MicroPython";
+        var mkdocs_page_input_path = "micropython.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../arduino/">Arduino</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../esp/">ESP32/ESP8622</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../proxmox/">Proxmox</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../euro/">Section Euro</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../adresseip/">Adresse IP</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">MicroPython</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#preparer-le-materiel-pour-micropython">Préparer le matériel pour MicroPython</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#televerser-un-programme">Téléverser un programme</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#programme-test">Programme test</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#remettre-le-materiel-pour-arduino-ide">Remettre le matériel pour Arduino IDE</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#programme-test_1">Programme test</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">MicroPython</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="utilisation-de-micropython">Utilisation de MicroPython</h1>
+<p><img alt="" src="../img/micropython_start.svg" /></p>
+<p>Pour comprendre : principe général de l'utilisation de MicroPython  </p>
+<p>Le principe général est le suivant :</p>
+<ul>
+<li>on connecte la carte avec Micropython sur le port USB : un port série lui est attribué : /dev/ttyACM0 par exemple sous Gnu/Linux  </li>
+<li>avec un interpréteur comme Thonny, on peut envoyer le code dans la carte.</li>
+</ul>
+<h2 id="preparer-le-materiel-pour-micropython">Préparer le matériel pour MicroPython</h2>
+<p><em>source : https://www.aranacorp.com/fr/programmez-un-esp32-avec-micropython/</em>  </p>
+<p>Les cartes Arduino et les cartes type ESP32/ESP8266, ont un firmware (mini-OS) permettant de charger du code depuis l'IDE de Arduino.<br />
+Nous devons modifier ce firmware pour fonctionner en MicroPython.  </p>
+<p>Prérequis :<br />
+    Installer Python 3<br />
+    Installer Thonny IDE  </p>
+<p>Nous allons flasher le firmware MicroPython avec Thonny IDE.  </p>
+<p>La méthode la plus simple pour installer et utiliser MicroPython sur ESP32 (et autre microcontrôleur) est d’utiliser le logiciel Thonny IDE. En effet vous pouvez installer le firmware à partir de l’interface du logiciel et l’utiliser pour développer votre code et le téléverser sur la carte.  </p>
+<p>Dans le logiciel, Thony IDE, sélectionner le Menu : Exécuter puis Configurer l'interpréteur...<br />
+<img alt="" src="../img/micropython_flash-firmware-1.png" /></p>
+<p>Cliquer sur Installer ou mettre à jour MicroPython (esptool.)</p>
+<p><img alt="" src="../img/micropython_flash-firmware-2.png" /></p>
+<p>Sélectionner le bon port.
+Pour une carte Carte Espressif ESP32-WROOM-32E :<br />
+    MicroPython family : ESP32<br />
+    Variant : Espressif ESP32 / VROOM  </p>
+<p>Puis instaler, le firmware va se charger dans la carte.</p>
+<p><img alt="" src="../img/micropython_flash-firmware-3.png" /></p>
+<h2 id="televerser-un-programme">Téléverser un programme</h2>
+<p>Dans le logiciel, Thony IDE, sélectionner le Menu : Exécuter puis Configurer l'interpréteur...<br />
+Choisir le bon port (exemple : /dev/ttyUSB0 ou c/dev/ttyACM0 )<br />
+<img alt="" src="../img/micropython_load-1.png" /></p>
+<h3 id="programme-test">Programme test</h3>
+<pre><code>from machine import Pin
+import time
+
+pin_led1 = Pin(2, mode=Pin.OUT)
+pin_led2 = Pin(5, mode=Pin.OUT)
+
+while True:
+
+    pin_led1.on()
+    time.sleep(1)
+    pin_led1.off()
+    time.sleep(1)
+
+    pin_led2.on()
+    time.sleep(1)
+    pin_led2.off()
+    time.sleep(1)
+</code></pre>
+<p><img alt="" src="../img/micropython_load-2.gif" /></p>
+<h2 id="remettre-le-materiel-pour-arduino-ide">Remettre le matériel pour Arduino IDE</h2>
+<p>Dans le logiciel, Arduino IDE, sélectionner le Menu : Tools puis Board -&gt; esp32 -&gt; ESP32 Dev Module  </p>
+<p><img alt="" src="../img/arduino-firmware-1.png" /></p>
+<p>Dans le Menu : Tools puis Burn Bootloader<br />
+<img alt="" src="../img/arduino-firmware-2.png" /></p>
+<h3 id="programme-test_1">Programme test</h3>
+<pre><code>void setup() {
+  pinMode(2, OUTPUT);
+  pinMode(5, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(2, HIGH);
+  delay(100);
+  digitalWrite(2, LOW);
+  delay(100);
+
+  digitalWrite(5, HIGH);
+  delay(100);
+  digitalWrite(5, LOW);
+  delay(100);
+
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../adresseip/" class="btn btn-neutral float-left" title="Adresse IP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../adresseip/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
