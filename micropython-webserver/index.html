@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Linux - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+    <title>ESP32 GPIO Python Webserver - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Linux";
-        var mkdocs_page_input_path = "linux.md";
+        var mkdocs_page_name = "ESP32 GPIO Python Webserver";
+        var mkdocs_page_input_path = "micropython-webserver.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -47,20 +47,8 @@
                 <li class="toctree-l1"><a class="reference internal" href="../proxmox/">Proxmox</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Linux</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#rappel-commande-unixlinuxbsd">Rappel commande Unix/Linux/BSD</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#test-avec-un-escape-game">Test avec un escape game</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#acces-au-simulateur-linux">Accés au simulateur linux</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#solutions">Solutions</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux</a>
                 </li>
               </ul>
               <ul>
@@ -87,8 +75,18 @@
                 <li class="toctree-l1"><a class="reference internal" href="../micropython/">MicroPython</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../micropython-webserver/">ESP32 GPIO Python Webserver</a>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">ESP32 GPIO Python Webserver</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#controler-unse-sortie">Contrôler unse sortie</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#creation-du-fichier-bootpy">Création du fichier boot.py</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creation-du-fichier-mainpy">Création du fichier main.py</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                 </li>
               </ul>
               <ul>
@@ -113,7 +111,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Linux</li>
+      <li class="breadcrumb-item active">ESP32 GPIO Python Webserver</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -122,120 +120,115 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="commande-linux">Commande Linux</h1>
-<h2 id="rappel-commande-unixlinuxbsd">Rappel commande Unix/Linux/BSD</h2>
-<p>pwd (Imprime le répertoire de travail)  </p>
-<pre><code>$ pwd  
-/etc/network
+                <h1 id="utilisation-de-micropython-et-webserver">Utilisation de MicroPython et Webserver</h1>
+<p>Prérequis :  </p>
+<ul>
+<li>firmware ESP32 flashé avec le firmware MicroPython   </li>
+</ul>
+<h2 id="controler-unse-sortie">Contrôler unse sortie</h2>
+<p><em>source : https://randomnerdtutorials.com/esp32-esp8266-micropython-web-server/</em>  </p>
+<p>Par défaut, lorsque vous flasher le firmware MicroPython, un fichier boot.py est créé.</p>
+<p>Pour ce projet, vous aurez besoin d'un fichier boot.py et d'un fichier main.py.<br />
+- Le fichier boot.py contient le code qui ne doit être exécuté qu'une seule fois au démarrage. Il s'agit de l'importation des bibliothèques, des identifiants réseau, de l'instanciation des broches, de la connexion au réseau et d'autres configurations.</p>
+<ul>
+<li>Le fichier main.py contient le code qui exécute le serveur web pour servir des fichiers et effectuer des tâches en fonction des demandes reçues par le client.</li>
+</ul>
+<h3 id="creation-du-fichier-bootpy">Création du fichier <em>boot.py</em></h3>
+<p>Dans ce code :
+- Crée un client wifi (STA = Station) (on pourrait faire la même chose en AP = Access Point)<br />
+- Se connecte au wifi donné<br />
+- Renvoie dans le terminal/console les informations du réseau données par le serveur DHCP (IP, Masque, Passerelle, DNS)
+- Configure les GPIO</p>
+<p><em>boot.py</em></p>
+<pre><code>try:
+  import usocket as socket
+except:
+  import socket
+
+from machine import Pin
+import network
+
+import esp
+esp.osdebug(None)
+
+import gc
+gc.collect()
+
+ssid = 'REPLACE_WITH_YOUR_SSID'
+password = 'REPLACE_WITH_YOUR_PASSWORD'
+
+station = network.WLAN(network.STA_IF)
+
+station.active(True)
+station.connect(ssid, password)
+
+while station.isconnected() == False:
+  pass
+
+print('Connection successful')
+print(station.ifconfig())
+
+led = Pin(2, Pin.OUT)
 </code></pre>
-<p>cat fichier (Imprime le contenu des fichiers)  </p>
-<pre><code>$cat journal.txt  
+<p>Retour dans la console  </p>
+<pre><code>Connection successful
+('192.168.1.59', '255.255.255.0', '192.168.1.1', '192.168.1.1')
 </code></pre>
-<p>cp dossier_source/fichier  dossier_dest/ (Copie les fichiers et les répertoires)  </p>
-<pre><code>$ cp journal.txt /home/alice/
-$ cp journal.txt /home/alice/blabla.txt
+<h3 id="creation-du-fichier-mainpy">Création du fichier <em>main.py</em></h3>
+<p>Dans ce code :
+- Défini une fonction pour lire le statue des gpio et crée la page html<br />
+- Gére les connections au serveur web</p>
+<p><em>main.py</em></p>
+<pre><code>def web_page():
+    if led.value() == 1:
+        gpio_state=&quot;ON&quot;
+    else:
+        gpio_state=&quot;OFF&quot;
+
+    html =&quot;&quot;&quot;&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;ESP Web Server&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;ESP Web Server&lt;/h1&gt; 
+        &lt;p&gt;GPIO state: &lt;strong&gt;&quot;&quot;&quot; + gpio_state + &quot;&quot;&quot;&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&quot;/?led=on&quot;&gt;&lt;button class=&quot;button1&quot;&gt;ON&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&quot;/?led=off&quot;&gt;&lt;button class=&quot;button2&quot;&gt;OFF&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;&quot;&quot;&quot;
+    return html
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind(('', 80))
+s.listen(5)
+
+while True:
+    conn, addr = s.accept()
+    print('Got a connection from %s' % str(addr))
+    request = conn.recv(1024)
+    request = str(request)
+    print('Content = %s' % request)
+    led_on = request.find('/?led=on')
+    led_off = request.find('/?led=off')
+    if led_on == 6:
+        print('LED ON')
+        led.value(1)
+    if led_off == 6:
+        print('LED OFF')
+        led.value(0)
+    response = web_page()
+    conn.send('HTTP/1.1 200 OK\n')
+    conn.send('Content-Type: text/html\n')
+    conn.send('Connection: close\n\n')
+    conn.sendall(response)
+    conn.close()
 </code></pre>
-<p>mv dossier_source/fichier  dossier_dest/ (Déplace et renomme les fichiers et les répertoires)<br />
-rm (Retire les fichiers et les répertoires)<br />
-rm -rf (r pour les sous dossiers et f pour forcer)<br />
-touch fichier (Crée des fichiers vides)<br />
-mkdir (Crée des répertoires)<br />
-ls (Liste le contnenu d'un répertoires)<br />
-- ls -l : informations détaillées  </p>
-<p>find -name ... (Recherche un fichier)<br />
-tar -xvf fichier.tar.gz<br />
-Pour exécuter un fichier : ./fichier<br />
-nano fichier (Crée/Modifie un fichier)<br />
-- Control + o : Sauvegarder<br />
-- Control + x : Quitter  </p>
-<h2 id="test-avec-un-escape-game">Test avec un escape game</h2>
-<p>Pour démarrer le jeu :</p>
-<p>Sauvegarder l'archive compressée (clique sur l'image) du jeu sur votre PC (cliquer-droit et enregistrer la cible...).  </p>
-<p><a href="/extra/escape_game-weblinux.tar.gz" download>
-  <img src="/img/escape-game.jpg" width="25%" height="auto">
-</a></p>
-<p>Charger cette archive compressée dans l'émulateur en cliquant sur le bouton upload.  </p>
-<p>Décompresser l'archive en tapant la commande :  </p>
-<pre><code>tar -xvzf escape_game-weblinux.tar.gz
-</code></pre>
-<p>Commencer le jeu en entrant dans le répertoire escape_game :</p>
-<pre><code>cd escape_game
-nano README.txt
-</code></pre>
-<p>Quelques conseils :
-Lire le fichier README.txt lorsqu'il y en a un dans le répertoire courant.
-Pour lancer un exécutable monprogramme qui se trouve dans le répertoire courant, taper:</p>
-<pre><code>./monprogramme
-</code></pre>
-<h3 id="acces-au-simulateur-linux">Accés au simulateur linux</h3>
-<p>https://moocbash.univ-reunion.fr/?cpu=asm&amp;n=1</p>
-<h3 id="solutions">Solutions</h3>
-<details>
-  <summary>Click me</summary>
-
-Aide énigme 1 :  
-    <details>
-    <summary>???</summary>
-
-<pre><code>9F  
-</code></pre>
-
-    </details>
-
-Aide énigme 2 :  
-    <details>
-    <summary>???</summary>
-
-<pre><code>B7  
-</code></pre>
-
-    </details>
-
-Aide énigme 3 :  
-    <details>
-    <summary>???</summary>
-
-<pre><code>72  
-</code></pre>
-
-    </details>
-
-Aide énigme 4 :  
-    <details>
-    <summary>???</summary>
-
-<pre><code>A9  
-</code></pre>
-
-    </details>
-
-Aide énigme 5 :  
-    <details>
-    <summary>???</summary>
-
-<pre><code>E7  
-</code></pre>
-
-    </details>
-
-Aide énigme 6 :  
-    <details>
-    <summary>???</summary>
-
-<pre><code>C3  
-</code></pre>
-
-    </details>
-
-
-
-</details>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../proxmox/" class="btn btn-neutral float-left" title="Proxmox"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../euro/" class="btn btn-neutral float-right" title="Section Euro">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../micropython/" class="btn btn-neutral float-left" title="MicroPython"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../read_temp_dht11_python/" class="btn btn-neutral float-right" title="ESP32 Lire DHT11 Python">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -258,10 +251,10 @@ Aide énigme 6 :
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../proxmox/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../micropython/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../euro/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../read_temp_dht11_python/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>ESP32 Lire DHT11 C++ - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ESP32 Lire DHT11 C++";
+        var mkdocs_page_input_path = "read_temp_dht11_c.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../proxmox/">Proxmox</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../euro/">Section Euro</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../adresseip/">Adresse IP</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../infranetwork/">Infrastructure Réseau</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../esp/">ESP32/ESP8622</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../arduino/">Arduino</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../micropython/">MicroPython</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../micropython-webserver/">ESP32 GPIO Python Webserver</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../read_temp_dht11_python/">ESP32 Lire DHT11 Python</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">ESP32 Lire DHT11 C++</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#lecture-simple-du-capteur">Lecture simple du capteur</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#correspondance-des-broches">Correspondance des broches :</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mesurer-la-temperature-et-lhumidite-ambiante-du-dht11-avec-micropython">Mesurer la température et l’humidité ambiante du DHT11 avec MicroPython</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lecture-du-capteur-et-envoie-sur-une-page-web">Lecture du capteur et envoie sur une page web</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">ESP32 Lire DHT11 C++</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="utilisation-de-arduino-ide-c-esp32-et-un-capteur-dht11">Utilisation de Arduino IDE, C++, ESP32 et un capteur DHT11</h1>
+<p><img src="/img/capteur-de-temperature-dht11.jpg" alt="image" width="50%" height="auto"></p>
+<p>Prérequis :  </p>
+<ul>
+<li>firmware ESP32 flashé avec le firmware Arduino IDE   </li>
+</ul>
+<h2 id="lecture-simple-du-capteur">Lecture simple du capteur</h2>
+<p><em>source : https://www.upesy.fr/blogs/tutorials/dht11-humidity-temperature-sensor-with-arduino-code-on-esp32-board</em>  </p>
+<p>Le capteur DHT11 est très populaire parmi les makers et les adeptes du DIY. Il est, en effet, si prisé qu’il est inclus par défaut dans MicroPython. Son prix avantageux et sa simplicité d’utilisation en sont les principales raisons.</p>
+<h3 id="correspondance-des-broches">Correspondance des broches :</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Module DHT11</th>
+<th style="text-align: center;">ESP32</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1 - GND</td>
+<td style="text-align: center;">GND</td>
+</tr>
+<tr>
+<td style="text-align: center;">2 - DATA</td>
+<td style="text-align: center;">GPIO 17</td>
+</tr>
+<tr>
+<td style="text-align: center;">3 - Vcc</td>
+<td style="text-align: center;">3,3V</td>
+</tr>
+</tbody>
+</table>
+<p><em>Attention : Selon votre ESP32, la GPIO 17 n'est pas placée au même endroit.
+ESP32.</em><br />
+<em>Attention : Si le module ne comporte pas de résistance de pullup, il faut en ajouter une entre 4.7kΩ (ou 10kΩ) entre les broches 3V3 et le signal (GPIO17 ).</em> <br />
+<em>Attention : Vérifier que vous alimentez bien le module en 3.3V et non 5V pour avoir un signal de données de 3.3V également.</em></p>
+<h3 id="mesurer-la-temperature-et-lhumidite-ambiante-du-dht11-avec-micropython">Mesurer la température et l’humidité ambiante du DHT11 avec MicroPython</h3>
+<p>Puisque le DHT11 utilise un protocole propriétaire, il est indispensable d’utiliser une librairie pour communiquer facilement avec le capteur. Je vous conseille d’utiliser la librairie DHT Sensor d’Adafruit qui fonctionne correctement sur l’ESP32 .</p>
+<p>Dans le gestionnaire de bibliothèque (Library Manager), rechercher et installer (Install ALL) " DHT sensor library " de Adafruit.</p>
+<p>Une fois que la librairie est installée on utilise le code suivant qui récupère la température et le taux d’humidité du DHT11.</p>
+<pre><code>#include &quot;DHT.h&quot;
+
+#define DHTPIN 17
+#define DHTTYPE DHT11
+//DHTTYPE = DHT11, mais il existe aussi le DHT22 et 21
+
+DHT dht(DHTPIN, DHTTYPE); // constructeur pour déclarer notre capteur
+
+void setup() {
+  Serial.begin(115200);
+  dht.begin();
+}
+
+void loop() {
+  delay(1000);
+  // Le DHT11 renvoie au maximum une mesure toute les 1s
+  float h = dht.readHumidity();
+  //Lis le taux d'humidite en %
+  float t = dht.readTemperature();
+  //Lis la température en degré celsius
+
+  Serial.print(&quot;Humidite: &quot;);
+  Serial.print(h);
+  Serial.print(&quot;%  Temperature: &quot;);
+  Serial.print(t);
+  Serial.println(&quot;°C, &quot;);
+  // Transmet les mesures reçues dans le moniteur série
+}
+
+</code></pre>
+<p>Retour dans la console/monitor  </p>
+<pre><code>Humidite: 49.00%  Temperature: 23.00°C, 73.40°F
+Humidite: 49.00%  Temperature: 23.00°C, 73.40°F
+Humidite: 49.00%  Temperature: 23.00°C, 73.40°F
+Humidite: 49.00%  Temperature: 23.00°C, 73.40°F
+</code></pre>
+<h2 id="lecture-du-capteur-et-envoie-sur-une-page-web">Lecture du capteur et envoie sur une page web</h2>
+<p><em>source : https://randomnerdtutorials.com/esp32-dht11-dht22-temperature-humidity-web-server-arduino-ide/</em>  </p>
+<pre><code>#include &lt;WiFi.h&gt;
+#include &lt;WebServer.h&gt;
+#include &quot;DHT.h&quot;
+
+#define DHTTYPE DHT11 // DHT 11
+
+/*Put your SSID &amp; Password*/
+const char* ssid = &quot;YourNetworkName&quot;;  // Enter SSID here
+const char* password = &quot;YourPassword&quot;;  //Enter Password here
+
+WebServer server(80);
+
+// DHT Sensor
+uint8_t DHTPin = 17; 
+
+// Initialize DHT sensor.
+DHT dht(DHTPin, DHTTYPE);                
+
+float Temperature;
+float Humidity;
+
+void setup() {
+  Serial.begin(115200);
+  delay(100);
+
+  pinMode(DHTPin, INPUT);
+
+  dht.begin();              
+
+  Serial.println(&quot;Connecting to &quot;);
+  Serial.println(ssid);
+
+  //connect to your local wi-fi network
+  WiFi.begin(ssid, password);
+
+  //check wi-fi is connected to wi-fi network
+  while (WiFi.status() != WL_CONNECTED) {
+  delay(1000);
+  Serial.print(&quot;.&quot;);
+  }
+  Serial.println(&quot;&quot;);
+  Serial.println(&quot;WiFi connected..!&quot;);
+  Serial.print(&quot;Got IP: &quot;);  Serial.println(WiFi.localIP());
+
+  server.on(&quot;/&quot;, handle_OnConnect);
+  server.onNotFound(handle_NotFound);
+
+  server.begin();
+  Serial.println(&quot;HTTP server started&quot;);
+
+}
+void loop() {
+
+  server.handleClient();
+
+}
+
+void handle_OnConnect() {
+
+  Temperature = dht.readTemperature(); // Gets the values of the temperature
+  Humidity = dht.readHumidity(); // Gets the values of the humidity 
+  server.send(200, &quot;text/html&quot;, SendHTML(Temperature,Humidity)); 
+}
+
+void handle_NotFound(){
+  server.send(404, &quot;text/plain&quot;, &quot;Not found&quot;);
+}
+
+String SendHTML(float Temperaturestat,float Humiditystat){
+  String ptr = &quot;&lt;!DOCTYPE html&gt; &lt;html&gt;\n&quot;;
+  ptr +=&quot;&lt;head&gt;\n&quot;;
+  ptr +=&quot;&lt;title&gt;ESP32 Weather Report&lt;/title&gt;\n&quot;;
+  ptr +=&quot;&lt;/head&gt;\n&quot;;
+  ptr +=&quot;&lt;body&gt;\n&quot;;
+  ptr +=&quot;&lt;h1&gt;ESP32 Weather Report&lt;/h1&gt;\n&quot;;
+  ptr +=&quot;&lt;p&gt;Temperature: &quot;;
+  ptr +=(int)Temperaturestat;
+  ptr +=&quot;&amp;deg;C&lt;/p&gt;&quot;;
+  ptr +=&quot;&lt;p&gt;Humidity: &quot;;
+  ptr +=(int)Humiditystat;
+  ptr +=&quot;%&lt;/p&gt;&quot;;
+  ptr +=&quot;&lt;/body&gt;\n&quot;;
+  ptr +=&quot;&lt;/html&gt;\n&quot;;
+  return ptr;
+}
+
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../read_temp_dht11_python/" class="btn btn-neutral float-left" title="ESP32 Lire DHT11 Python"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../read_temp_dht11_python/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

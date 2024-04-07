@@ -44,14 +44,6 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../arduino/">Arduino</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../esp/">ESP32/ESP8622</a>
-                </li>
-              </ul>
-              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../proxmox/">Proxmox</a>
                 </li>
               </ul>
@@ -65,6 +57,18 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../adresseip/">Adresse IP</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../infranetwork/">Infrastructure Réseau</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../esp/">ESP32/ESP8622</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../arduino/">Arduino</a>
                 </li>
               </ul>
               <ul class="current">
@@ -88,7 +92,15 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../infranetwork/">Infrastructure Réseau</a>
+                <li class="toctree-l1"><a class="reference internal" href="../micropython-webserver/">ESP32 GPIO Python Webserver</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../read_temp_dht11_python/">ESP32 Lire DHT11 Python</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../read_temp_dht11_c/">ESP32 Lire DHT11 C++</a>
                 </li>
               </ul>
       </div>
@@ -126,9 +138,23 @@
 <p><em>source : https://www.aranacorp.com/fr/programmez-un-esp32-avec-micropython/</em>  </p>
 <p>Les cartes Arduino et les cartes type ESP32/ESP8266, ont un firmware (mini-OS) permettant de charger du code depuis l'IDE de Arduino.<br />
 Nous devons modifier ce firmware pour fonctionner en MicroPython.  </p>
-<p>Prérequis :<br />
-    Installer Python 3<br />
-    Installer Thonny IDE  </p>
+<p>Prérequis :  </p>
+<ul>
+<li>
+<p>Installer Python 3  </p>
+</li>
+<li>
+<p>(facultatif) Installer les esptool : 
+    <code>pip install esptool</code></p>
+</li>
+<li>
+<p>Installer Thonny IDE (sous Linux version flatpak + récente )</p>
+<ul>
+<li>Sous Linux :
+<code>sudo usermod -a -G dialout your-username</code>  </li>
+</ul>
+</li>
+</ul>
 <p>Nous allons flasher le firmware MicroPython avec Thonny IDE.  </p>
 <p>La méthode la plus simple pour installer et utiliser MicroPython sur ESP32 (et autre microcontrôleur) est d’utiliser le logiciel Thonny IDE. En effet vous pouvez installer le firmware à partir de l’interface du logiciel et l’utiliser pour développer votre code et le téléverser sur la carte.  </p>
 <p>Dans le logiciel, Thony IDE, sélectionner le Menu : Exécuter puis Configurer l'interpréteur...<br />
@@ -136,9 +162,11 @@ Nous devons modifier ce firmware pour fonctionner en MicroPython.  </p>
 <p>Cliquer sur Installer ou mettre à jour MicroPython (esptool.)</p>
 <p><img alt="" src="../img/micropython_flash-firmware-2.png" /></p>
 <p>Sélectionner le bon port.
-Pour une carte Carte Espressif ESP32-WROOM-32E :<br />
-    MicroPython family : ESP32<br />
-    Variant : Espressif ESP32 / VROOM  </p>
+Pour une carte Carte Espressif ESP32-WROOM-32E :  </p>
+<ul>
+<li>MicroPython family : ESP32  </li>
+<li>Variant : Espressif ESP32 / VROOM  </li>
+</ul>
 <p>Puis instaler, le firmware va se charger dans la carte.</p>
 <p><img alt="" src="../img/micropython_flash-firmware-3.png" /></p>
 <h2 id="televerser-un-programme">Téléverser un programme</h2>
@@ -194,8 +222,8 @@ void loop() {
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../adresseip/" class="btn btn-neutral float-left" title="Adresse IP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../infranetwork/" class="btn btn-neutral float-right" title="Infrastructure Réseau">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../arduino/" class="btn btn-neutral float-left" title="Arduino"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../micropython-webserver/" class="btn btn-neutral float-right" title="ESP32 GPIO Python Webserver">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -218,10 +246,10 @@ void loop() {
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../adresseip/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../arduino/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../infranetwork/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../micropython-webserver/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
