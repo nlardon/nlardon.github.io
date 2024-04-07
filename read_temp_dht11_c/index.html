@@ -90,7 +90,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#correspondance-des-broches">Correspondance des broches :</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#mesurer-la-temperature-et-lhumidite-ambiante-du-dht11-avec-micropython">Mesurer la température et l’humidité ambiante du DHT11 avec MicroPython</a>
+    <li class="toctree-l3"><a class="reference internal" href="#mesurer-la-temperature-et-lhumidite-ambiante-du-dht11">Mesurer la température et l’humidité ambiante du DHT11</a>
     </li>
         </ul>
     </li>
@@ -158,7 +158,7 @@
 ESP32.</em><br />
 <em>Attention : Si le module ne comporte pas de résistance de pullup, il faut en ajouter une entre 4.7kΩ (ou 10kΩ) entre les broches 3V3 et le signal (GPIO17 ).</em> <br />
 <em>Attention : Vérifier que vous alimentez bien le module en 3.3V et non 5V pour avoir un signal de données de 3.3V également.</em></p>
-<h3 id="mesurer-la-temperature-et-lhumidite-ambiante-du-dht11-avec-micropython">Mesurer la température et l’humidité ambiante du DHT11 avec MicroPython</h3>
+<h3 id="mesurer-la-temperature-et-lhumidite-ambiante-du-dht11">Mesurer la température et l’humidité ambiante du DHT11</h3>
 <p>Puisque le DHT11 utilise un protocole propriétaire, il est indispensable d’utiliser une librairie pour communiquer facilement avec le capteur. Je vous conseille d’utiliser la librairie DHT Sensor d’Adafruit qui fonctionne correctement sur l’ESP32 .</p>
 <p>Dans le gestionnaire de bibliothèque (Library Manager), rechercher et installer (Install ALL) " DHT sensor library " de Adafruit.</p>
 <p>Une fois que la librairie est installée on utilise le code suivant qui récupère la température et le taux d’humidité du DHT11.</p>
