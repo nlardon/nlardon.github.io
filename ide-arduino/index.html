@@ -132,11 +132,14 @@
 <pre><code>    http://arduino.esp8266.com/stable/package_esp8266com_index.json  
     https://espressif.github.io/arduino-esp32/package_esp32_index.json  
 </code></pre>
+<p><img alt="" src="../img/arduinoIDE_add_board1.png" />  </p>
 <p><img alt="" src="../img/arduinoIDE_add_board.png" />  </p>
-<p>Dans le menu Boards Manager, rechercher eps32, installer "ESP32 by Espressif Systems"</p>
+<p>Dans le menu Boards Manager, rechercher esp32, installer "ESP32 by Espressif Systems"</p>
 <p><img alt="" src="../img/arduinoIDE_esp.png" />  </p>
 <h3 id="televerser-un-programme">Téléverser un programme</h3>
-<p>Dans le logiciel, Arduino IDE, sélectionner le bon port et la bonne carte ESP.</p>
+<p>Dans le logiciel, Arduino IDE, sélectionner :<br />
+- la correcte carte ESP<br />
+- le port COM utilisé  </p>
 <p>Programme test :</p>
 <pre><code>void setup() {
   pinMode(2, OUTPUT);
@@ -156,6 +159,8 @@ void loop() {
 
 }
 </code></pre>
+<p>Réaliser ce montage :  </p>
+<p><img alt="" src="../img/schema_esp_led.png" />  </p>
 <p><img alt="" src="../img/micropython_load-2.gif" /></p>
               
             </div>

@@ -158,10 +158,13 @@ Nous devons modifier ce firmware pour fonctionner en MicroPython.  </p>
 <code>sudo usermod -a -G dialout your-username</code>  </li>
 </ul>
 </li>
+<li>
+<p>(seulement sous Windows, installer les drivers CP210x Windows Drivers : https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads ) </p>
+</li>
 </ul>
 <p>Nous allons flasher le firmware MicroPython avec Thonny IDE.  </p>
 <p>La méthode la plus simple pour installer et utiliser MicroPython sur ESP32 (et autre microcontrôleur) est d’utiliser le logiciel Thonny IDE. En effet vous pouvez installer le firmware à partir de l’interface du logiciel et l’utiliser pour développer votre code et le téléverser sur la carte.  </p>
-<p>Dans le logiciel, Thony IDE, sélectionner le Menu : Exécuter puis Configurer l'interpréteur...<br />
+<p>Dans le logiciel, Thonny IDE, sélectionner le Menu : Exécuter puis Configurer l'interpréteur...<br />
 <img alt="" src="../img/micropython_flash-firmware-1.png" /></p>
 <p>Cliquer sur Installer ou mettre à jour MicroPython (esptool.)</p>
 <p><img alt="" src="../img/micropython_flash-firmware-2.png" /></p>
@@ -197,6 +200,8 @@ while True:
     time.sleep(1)
 </code></pre>
 <p><img alt="" src="../img/micropython_load-2.gif" /></p>
+<p>Réaliser ce montage :  </p>
+<p><img alt="" src="../img/schema_esp_led.png" />  </p>
 <h2 id="remettre-le-materiel-pour-arduino-ide">Remettre le matériel pour Arduino IDE</h2>
 <p>Dans le logiciel, Arduino IDE, sélectionner le Menu : Tools puis Board -&gt; esp32 -&gt; ESP32 Dev Module  </p>
 <p><img alt="" src="../img/arduino-firmware-1.png" /></p>
@@ -222,6 +227,7 @@ void loop() {
 
 }
 </code></pre>
+<p><img alt="" src="../img/micropython_load-2.gif" /></p>
               
             </div>
           </div><footer>
