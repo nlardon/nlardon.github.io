@@ -94,6 +94,8 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Raspberry Pi</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#videos-presentation">Vidéos présentation</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#differents-types-de-raspberry-pi">Différents types de Raspberry Pi</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#raspberrypi-zero">RaspberryPi Zero</a>
@@ -120,7 +122,27 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#les-commandes-utiles">Les commandes utiles</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#activer-le-controle-par-ssh">Activer le contrôle par SSH</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#activer-ssh-sur-la-carte-raspberry-pi">Activer SSH sur la carte raspberry pi</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#depuis-un-autre-pc">Depuis un autre PC</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#activer-le-controle-par-vnc">Activer le contrôle par VNC</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#activer-vnc-sur-la-carte-raspberry-pi">Activer VNC sur la carte raspberry pi</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#depuis-un-autre-pc_1">Depuis un autre PC</a>
+    </li>
+        </ul>
+    </li>
     </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ipphone/">Téléphonie IP</a>
                 </li>
               </ul>
       </div>
@@ -148,6 +170,11 @@
               
                 <h1 id="raspberry-pi">Raspberry Pi</h1>
 <p><img alt="" src="../img/raspberry-pi-5.jpg" /></p>
+<h2 id="videos-presentation">Vidéos présentation</h2>
+<iframe title="Lecontrôletechnique_leRaspberryPi2" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/2b01c0b1-e339-49a6-8af9-5aeae1eea637" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+
+<iframe title="LE NOUVEAU RASPBERRY PI 3 !!! (Modèle B+)" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/0b04727c-68e3-4018-86ed-f15db7352701" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+
 <h2 id="differents-types-de-raspberry-pi">Différents types de Raspberry Pi</h2>
 <p>Le Raspberry Pi est un nano-ordinateur monocarte à processeur ARM.</p>
 <p><img alt="" src="../img/raspberry-pi-type.jpg" /></p>
@@ -169,8 +196,8 @@ GPIO signifie « General Purpose Input/Output » (entrée/sortie à usage géné
 Ce sont les 40 broches que vous pouvez voir sur le Raspberry Pi, près du bord de la carte  </p>
 <p><img alt="" src="../img/raspberry-pi-gpio.png" /></p>
 <h2 id="configuration-initiale-premier-demarrage">Configuration initiale : Premier démarrage</h2>
-<p>L’utilisateur par défaut est : pi<br />
-Le mot de passe par défaut est : raspberry<br />
+<p>L’utilisateur par défaut est : <strong>pi</strong><br />
+Le mot de passe par défaut est : <strong>raspberry</strong><br />
 ATTENTION sous un système Linux les mots de passe n’apparaissent pas quand on les tape au clavier dans le terminal.<br />
 Remarque : le système RaspiOS est en évolution et toujours en développement, les menus et les logiciels peuvent changer d’une version à l’autre.  </p>
 <h2 id="serveur-graphique-sous-linux">Serveur Graphique sous Linux</h2>
@@ -206,11 +233,40 @@ Une fois que vous connaissez le nom exact du logiciel, vous pouvez l’installer
 </code></pre>
 <p>Avec ces 5 commandes, vous devriez pouvoir vous en sortir facilement :)  </p>
 <p>Petit conseil les touches flèches haut/bas permettent de voir les commandes déjà tapées.  </p>
+<h2 id="activer-le-controle-par-ssh">Activer le contrôle par SSH</h2>
+<p>Le protocole Secure Shell (SSH) est une méthode permettant d'envoyer en toute sécurité des commandes à un ordinateur sur un réseau non sécurisé. SSH a recours à la cryptographie pour authentifier et chiffrer les connexions entre les appareils.  </p>
+<h3 id="activer-ssh-sur-la-carte-raspberry-pi">Activer SSH sur la carte raspberry pi</h3>
+<p>Démarrez le Raspberry Pi et connectez-le au réseau.
+Il ne nous reste plus qu'à accéder aux paramètres de configuration du Raspberry Pi en exécutant la commande suivante dans le terminal :<br />
+<code>sudo raspi-config</code>  </p>
+<p>Déplacez-vous dans le menu "Interface Options" puis "SSH" et activez-le.
+Pour terminer, sélectionner "Finish" et rebooter le Raspberry Pi.  </p>
+<h3 id="depuis-un-autre-pc">Depuis un autre PC</h3>
+<p>Depuis une autre machine (PC, Téléphone, …), lancer un logiciel de connexion SSH comme le logiciel Putty et en entrant :<br />
+    - L’adresse IP de la carte et le port 22,<br />
+    - Cliquez sur Open,<br />
+    - Le nom d’utilisateur et le mot de passe.<br />
+<img alt="" src="../img/putty.png" /></p>
+<h2 id="activer-le-controle-par-vnc">Activer le contrôle par VNC</h2>
+<p>VNC est un système de visualisation et de contrôle de l'environnement de bureau d'un ordinateur distant. Il permet au logiciel client VNC de transmettre les informations de saisie du clavier et de la souris à l'ordinateur distant, possédant un logiciel serveur VNC à travers un réseau informatique.  </p>
+<h3 id="activer-vnc-sur-la-carte-raspberry-pi">Activer VNC sur la carte raspberry pi</h3>
+<p>Démarrez le Raspberry Pi et connectez-le au réseau.
+Il ne nous reste plus qu'à accéder aux paramètres de configuration du Raspberry Pi en exécutant la commande suivante dans le terminal :<br />
+<code>sudo raspi-config</code>  </p>
+<p>Déplacez-vous dans le menu "Interface Options" puis "VNC" et activez-le.
+Pour terminer, sélectionner "Finish" et rebooter le Raspberry Pi.  </p>
+<h3 id="depuis-un-autre-pc_1">Depuis un autre PC</h3>
+<p>Depuis une autre machine (PC, Téléphone, …), lancer un logiciel de connexion SSH comme le logiciel Putty et en entrant :<br />
+    - L’adresse IP de la carte et le port 22,<br />
+    - Cliquez sur Open,<br />
+    - Le nom d’utilisateur et le mot de passe.<br />
+<img alt="" src="../img/vnc.png" /></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../read_temp_dht11_c/" class="btn btn-neutral float-left" title="ESP32 Lire DHT11 C++"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ipphone/" class="btn btn-neutral float-right" title="Téléphonie IP">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -235,6 +291,8 @@ Une fois que vous connaissez le nom exact du logiciel, vous pouvez l’installer
     
       <span><a href="../read_temp_dht11_c/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../ipphone/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

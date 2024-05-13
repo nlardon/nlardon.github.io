@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Téléphonie IP - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "T\u00e9l\u00e9phonie IP";
+        var mkdocs_page_input_path = "ipphone.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../proxmox/">Proxmox</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../euro/">Section Euro</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../adresseip/">Adresse IP</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../infranetwork/">Infrastructure Réseau</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../esp/">Carte ESP32/ESP8622</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../arduino/">Carte Arduino</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ide-arduino/">IDE Arduino</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../micropython/">IDE MicroPython</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../micropython-webserver/">ESP32 GPIO Python Webserver</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../read_temp_dht11_python/">ESP32 Lire DHT11 Python</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../read_temp_dht11_c/">ESP32 Lire DHT11 C++</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../raspberrypi/">Raspberry Pi</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Téléphonie IP</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation-existante">Installation existante</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#serveur-de-telephonie-ip">Serveur de téléphonie IP</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#serveur-proxmox">Serveur Proxmox</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#plan-adressage-du-serveur-dhcp">Plan adressage du serveur DHCP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#acceder-au-serveur-telephonique">Accéder au serveur téléphonique</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reinitialiser-un-telephone-ip-cisco">Réinitialiser un téléphone IP Cisco</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#afficher-ladresse-ip-dun-telephone-ip-cisco">Afficher l’adresse IP d’un téléphone IP Cisco</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#afficher-ladresse-mac-dun-telephone-ip-cisco">Afficher l’adresse MAC d’un téléphone IP Cisco</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configurer-un-telephone-ip">Configurer un téléphone IP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transferer-un-appel">Transférer un appel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#asterisk-freepbx-feature-code-reference">Asterisk FreePBX Feature Code Reference</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#info-services">Info Services</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#voicemail">Voicemail</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#do-not-disturb-dnd">Do-Not-Disturb (DND)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#blacklist">Blacklist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#call-forward">Call Forward</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#call-waiting">Call Waiting</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuration-dun-softphone-sur-pc-microsip">Configuration d'un softphone sur PC : MicroSIP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuration-dun-softphone-sur-telephone-android-ou-ios-linphone">Configuration d'un softphone sur téléphone (Android ou IOS) : Linphone</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Téléphonie IP</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="configuration-dun-serveur-telephonique">Configuration d'un serveur Téléphonique</h1>
+<h2 id="installation-existante">Installation existante</h2>
+<h3 id="serveur-de-telephonie-ip">Serveur de téléphonie IP</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Serveur</th>
+<th style="text-align: center;">Adresse MAC</th>
+<th style="text-align: center;">login</th>
+<th style="text-align: center;">password</th>
+<th style="text-align: center;">login</th>
+<th style="text-align: center;">password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><em>CLI</em></td>
+<td style="text-align: center;"><em>CLI</em></td>
+<td style="text-align: center;"><em>interface web</em></td>
+<td style="text-align: center;"><em>interface web</em></td>
+</tr>
+<tr>
+<td style="text-align: center;">FreePBX-1</td>
+<td style="text-align: center;">1A:EF:51:18:4A:11</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+<td style="text-align: center;">admin</td>
+<td style="text-align: center;">Edison2024++</td>
+</tr>
+<tr>
+<td style="text-align: center;">FreePBX-2</td>
+<td style="text-align: center;">1A:EF:51:18:4A:12</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+<td style="text-align: center;">admin</td>
+<td style="text-align: center;">Edison2024++</td>
+</tr>
+<tr>
+<td style="text-align: center;">FreePBX-3</td>
+<td style="text-align: center;">1A:EF:51:18:4A:13</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+<td style="text-align: center;">admin</td>
+<td style="text-align: center;">Edison2024++</td>
+</tr>
+<tr>
+<td style="text-align: center;">FreePBX-4</td>
+<td style="text-align: center;">1A:EF:51:18:4A:14</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+<td style="text-align: center;">admin</td>
+<td style="text-align: center;">Edison2024++</td>
+</tr>
+<tr>
+<td style="text-align: center;">FreePBX-5</td>
+<td style="text-align: center;">1A:EF:51:18:4A:15</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+<td style="text-align: center;">admin</td>
+<td style="text-align: center;">Edison2024++</td>
+</tr>
+<tr>
+<td style="text-align: center;">FreePBX-6</td>
+<td style="text-align: center;">1A:EF:51:18:4A:16</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+<td style="text-align: center;">admin</td>
+<td style="text-align: center;">Edison2024++</td>
+</tr>
+<tr>
+<td style="text-align: center;">FreePBX-7</td>
+<td style="text-align: center;">1A:EF:51:18:4A:17</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+<td style="text-align: center;">admin</td>
+<td style="text-align: center;">Edison2024++</td>
+</tr>
+<tr>
+<td style="text-align: center;">FreePBX-8</td>
+<td style="text-align: center;">1A:EF:51:18:4A:18</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+<td style="text-align: center;">admin</td>
+<td style="text-align: center;">Edison2024++</td>
+</tr>
+</tbody>
+</table>
+<h3 id="serveur-proxmox">Serveur Proxmox</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Serveur</th>
+<th style="text-align: center;">Adresse MAC</th>
+<th style="text-align: center;">login</th>
+<th style="text-align: center;">password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">THULIUM</td>
+<td style="text-align: center;">D0:27:88:8D:28:26</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+</tr>
+<tr>
+<td style="text-align: center;">LUTECIUM</td>
+<td style="text-align: center;">00:01:6C:CF:B7:9D</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+</tr>
+<tr>
+<td style="text-align: center;">NOBELIUM</td>
+<td style="text-align: center;">74:27:EA:14:0A:47</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+</tr>
+<tr>
+<td style="text-align: center;">FERMIUM</td>
+<td style="text-align: center;">44:8A:5B:C0:14:CF</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+</tr>
+<tr>
+<td style="text-align: center;">CALCIUM</td>
+<td style="text-align: center;">30:D0:42:31:A5:77</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+</tr>
+<tr>
+<td style="text-align: center;">HASSIUM</td>
+<td style="text-align: center;">44:37:E6:EC:5F:0E</td>
+<td style="text-align: center;">root</td>
+<td style="text-align: center;">Edison2024</td>
+</tr>
+</tbody>
+</table>
+<p>Vous pouvez accéder au cluster en se connectant à l’interface d’un des serveurs :   <code>https://ip_du_serveur:8006</code></p>
+<h2 id="plan-adressage-du-serveur-dhcp">Plan adressage du serveur DHCP</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Élément réseau</th>
+<th style="text-align: center;">Plage IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Serveur</td>
+<td style="text-align: center;">10.0.6.1 - 10.0.6.255</td>
+</tr>
+<tr>
+<td style="text-align: center;">Téléphone IP</td>
+<td style="text-align: center;">10.100.0.1 - 10.100.1.255</td>
+</tr>
+<tr>
+<td style="text-align: center;">Routeur</td>
+<td style="text-align: center;">10.50.0.1 - 10.50.1.255</td>
+</tr>
+<tr>
+<td style="text-align: center;">Point d'accès Wifi</td>
+<td style="text-align: center;">10.0.3.1 – 10.0.3.255</td>
+</tr>
+<tr>
+<td style="text-align: center;">Autres équipements</td>
+<td style="text-align: center;">10.0.8.1 - 10.0.8.255</td>
+</tr>
+</tbody>
+</table>
+<h2 id="acceder-au-serveur-telephonique">Accéder au serveur téléphonique</h2>
+<p>Accédez à la page de configuration du serveur depuis un navigateur en entrant l’adresse IP du serveur dans la barre url d’un navigateur.<br />
+    * Accédez au menu Admin : « Administration de FreePBX »<br />
+        * Dans Applications, puis Postes, vous aurez accès à la configuration des postes (extensions en anglais).  </p>
+<p><img alt="" src="../img/freepbx1.png" />
+<img alt="" src="../img/freepbx2.png" /></p>
+<h2 id="reinitialiser-un-telephone-ip-cisco">Réinitialiser un téléphone IP Cisco</h2>
+<p>Sur le téléphone IP :<br />
+    • Appuyer sur la touche configuration (feuille cornée)<br />
+    • Naviguer sur le menu Factoy Reset<br />
+    • Puis valider le choix  </p>
+<h2 id="afficher-ladresse-ip-dun-telephone-ip-cisco">Afficher l’adresse IP d’un téléphone IP Cisco</h2>
+<p>Sur le téléphone IP :<br />
+    • Appuyer sur la touche configuration (feuille cornée)<br />
+    • Naviguer sur le menu Network  </p>
+<h2 id="afficher-ladresse-mac-dun-telephone-ip-cisco">Afficher l’adresse MAC d’un téléphone IP Cisco</h2>
+<p>Sur le téléphone IP :<br />
+    • Appuyer sur la touche configuration (feuille cornée)<br />
+    • Naviguer sur le menu Product Info  </p>
+<p><img alt="" src="../img/ciscoipphone1.png" /></p>
+<h2 id="configurer-un-telephone-ip">Configurer un téléphone IP</h2>
+<p>Accédez à la page de configuration du téléphone depuis un navigateur en entrant l’adresse IP du téléphone dans la barre url d’un navigateur.<br />
+    • Accédez au menu Admin : « Admin Login »<br />
+    • Dans Ext1, Adaptez la configuration à votre cas.<br />
+        ◦ Proxy = Adresse IP de votre serveur téléphonique<br />
+        ◦ Display Name = Nom à afficher<br />
+        ◦ User ID = Numéro d’appel<br />
+        ◦ Password = Mot de passe ou “secret”  </p>
+<p><img alt="" src="../img/ciscoipphone2.png" /></p>
+<h2 id="transferer-un-appel">Transférer un appel</h2>
+<p>Dans le cas où nous avons au moins 3 postes. Exemple : Accueil, Bureau et Atelier.
+Si le poste Atelier veut appeler le Bureau mais ne connait pas le numéro, il peut passer par le poste Accueil où celui-ci pourra transférer l’appel.
+Exemple :<br />
+    • Atelier appelle Accueil,<br />
+    • Accueil décroche, puis appui sur la touche “xfer” (sous l’écran) et compose le poste à joindre Bureau,<br />
+    • Pendant ce temps Atelier est en attende,<br />
+    • Si Bureau accepte l’appel, Accueil appui de nouveau sur “xfer”<br />
+À tout moment Accueil peut basculer d’un poste à l’autre en appuyant sur la touche rouge.<br />
+La même chose est possible avec la touche “conf”, où les 3 postes peuvent communiquer ensemble.</p>
+<h2 id="asterisk-freepbx-feature-code-reference">Asterisk FreePBX Feature Code Reference</h2>
+<h3 id="info-services">Info Services</h3>
+<pre><code> *69 – Call Trace
+ # – Directory
+ *43 – Echo Test
+ *65 – Speak Your Exten Number
+ *60 – Speaking Clock
+</code></pre>
+<h3 id="voicemail">Voicemail</h3>
+<pre><code> *98 – Dial Voicemail
+ *97 – My Voicemail
+</code></pre>
+<h3 id="do-not-disturb-dnd">Do-Not-Disturb (DND)</h3>
+<pre><code> *78 – DND Activate
+ *79 – DND Deactivate
+ *76 – DND Toggle
+</code></pre>
+<h3 id="blacklist">Blacklist</h3>
+<pre><code> *30 – Blacklist a number
+ *32 – Blacklist the last caller
+ *31 – Remove a number from the blacklist
+</code></pre>
+<h3 id="call-forward">Call Forward</h3>
+<pre><code> *72 – Call Forward All Activate
+ *73 – Call Forward All Deactivate
+ *74 – Call Forward All Prompting Deactivate
+ *90 – Call Forward Busy Activate
+ *91 – Call Forward Busy Deactivate
+ *92 – Call Forward Busy Prompting Deactivate
+ *52 – Call Forward No Answer/Unavailable Activate
+ *53 – Call Forward No Answer/Unavailable Deactivate
+ *740 – Call Forward Toggle
+</code></pre>
+<h3 id="call-waiting">Call Waiting</h3>
+<pre><code> *70 – Call Waiting – Activate
+ *71 – Call Waiting – Deactivate
+</code></pre>
+<h2 id="configuration-dun-softphone-sur-pc-microsip">Configuration d'un softphone sur PC : MicroSIP</h2>
+<p>Nom du compte = Nom à afficher<br />
+Serveur SIP = Adresse IP de votre serveur téléphonique : Port SIP (5060)<br />
+<em> Exemple : 192.168.1.142:5060 </em><br />
+Nom d’utilisateur = Numéro d’appel<br />
+Domaine = Adresse IP de votre serveur téléphonique : Port SIP (5060)<br />
+Login = Numéro d’appel<br />
+Mot de Passe = Mot de passe ou “secret”  </p>
+<p>Si erreur “Externe”, dans W10 aller dans les paramètres -&gt; Confidentialité -&gt; Microphone, et activer l’autorisation d’autres applications à utiliser le microphone.</p>
+<p><img alt="" src="../img/microsip.png" /></p>
+<h2 id="configuration-dun-softphone-sur-telephone-android-ou-ios-linphone">Configuration d'un softphone sur téléphone (Android ou IOS) : Linphone</h2>
+<p>Utiliser un compte SIP :<br />
+    • Nom d’utilisateur = Numéro d’appel / Numéro de poste<br />
+    • Password = Mot de passe ou “secret”<br />
+    • Domaine = Adresse IP de votre serveur téléphonique<br />
+    • Transport = UDP<br />
+Pour réaliser un appel composer « le numéro de poste » @ « IP du serveur téléphonique »</p>
+<p><img alt="" src="../img/linphone.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../raspberrypi/" class="btn btn-neutral float-left" title="Raspberry Pi"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../raspberrypi/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
