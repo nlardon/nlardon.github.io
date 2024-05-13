@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Raspberry Pi - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Raspberry Pi";
+        var mkdocs_page_input_path = "raspberrypi.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../proxmox/">Proxmox</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../euro/">Section Euro</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../adresseip/">Adresse IP</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../infranetwork/">Infrastructure Réseau</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../esp/">Carte ESP32/ESP8622</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../arduino/">Carte Arduino</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ide-arduino/">IDE Arduino</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../micropython/">IDE MicroPython</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../micropython-webserver/">ESP32 GPIO Python Webserver</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../read_temp_dht11_python/">ESP32 Lire DHT11 Python</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../read_temp_dht11_c/">ESP32 Lire DHT11 C++</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Raspberry Pi</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#differents-types-de-raspberry-pi">Différents types de Raspberry Pi</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#raspberrypi-zero">RaspberryPi Zero</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#raspberrypi-2">RaspberryPi 2</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#raspberrypi-3">RaspberryPi 3</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#raspberrypi-3b">RaspberryPi 3b+</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#raspberrypi-4">RaspberryPi 4</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#raspberrypi-5">RaspberryPi 5</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gpio">GPIO</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuration-initiale-premier-demarrage">Configuration initiale : Premier démarrage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#serveur-graphique-sous-linux">Serveur Graphique sous Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#le-gestionnaire-de-paquet">Le gestionnaire de paquet</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#les-commandes-utiles">Les commandes utiles</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Raspberry Pi</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="raspberry-pi">Raspberry Pi</h1>
+<p><img alt="" src="../img/raspberry-pi-5.jpg" /></p>
+<h2 id="differents-types-de-raspberry-pi">Différents types de Raspberry Pi</h2>
+<p>Le Raspberry Pi est un nano-ordinateur monocarte à processeur ARM.</p>
+<p><img alt="" src="../img/raspberry-pi-type.jpg" /></p>
+<h3 id="raspberrypi-zero">RaspberryPi Zero</h3>
+<p><img src="/img/raspberry-pi-connector-zero.webp" alt="image" width="50%" height="auto"></p>
+<h3 id="raspberrypi-2">RaspberryPi 2</h3>
+<p><img src="/img/raspberry-pi-connector-2.jpg" alt="image" width="50%" height="auto"></p>
+<h3 id="raspberrypi-3">RaspberryPi 3</h3>
+<p><img src="/img/raspberry-pi-connector-3.png" alt="image" width="50%" height="auto"></p>
+<h3 id="raspberrypi-3b">RaspberryPi 3b+</h3>
+<p><img src="/img/raspberry-pi-connector-3b+.jpg" alt="image" width="100%" height="auto"></p>
+<h3 id="raspberrypi-4">RaspberryPi 4</h3>
+<p><img src="/img/raspberry-pi-connector-4.png" alt="image" width="100%" height="auto"></p>
+<h3 id="raspberrypi-5">RaspberryPi 5</h3>
+<p><img src="/img/raspberry-pi-connector-5.png" alt="image" width="100%" height="auto"></p>
+<h2 id="gpio">GPIO</h2>
+<p>Ce connecteur à 40 points est le moyen fourni par les créateurs du Raspberry Pi pour nous permettre d’accéder aux ports d’entrée/sortie du processeur BCM2837.
+GPIO signifie « General Purpose Input/Output » (entrée/sortie à usage général). 
+Ce sont les 40 broches que vous pouvez voir sur le Raspberry Pi, près du bord de la carte  </p>
+<p><img alt="" src="../img/raspberry-pi-gpio.png" /></p>
+<h2 id="configuration-initiale-premier-demarrage">Configuration initiale : Premier démarrage</h2>
+<p>L’utilisateur par défaut est : pi<br />
+Le mot de passe par défaut est : raspberry<br />
+ATTENTION sous un système Linux les mots de passe n’apparaissent pas quand on les tape au clavier dans le terminal.<br />
+Remarque : le système RaspiOS est en évolution et toujours en développement, les menus et les logiciels peuvent changer d’une version à l’autre.  </p>
+<h2 id="serveur-graphique-sous-linux">Serveur Graphique sous Linux</h2>
+<p>Les notions de serveur graphique, de bureau et de gestionnaire de fenêtre.<br />
+Le serveur graphique est le programme qui permet de passer en « mode graphique » GUI en utilisant les fonctions avancées de la carte graphique. Il gère notamment le clavier, la souris, les polices de caractères, l'écran (résolution, nombre de couleurs, etc.) et la carte graphique, et fournit aux programmes qui le demandent un affichage et un contrôle. Sous Debian, c'est le serveur X.Org qui est utilisé.<br />
+Le bureau est le programme qui s'occupe d'afficher un menu, une barre de lancement, une barre des tâches, des icônes sur le bureau, etc… Il existe également de nombreux bureaux sous Linux, mais les deux plus connus sont GNOME et KDE.<br />
+Le gestionnaire de fenêtre s'occupe de « décorer » les fenêtres, en leur ajoutant des bordures, une barre de titre, et des boutons de contrôle pour pouvoir les réduire, les fermer ou les agrandir. Les bureaux graphiques fournissent normalement leur propre gestionnaire de fenêtres : celui de GNOME s'appelle Metacity, mais il est possible d'en utiliser une autre.<br />
+Avoir un serveur graphique et un gestionnaire de fenêtre est obligatoire pour travailler « en mode graphique » ; mais on n'est pas obligé d'avoir un bureau ! Certains gestionnaires de fenêtre font aussi office de bureau minimaliste (Windows Maker affiche par exemple un menu de lancement rapide). Normalement, l'utilisateur peut choisir n'importe quelle combinaison de gestionnaire de fenêtres et de bureau, mais certains bureaux recommandent un gestionnaire de fenêtres particulier.<br />
+Vous pouvez toujours démarrer le bureau en tapant « startx » dans le terminal. Une fois lancée, pour quitter l’interface graphique il vous suffit simplement de vous déconnecter de la session.  </p>
+<h2 id="le-gestionnaire-de-paquet">Le gestionnaire de paquet</h2>
+<p>Sous le système d’exploitation RaspiOS, pour installer un logiciel, il faut utiliser un gestionnaire de paquet nommé APT (Advanced Packaging Tool).  </p>
+<p>Ce logiciel permet d’installer, de mettre à jour et de désinstaller les applications disponibles pour votre Raspberry Pi.  </p>
+<h2 id="les-commandes-utiles">Les commandes utiles</h2>
+<p>Toutes les commandes suivantes sont à exécuter dans un terminal (exemple LXTerminal).<br />
+Pour chercher un logiciel, vous pouvez utiliser la commande suivante avec des mots clés de recherche :  </p>
+<pre><code>apt search nom_du_logiciel_recherché   
+</code></pre>
+<p>Une liste de logiciel contenant le mot du logiciel apparait : Avec le nom puis une description : nom - description. <br />
+Une fois que vous connaissez le nom exact du logiciel, vous pouvez l’installer de cette manière :   </p>
+<pre><code>sudo est nécessaire pour vous donner les droits d’administrateur
+</code></pre>
+<p>L’installation nécessite parfois une autorisation où l’on peut répondre O pour Oui ou n pour Non.  </p>
+<pre><code>sudo apt install nom_du_logiciel
+</code></pre>
+<p>Pour en supprimer un, faites ceci :  </p>
+<pre><code>sudo apt remove nom_du_logiciel
+</code></pre>
+<p>Pour mettre à jour la liste des logiciels disponibles, il faut régulièrement saisir la commande suivante :  </p>
+<pre><code>sudo apt update
+</code></pre>
+<p>Pour mettre à jour les logiciels, une seule commande suffit :  </p>
+<pre><code>sudo apt upgrade
+</code></pre>
+<p>Avec ces 5 commandes, vous devriez pouvoir vous en sortir facilement :)  </p>
+<p>Petit conseil les touches flèches haut/bas permettent de voir les commandes déjà tapées.  </p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../read_temp_dht11_c/" class="btn btn-neutral float-left" title="ESP32 Lire DHT11 C++"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../read_temp_dht11_c/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
