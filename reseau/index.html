@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Réseau - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "R\u00e9seau";
+        var mkdocs_page_input_path = "reseau.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../proxmox/">Proxmox</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../euro/">Section Euro</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../adresseip/">Adresse IP</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../infranetwork/">Infrastructure Réseau</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../esp/">Carte ESP32/ESP8622</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../arduino/">Carte Arduino</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ide-arduino/">IDE Arduino</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../micropython/">IDE MicroPython</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../micropython-webserver/">ESP32 GPIO Python Webserver</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../read_temp_dht11_python/">ESP32 Lire DHT11 Python</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../read_temp_dht11_c/">ESP32 Lire DHT11 C++</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../esp_mqtt_nodered/">ESP, MQTT, Node-RED</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../raspberrypi/">Raspberry Pi</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ipphone/">Téléphonie IP</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Réseau</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#acces-a-un-cluster">Accès à un cluster</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#acces-a-une-vm-sous-proxmox">Accès à une VM sous Proxmox</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creer-a-une-vm-sous-proxmox">Créer à une VM sous Proxmox</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#installation-par-reseau">Installation par réseau</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#preparation-installation-par-iso">Préparation installation par ISO</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#intallation-par-iso">Intallation par ISO</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#supprimer-une-vm">Supprimer une VM</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cloner-une-vm">Cloner une VM</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Réseau</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="utilisation-de-proxmox">Utilisation de Proxmox</h1>
+<p><img alt="" src="../img/Proxmox_logo_standard_hex_400px.png" /></p>
+<h2 id="acces-a-un-cluster">Accès à un cluster</h2>
+<p>Un <strong>cluster</strong> dans <strong>Proxmox</strong> est un regroupement artificiel de serveurs qui permet la gestion centralisée de ces serveurs et la mise en place éventuelle d'un système de haute disponibilité. 
+Il se compose de <strong>noeuds</strong>, qui sont des serveurs individuels au sein du <strong>cluster</strong>.
+La haute disponibilité (HA) garantit un service continu aux utilisateurs même en cas de défaillance matérielle. 
+Un <strong>cluster</strong> dans Proxmox permet des fonctionnalités telles que la migration directe des machines virtuelles, garantissant une interruption minimale du service. </p>
+<p><img alt="" src="../img/capture_cluster.png" /></p>
+<p>Sur la capture on peut voir le cluster/datacenter est composé de 3 serveurs/noeuds</p>
+<p>Accès au cluster :</p>
+<blockquote>
+<p>https://193.49.248.71:10023<br />
+ou https://192.168.221.253:10023 depuis l'intérieur du lycée)  </p>
+<p>login : root<br />
+password : E<strong>*</strong>2023<br />
+realm : Linux PAM  </p>
+</blockquote>
+<h2 id="acces-a-une-vm-sous-proxmox">Accès à une VM sous Proxmox</h2>
+<iframe title="proxmox_utilisation" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/4405ee66-8163-4dde-b703-292c4adc198d" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+
+<h2 id="creer-a-une-vm-sous-proxmox">Créer à une VM sous Proxmox</h2>
+<p>Attention à ne pas dépasser les valeurs max :<br />
+<em>   CPU<br />
+</em>   RAM<br />
+*   DD (si disponible utiliser l'espace 'tank' (plus grand espace en RAIDZ)  </p>
+<blockquote>
+<p>!!! Compléter les <strong>"notes"</strong> dans vos VM pour que tout le monde y ait accès. !!!
+<img alt="" src="../img/capture_proxmox_notes.png" /> </p>
+</blockquote>
+<h3 id="installation-par-reseau">Installation par réseau</h3>
+<p>Exemple : installation de Debian</p>
+<iframe title="proxmox_installVMreseau" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/aa27714a-dca9-476b-8c44-528ed7cb2607" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+
+<h3 id="preparation-installation-par-iso">Préparation installation par ISO</h3>
+<ul>
+<li>soit : uploader l'ISO</li>
+</ul>
+<iframe title="proxmox_uploadISO" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/12823fc7-d3f8-4708-910f-1ebde9d68a6a" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+
+<ul>
+<li>soit : télécharger depuis un lien 
+les ISO sont stockées dans le disque 'local' des serveurs/noeuds</li>
+</ul>
+<iframe title="proxmox_downloadISO" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/2e111176-cf2d-4840-b4a5-f94278b3dede" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+
+<h3 id="intallation-par-iso">Intallation par ISO</h3>
+<p>Exemple : installation de Fedora</p>
+<iframe title="proxmox_installVMISO-fedora" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/84516eb1-244f-4359-ad14-b37f5ab3399e" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+
+<h2 id="supprimer-une-vm">Supprimer une VM</h2>
+<iframe title="proxmox_supprimerVM" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/0f917fa3-242a-4f72-a4e7-e7ba641787c8" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+
+<h2 id="cloner-une-vm">Cloner une VM</h2>
+<iframe title="proxmox_cloneVM" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/749ea1f8-162c-4fd8-8d99-7fc43cbc2b64" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ipphone/" class="btn btn-neutral float-left" title="Téléphonie IP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ipphone/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
