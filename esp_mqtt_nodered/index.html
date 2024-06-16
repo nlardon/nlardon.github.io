@@ -1,159 +1,269 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>ESP, MQTT, Node-RED - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-    
-      <script>
-        // Current page data
-        var mkdocs_page_name = "ESP, MQTT, Node-RED";
-        var mkdocs_page_input_path = "esp_mqtt_nodered.md";
-        var mkdocs_page_url = null;
-      </script>
-    
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+        <title>ESP, MQTT, Node-RED - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../assets/css/darcula-highlight.min.css">
+
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../assets/css/mkdocs.min.css">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    <main class="d-flex">
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../proxmox/">Proxmox</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../euro/">Section Euro</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../adresseip/">Adresse IP</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../infranetwork/">Infrastructure Réseau</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../esp/">Carte ESP32/ESP8622</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../arduino/">Carte Arduino</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../ide-arduino/">IDE Arduino</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../micropython/">IDE MicroPython</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../micropython-webserver/">ESP32 GPIO Python Webserver</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../read_temp_dht11_python/">ESP32 Lire DHT11 Python</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../read_temp_dht11_c/">ESP32 Lire DHT11 C++</a>
-                </li>
-              </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">ESP, MQTT, Node-RED</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#presentation-du-systeme">Présentation du système</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#etape-1-installation-du-serveur-mqtt-mosquitto">Etape 1 : Installation du serveur MQTT (Mosquitto)</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#etape-2-preparer-le-client-esp32">Etape 2 : Préparer le client (ESP32)</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#etape-3-installation-du-serveur-mqtt-mosquitto">Etape 3 : Installation du serveur MQTT (Mosquitto)</a>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../raspberrypi/">Raspberry Pi</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../ipphone/">Téléphonie IP</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../reseau/">Réseau</a>
-                </li>
-              </ul>
-      </div>
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
     </div>
-    </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</a>
+    <div class="p-4">
         
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">ESP, MQTT, Node-RED</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h1 id="chaine-iot-esp-mqtt-et-node-red">Chaîne IOT : ESP, MQTT et Node-Red</h1>
-<p><img alt="" src="../img/esp_mqtt_nodered.png" /></p>
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href=".."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Home
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../proxmox/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Proxmox
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../linux/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Linux
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../euro/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Section Euro
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../adresseip/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Adresse IP
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../infranetwork/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Infrastructure Réseau
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../esp/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Carte ESP32/ESP8622
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../arduino/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Carte Arduino
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../ide-arduino/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    IDE Arduino
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../micropython/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    IDE MicroPython
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../micropython-webserver/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP32 GPIO Python Webserver
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../read_temp_dht11_python/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP32 Lire DHT11 Python
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../read_temp_dht11_c/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP32 Lire DHT11 C++
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="./"
+                    class=" active 
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP, MQTT, Node-RED
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../raspberrypi/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Raspberry Pi
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../ipphone/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Téléphonie IP
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../reseau/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Réseau
+                </a>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../read_temp_dht11_c/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="../raspberrypi/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item">
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><div><h1 id="chaine-iot-esp-mqtt-et-node-red">Chaîne IOT : ESP, MQTT et Node-Red</h1>
+<p><img alt="" src="../img/esp_mqtt_nodered.png"></p>
 <h2 id="presentation-du-systeme">Présentation du système</h2>
-<p>Les modules terminaux de l'internet des objets sont généralement alimentés par batterie. Dans ce cas l'utilisation d'un nano-ordinateur est impossible, l'autonomie serait trop faible. (Un nano-ordinateur Raspberry Pi alimenté par 3 piles de 1,5v a une autonomie de 3h à 6h).<br />
+<p>Les modules terminaux de l'internet des objets sont généralement alimentés par batterie. Dans ce cas l'utilisation d'un nano-ordinateur est impossible, l'autonomie serait trop faible. (Un nano-ordinateur Raspberry Pi alimenté par 3 piles de 1,5v a une autonomie de 3h à 6h).<br>
 L'utilisation d'un microcontrôleur à faible consommation est généralement la solution utilisée dans l'IOT embarqué.  </p>
 <p>Nos serveurs seront installées dans un des serveurs Proxmox. </p>
-<p>Nous allons avoir besoin :<br />
-- 1 serveur Node-RED dans un LXC (LXC c'est une VM un peu spécial)<br />
-- 1 serveur MQTT dans un LXC<br />
+<p>Nous allons avoir besoin :<br>
+- 1 serveur Node-RED dans un LXC (LXC c'est une VM un peu spécial)<br>
+- 1 serveur MQTT dans un LXC<br>
 -  1 client MQTT une ESP32  </p>
 <h2 id="etape-1-installation-du-serveur-mqtt-mosquitto">Etape 1 : Installation du serveur MQTT (Mosquitto)</h2>
-<p>Se connecter à un serveur/noeud en SSH.<br />
+<p>Se connecter à un serveur/noeud en SSH.<br>
 Installer MQTT en lançant se script :   </p>
-<pre><code>bash -c &quot;$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/mqtt.sh)&quot;  
+<pre><code>bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/mqtt.sh)"  
 </code></pre>
 <p>En mode Advanced :  </p>
 <ul>
@@ -185,19 +295,19 @@ Installer MQTT en lançant se script :   </p>
 <li>DHT sensor library de Adafruit  </li>
 </ul>
 <pre><code>#include &lt;WiFi.h&gt;
-#include &quot;Adafruit_MQTT.h&quot;
-#include &quot;Adafruit_MQTT_Client.h&quot;
-#include &quot;DHT.h&quot;
+#include "Adafruit_MQTT.h"
+#include "Adafruit_MQTT_Client.h"
+#include "DHT.h"
 /************************* WiFi Access Point *********************************/
-#define WLAN_SSID       &quot;xxxxxxx&quot;  //SSID Wifi
-#define WLAN_PASS       &quot;xxxxxx  //key Wifi
+#define WLAN_SSID       "xxxxxxx"  //SSID Wifi
+#define WLAN_PASS       "xxxxxx  //key Wifi
 /************************* Adafruit.io Setup *********************************/
-#define SERVER      &quot;xxx.xxx.xxx.xxx&quot; //Addresse IP server MQTT
+#define SERVER      "xxx.xxx.xxx.xxx" //Addresse IP server MQTT
 // Using port 1883 for MQTT
 #define SERVERPORT  1883 //en local 1883
 // Account Configuration
-#define USERNAME &quot;edison&quot;
-#define KEY      &quot;edison&quot;
+#define USERNAME "edison"
+#define KEY      "edison"
 /************ Global State (you don't need to change this!) ******************/
 // WiFiFlCient
 WiFiClient client;
@@ -205,9 +315,9 @@ WiFiClient client;
 Adafruit_MQTT_Client mqtt(&amp;client, SERVER, SERVERPORT, USERNAME, KEY);
 /****************************** Feeds ***************************************/
 // Setup a feed called 'temp' for publishing.
-Adafruit_MQTT_Publish temp = Adafruit_MQTT_Publish(&amp;mqtt, &quot;esp/temp&quot;);
+Adafruit_MQTT_Publish temp = Adafruit_MQTT_Publish(&amp;mqtt, "esp/temp");
 // Setup a feed called 'onoffbutton' for subscribing to changes.
-Adafruit_MQTT_Subscribe onoffbutton = Adafruit_MQTT_Subscribe(&amp;mqtt, &quot;esp/onoffbutton&quot;);
+Adafruit_MQTT_Subscribe onoffbutton = Adafruit_MQTT_Subscribe(&amp;mqtt, "esp/onoffbutton");
 /****************************** Feeds ***************************************/
 #define LED       5 //LED PIN
 #define DHTPIN 17
@@ -221,19 +331,19 @@ void setup() {
   pinMode(LED, OUTPUT);
   dht.begin();
 
-  Serial.println(&quot;Client MQTT Example&quot;);
+  Serial.println("Client MQTT Example");
 
   // Connect to WiFi access point.
   Serial.println(); Serial.println();
-  Serial.print(&quot;Connecting to &quot;);
+  Serial.print("Connecting to ");
   Serial.println(WLAN_SSID);
   WiFi.begin(WLAN_SSID, WLAN_PASS);
   delay(500);
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500); Serial.print(&quot;.&quot;);
+    delay(500); Serial.print(".");
   }
-  Serial.println(); Serial.println(&quot;WiFi connected&quot;);
-  Serial.println(&quot;IP address: &quot;); Serial.println(WiFi.localIP());
+  Serial.println(); Serial.println("WiFi connected");
+  Serial.println("IP address: "); Serial.println(WiFi.localIP());
 
   // Setup MQTT subscription for onoff feed.
   mqtt.subscribe(&amp;onoffbutton);
@@ -249,11 +359,11 @@ void loop() {
   Adafruit_MQTT_Subscribe *subscription;
   while ((subscription = mqtt.readSubscription(5000))) {
     if (subscription == &amp;onoffbutton) {
-      Serial.print(&quot;Got: &quot;);
+      Serial.print("Got: ");
       String mes = (char *)onoffbutton.lastread;
       Serial.println(mes);
 
-      if(mes == &quot;on&quot;) digitalWrite(LED,HIGH);
+      if(mes == "on") digitalWrite(LED,HIGH);
       else  digitalWrite(LED,LOW);     
     }
   }
@@ -264,7 +374,7 @@ void loop() {
   //x = random(0, 100); //valeur à envoyer
   x = dht.readTemperature();
   // Now we can publish stuff!
-  Serial.print(&quot;Sending val &quot;);
+  Serial.print("Sending val ");
   Serial.println(x);
   temp.publish(x);
   delay(2000); // wait a couple seconds to avoid rate limit
@@ -280,12 +390,12 @@ void MQTT_connect() {
     return;
   }
 
-  Serial.print(&quot;Connecting to MQTT... &quot;);
+  Serial.print("Connecting to MQTT... ");
 
   uint8_t retries = 3;
   while ((ret = mqtt.connect()) != 0) { // connect will return 0 for connected
        Serial.println(mqtt.connectErrorString(ret));
-       Serial.println(&quot;Retrying MQTT connection in 5 seconds...&quot;);
+       Serial.println("Retrying MQTT connection in 5 seconds...");
        mqtt.disconnect();
        delay(5000);  // wait 5 seconds
        retries--;
@@ -295,32 +405,32 @@ void MQTT_connect() {
        }
   }
 
-  Serial.println(&quot;MQTT Connected!&quot;);
+  Serial.println("MQTT Connected!");
 }
 </code></pre>
-<p>Copier le code<br />
+<p>Copier le code<br>
 Modifier :   </p>
 <ul>
 <li>le SSID wifi  </li>
 <li>le mot de passe wifi  </li>
-<li>l'adresse du serveur MQTT<br />
+<li>l'adresse du serveur MQTT<br>
 Compiler le code  si aucune erreur uploader le code dans la carte.  </li>
 </ul>
 <p>Dans le serial monitor, vous devez voir la connexion réussie au wifi puis les températures envoyées au serveur MQTT.  </p>
-<p><img alt="" src="../img/esp_mqtt.png" /></p>
+<p><img alt="" src="../img/esp_mqtt.png"></p>
 <p>Depuis le serveur Mosquitto (MQTT) entrer la commande suivante pour observer les données arrivant sur le serveur :  </p>
-<pre><code>mosquitto_sub -h localhost -t &quot;esp/temp&quot; -u edison -P edison
+<pre><code>mosquitto_sub -h localhost -t "esp/temp" -u edison -P edison
 </code></pre>
 <p>ctrl + c pour quitter ce mode d'écoute  </p>
 <p>Depuis le serveur Mosquitto (MQTT) entrer la commande suivante pour publier une donnée que le client viendra lire :  </p>
-<pre><code>mosquitto_pub -h localhost -t &quot;esp/onoffbutton&quot; -u edison -P edison -m &quot;test la connection est OK&quot;
+<pre><code>mosquitto_pub -h localhost -t "esp/onoffbutton" -u edison -P edison -m "test la connection est OK"
 </code></pre>
-<p>Dans le serial monitor, vous devez voir la reception du message récupérer sur le serveur MQTT.<br />
-<img alt="" src="../img/esp_pub_test.png" /></p>
+<p>Dans le serial monitor, vous devez voir la reception du message récupérer sur le serveur MQTT.<br>
+<img alt="" src="../img/esp_pub_test.png"></p>
 <h2 id="etape-3-installation-du-serveur-mqtt-mosquitto">Etape 3 : Installation du serveur MQTT (Mosquitto)</h2>
-<p>Se connecter à un serveur/noeud en SSH.<br />
+<p>Se connecter à un serveur/noeud en SSH.<br>
 Installer RED-Node en lançant se script :   </p>
-<pre><code>bash -c &quot;$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/node-red.sh)&quot;   
+<pre><code>bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/node-red.sh)"   
 </code></pre>
 <p>En mode Advanced :  </p>
 <ul>
@@ -338,13 +448,13 @@ Installer RED-Node en lançant se script :   </p>
 <li>Se connecter en SSH au serveur Node-RED  </li>
 <li>Exécuter la commande suivante pour installer la bibliothèque dashboard :  </li>
 </ul>
-<pre><code>cd ~/.node-red
+<pre><code class="language-bash">cd ~/.node-red
 npm i node-red-dashboard
 </code></pre>
 <ul>
 <li>Se connecter sur l'interface web du serveur Node-RED (port 1880)  </li>
 </ul>
-<p>Ouvrir le dashboard<br />
+<p>Ouvrir le dashboard<br>
 Ajouter les élèments suivant :</p>
 <ul>
 <li>mqtt in  </li>
@@ -394,55 +504,33 @@ Ajouter les élèments suivant :</p>
 </ul>
 <iframe title="proxmox_cloneVM" width="560" height="315" src="https://tube-sciences-technologies.apps.education.fr/w/vFycVcopppJyxnetWJTdqe" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
 
-<p>Sources :<br />
-https://randomnerdtutorials.com/esp8266-and-node-red-with-mqtt/<br />
-https://eduscol.education.fr/sti/ressources_pedagogiques/le-protocole-mqqt-et-linternet-des-objet-iot<br />
-https://eduscol.education.fr/sti/sites/eduscol.education.fr.sti/files/ressources/pedagogiques/12119/12119-3-mise-oeuvre-du-mqtt-avec-esp8266.docx</p>
-              
-            </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../read_temp_dht11_c/" class="btn btn-neutral float-left" title="ESP32 Lire DHT11 C++"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../raspberrypi/" class="btn btn-neutral float-right" title="Raspberry Pi">Next <span class="icon icon-circle-arrow-right"></span></a>
+<p>Sources :<br>
+https://randomnerdtutorials.com/esp8266-and-node-red-with-mqtt/<br>
+https://eduscol.education.fr/sti/ressources_pedagogiques/le-protocole-mqqt-et-linternet-des-objet-iot<br>
+https://eduscol.education.fr/sti/sites/eduscol.education.fr.sti/files/ressources/pedagogiques/12119/12119-3-mise-oeuvre-du-mqtt-avec-esp8266.docx</p></div></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
     </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-          
+            <!-- endblock -->
         </div>
-      </div>
 
-    </section>
+    </main>
 
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../read_temp_dht11_c/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../raspberrypi/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
-</div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
+        <script>var base_url = '..';</script>
+        <script src="../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/mkdocs.js"></script>
 
 </body>
+
 </html>

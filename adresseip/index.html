@@ -1,179 +1,259 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Adresse IP - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-    
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Adresse IP";
-        var mkdocs_page_input_path = "adresseip.md";
-        var mkdocs_page_url = null;
-      </script>
-    
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+        <title>Adresse IP - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../assets/css/darcula-highlight.min.css">
+
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../assets/css/mkdocs.min.css">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    <main class="d-flex">
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../proxmox/">Proxmox</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../euro/">Section Euro</a>
-                </li>
-              </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Adresse IP</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#prerequis-binaire-decimal">Prérequis : Binaire &lt;&gt; Décimal</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#en-base-10">En base 10 :</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#en-base-2">En base 2 :</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#exercices-dentrainement">Exercices d'entrainement</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#adresse-ipv4">Adresse IPv4</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#plages-dadresses-prives-ipv4">Plages d'adresses privés IPv4</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#adresse-ipv6">Adresse IPv6</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#calcul-de-ladresse-reseau-ipv4">Calcul de l'adresse réseau IPv4</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#calcul-du-nombre-dadresse-disponible-sur-le-reseau">Calcul du nombre d'adresse disponible sur le réseau</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#calcul-des-adresses-utiles-sur-le-reseau">Calcul des adresses utiles sur le réseau</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#calcul-du-masque-reseau">Calcul du masque réseau</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#calcul-de-ladresse-reseau">Calcul de l'adresse réseau</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#calcul-de-la-1ere-adresse-attribuable">Calcul de la 1ere adresse attribuable</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#calcul-du-masque-inverse">Calcul du masque inversé</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#calcul-de-ladresse-de-diffusion">Calcul de l'adresse de diffusion</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#calcul-de-la-derniere-adresse-attribuable">Calcul de la dernière adresse attribuable</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../infranetwork/">Infrastructure Réseau</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../esp/">Carte ESP32/ESP8622</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../arduino/">Carte Arduino</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../ide-arduino/">IDE Arduino</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../micropython/">IDE MicroPython</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../micropython-webserver/">ESP32 GPIO Python Webserver</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../read_temp_dht11_python/">ESP32 Lire DHT11 Python</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../read_temp_dht11_c/">ESP32 Lire DHT11 C++</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../esp_mqtt_nodered/">ESP, MQTT, Node-RED</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../raspberrypi/">Raspberry Pi</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../ipphone/">Téléphonie IP</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../reseau/">Réseau</a>
-                </li>
-              </ul>
-      </div>
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
     </div>
-    </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</a>
+    <div class="p-4">
         
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Adresse IP</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h1 id="adresse-ip">Adresse IP</h1>
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href=".."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Home
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../proxmox/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Proxmox
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../linux/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Linux
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../euro/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Section Euro
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="./"
+                    class=" active 
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Adresse IP
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../infranetwork/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Infrastructure Réseau
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../esp/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Carte ESP32/ESP8622
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../arduino/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Carte Arduino
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../ide-arduino/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    IDE Arduino
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../micropython/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    IDE MicroPython
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../micropython-webserver/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP32 GPIO Python Webserver
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../read_temp_dht11_python/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP32 Lire DHT11 Python
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../read_temp_dht11_c/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP32 Lire DHT11 C++
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../esp_mqtt_nodered/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP, MQTT, Node-RED
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../raspberrypi/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Raspberry Pi
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../ipphone/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Téléphonie IP
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../reseau/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Réseau
+                </a>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../euro/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="../infranetwork/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item">
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><div><h1 id="adresse-ip">Adresse IP</h1>
 <h2 id="prerequis-binaire-decimal">Prérequis : Binaire &lt;&gt; Décimal</h2>
-<p>Base 10 : Décimal : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9<br />
-Base 2 : Binaire : 0, 1<br />
+<p>Base 10 : Décimal : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9<br>
+Base 2 : Binaire : 0, 1<br>
 Base 16 : Hexadécimal : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F  </p>
 <table>
 <thead>
@@ -287,8 +367,8 @@ Base 16 : Hexadécimal : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F  </p>
 </table>
 <p>Le nombre 4321 peut être décomposé :  </p>
 <blockquote>
-<p>4.10<sup>3</sup> + 3.10<sup>2</sup> + 2.10<sup>1</sup> + 1.10<sup>0</sup><br />
-4<em>1000 + 3</em>100 + 2<em>10 + 1</em>1<br />
+<p>4.10<sup>3</sup> + 3.10<sup>2</sup> + 2.10<sup>1</sup> + 1.10<sup>0</sup><br>
+4<em>1000 + 3</em>100 + 2<em>10 + 1</em>1<br>
 4321</p>
 </blockquote>
 <p>Un nombre en décimal sera écrit avec l'indice 10 :  </p>
@@ -363,8 +443,8 @@ Base 16 : Hexadécimal : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F  </p>
 </tbody>
 </table>
 <blockquote>
-<p>On se pose la question est-ce que 128 (2<sup>7</sup>) rentre dans 249<br />
-si faux : 0<br />
+<p>On se pose la question est-ce que 128 (2<sup>7</sup>) rentre dans 249<br>
+si faux : 0<br>
 si vrai : 1 et on soustrait 128 à 249  </p>
 </blockquote>
 <p>Ici c'est vrai on met 1 et on soustrait 128 à 249 soit 121  </p>
@@ -408,8 +488,8 @@ si vrai : 1 et on soustrait 128 à 249  </p>
 </tbody>
 </table>
 <blockquote>
-<p>On se pose la question est-ce que 64 (2<sup>6</sup>) rentre dans 121<br />
-si faux : 0<br />
+<p>On se pose la question est-ce que 64 (2<sup>6</sup>) rentre dans 121<br>
+si faux : 0<br>
 si vrai : 1 et on soustrait 64 à 121  </p>
 </blockquote>
 <p>Ici c'est vrai on met 1 et on soustrait 64 à 121 soit 57  </p>
@@ -453,8 +533,8 @@ si vrai : 1 et on soustrait 64 à 121  </p>
 </tbody>
 </table>
 <blockquote>
-<p>On se pose la question est-ce que 32 (2<sup>5</sup>) rentre dans 57<br />
-si faux : 0<br />
+<p>On se pose la question est-ce que 32 (2<sup>5</sup>) rentre dans 57<br>
+si faux : 0<br>
 si vrai : 1 et on soustrait 32 à 57  </p>
 </blockquote>
 <p>Ici c'est vrai on met 1 et on soustrait 32 à 57 soit 25  </p>
@@ -498,8 +578,8 @@ si vrai : 1 et on soustrait 32 à 57  </p>
 </tbody>
 </table>
 <blockquote>
-<p>On se pose la question est-ce que 16 (2<sup>4</sup>) rentre dans 25<br />
-si faux : 0<br />
+<p>On se pose la question est-ce que 16 (2<sup>4</sup>) rentre dans 25<br>
+si faux : 0<br>
 si vrai : 1 et on soustrait 16 à 25  </p>
 </blockquote>
 <p>Ici c'est vrai on met 1 et on soustrait 16 à 25 soit 9  </p>
@@ -543,8 +623,8 @@ si vrai : 1 et on soustrait 16 à 25  </p>
 </tbody>
 </table>
 <blockquote>
-<p>On se pose la question est-ce que 8 (2<sup>3</sup>) rentre dans 9<br />
-si faux : 0<br />
+<p>On se pose la question est-ce que 8 (2<sup>3</sup>) rentre dans 9<br>
+si faux : 0<br>
 si vrai : 1 et on soustrait 8 à 9  </p>
 </blockquote>
 <p>Ici c'est vrai on met 1 et on soustrait 8 à 9 soit 1  </p>
@@ -588,8 +668,8 @@ si vrai : 1 et on soustrait 8 à 9  </p>
 </tbody>
 </table>
 <blockquote>
-<p>On se pose la question est-ce que 4 (2<sup>2</sup>) rentre dans 1<br />
-si faux : 0<br />
+<p>On se pose la question est-ce que 4 (2<sup>2</sup>) rentre dans 1<br>
+si faux : 0<br>
 si vrai : 1 et on soustrait 4  </p>
 </blockquote>
 <p>Ici c'est faux on met 0   </p>
@@ -633,8 +713,8 @@ si vrai : 1 et on soustrait 4  </p>
 </tbody>
 </table>
 <blockquote>
-<p>On se pose la question est-ce que 2 (2<sup>1</sup>) rentre dans 1<br />
-si faux : 0<br />
+<p>On se pose la question est-ce que 2 (2<sup>1</sup>) rentre dans 1<br>
+si faux : 0<br>
 si vrai : 1 et on soustrait 2  </p>
 </blockquote>
 <p>Ici c'est faux on met 0   </p>
@@ -678,11 +758,11 @@ si vrai : 1 et on soustrait 2  </p>
 </tbody>
 </table>
 <blockquote>
-<p>On se pose la question est-ce que 1 (2<sup>0</sup>) rentre dans 1<br />
-si faux : 0<br />
+<p>On se pose la question est-ce que 1 (2<sup>0</sup>) rentre dans 1<br>
+si faux : 0<br>
 si vrai : 1 et on soustrait 1  </p>
 </blockquote>
-<p>Ici c'est vrai on met 1 et on soustrait 1 à 1 soit 0<br />
+<p>Ici c'est vrai on met 1 et on soustrait 1 à 1 soit 0<br>
 Puisque le reste = 0 notre conversion est finie   </p>
 <table>
 <thead>
@@ -725,8 +805,8 @@ Puisque le reste = 0 notre conversion est finie   </p>
 </table>
 <p>Le nombre 249 peut être décomposé :  </p>
 <blockquote>
-<p>1.2<sup>7</sup> + 1.2<sup>6</sup> + 1.2<sup>5</sup> + 1.2<sup>4</sup> + 1.2<sup>3</sup>  + 0.2<sup>2</sup> + 0.2<sup>1</sup>  + 1.2<sup>0</sup><br />
-1x128 + 1x64 + 1x32 + 1x16 + 1x8 + 0x4 + 0x2 + 1x1<br />
+<p>1.2<sup>7</sup> + 1.2<sup>6</sup> + 1.2<sup>5</sup> + 1.2<sup>4</sup> + 1.2<sup>3</sup>  + 0.2<sup>2</sup> + 0.2<sup>1</sup>  + 1.2<sup>0</sup><br>
+1x128 + 1x64 + 1x32 + 1x16 + 1x8 + 0x4 + 0x2 + 1x1<br>
 249</p>
 </blockquote>
 <p>Un nombre en binaire sera écrit avec l'indice 2 :  </p>
@@ -734,32 +814,32 @@ Puisque le reste = 0 notre conversion est finie   </p>
 <p>1111 1001<sub>2</sub> = 249<sub>10</sub>  </p>
 </blockquote>
 <h3 id="exercices-dentrainement">Exercices d'entrainement</h3>
-<pre><code>question(&quot;What number is the letter A in the English alphabet?&quot;,
-  answer(&quot;8&quot;),
-  answer(&quot;14&quot;),
-  answer(&quot;1&quot;, correct = TRUE),
-  answer(&quot;23&quot;)
+<pre><code r="r" letter-a echo="FALSE">question("What number is the letter A in the English alphabet?",
+  answer("8"),
+  answer("14"),
+  answer("1", correct = TRUE),
+  answer("23")
 )
 </code></pre>
 <h2 id="adresse-ipv4">Adresse IPv4</h2>
-<p>Une <strong>adresse IPv4</strong> est un nombre de <strong>32 bits</strong> identifiant de manière unique une interface réseau sur un système.<br />
-Une adresse IPv4 s'écrit sous forme de nombres décimaux, divisés en quatre champs de 8 bits séparés par des points. Chaque champ de 8 bits représente un <strong>octet</strong> de l'adresse IPv4.<br />
+<p>Une <strong>adresse IPv4</strong> est un nombre de <strong>32 bits</strong> identifiant de manière unique une interface réseau sur un système.<br>
+Une adresse IPv4 s'écrit sous forme de nombres décimaux, divisés en quatre champs de 8 bits séparés par des points. Chaque champ de 8 bits représente un <strong>octet</strong> de l'adresse IPv4.<br>
 Cette forme de représentation des octets d'une adresse IPv4 est appelée format décimal avec points.</p>
-<p>La figure ci-dessous présente les composants d'une adresse IPv4 <code>172.16.50.56</code>.<br />
-<img alt="" src="../img/trad-IPv4.gif" /></p>
+<p>La figure ci-dessous présente les composants d'une adresse IPv4 <code>172.16.50.56</code>.<br>
+<img alt="" src="../img/trad-IPv4.gif"></p>
 <p>Pour calculer la partie réseau et partie machine, une adresse IP à besoin d'un masque de sous réseau.</p>
-<p>Soit en décimal avec points : <code>255.255.0.0</code><br />
+<p>Soit en décimal avec points : <code>255.255.0.0</code><br>
 Soit sous forme CIDR, préfixe de réseau : <code>/16</code>  </p>
 <h3 id="plages-dadresses-prives-ipv4">Plages d'adresses privés IPv4</h3>
 <blockquote>
-<p><code>10.0.0.0 - 10.255.255.255</code><br />
-<code>172.16.0.0 - 172.31.255.255</code><br />
+<p><code>10.0.0.0 - 10.255.255.255</code><br>
+<code>172.16.0.0 - 172.31.255.255</code><br>
 <code>192.168.0.0 - 192.168.255.255</code>  </p>
 </blockquote>
 <h2 id="adresse-ipv6">Adresse IPv6</h2>
-<p>Une adresse <strong>IPv6</strong> est longue de <strong>128 bits</strong> et se compose de huit champs de 16 bits, chacun étant délimité par deux-points (:). Chaque champ doit contenir un nombre hexadécimal, à la différence de la notation en format décimal avec points des adresses IPv4.<br />
-<em>Format d'adresse IPv6 de base</em><br />
-<img alt="" src="../img/basic-IPv6-address.gif" />  </p>
+<p>Une adresse <strong>IPv6</strong> est longue de <strong>128 bits</strong> et se compose de huit champs de 16 bits, chacun étant délimité par deux-points (:). Chaque champ doit contenir un nombre hexadécimal, à la différence de la notation en format décimal avec points des adresses IPv4.<br>
+<em>Format d'adresse IPv6 de base</em><br>
+<img alt="" src="../img/basic-IPv6-address.gif">  </p>
 <h2 id="calcul-de-ladresse-reseau-ipv4">Calcul de l'adresse réseau IPv4</h2>
 <p>Exemple : Nous cherchons l’adresse réseau de cette adresse IP : <code>10.5.100.16 / 20</code>  </p>
 <p>Etape 1 : On écrit le masque en décimal pointé  </p>
@@ -768,8 +848,8 @@ Soit sous forme CIDR, préfixe de réseau : <code>/16</code>  </p>
 </blockquote>
 <p>Etape 2 : On réalise l’opération ET bit à bit entre l’adresse réseau et le masque, où le masque est différent de 0 ou 255.  </p>
 <blockquote>
-<p>Si 0, le résultat = 0<br />
-Si 255, le résultat = le nombre de l’adresse réseau<br />
+<p>Si 0, le résultat = 0<br>
+Si 255, le résultat = le nombre de l’adresse réseau<br>
 Si autre opération ET bit à bit  </p>
 </blockquote>
 <table>
@@ -872,14 +952,14 @@ Si autre opération ET bit à bit  </p>
 <h2 id="calcul-du-nombre-dadresse-disponible-sur-le-reseau">Calcul du nombre d'adresse disponible sur le réseau</h2>
 <p>Nombre de machine sur notre réseau :  </p>
 <blockquote>
-<p>2<sup>(Nombre “1” dans le masque inversé)</sup> - 2<br />
-<code>0.0.15.255 = 00000000.00000000.00001111.11111111 soit 12 “1”</code><br />
+<p>2<sup>(Nombre “1” dans le masque inversé)</sup> - 2<br>
+<code>0.0.15.255 = 00000000.00000000.00001111.11111111 soit 12 “1”</code><br>
 212 - 2 soit 4094 machines  </p>
 </blockquote>
 <p>ou  </p>
 <blockquote>
-<p>2<sup>(32 - préfixe)</sup> - 2<br />
-32 - préfixe = 32 – 20 = 12<br />
+<p>2<sup>(32 - préfixe)</sup> - 2<br>
+32 - préfixe = 32 – 20 = 12<br>
 212 - 2 soit 4094 machines  </p>
 </blockquote>
 <h2 id="calcul-des-adresses-utiles-sur-le-reseau">Calcul des adresses utiles sur le réseau</h2>
@@ -964,65 +1044,43 @@ Nous avons l'adresse IP : <code>192.168.4.201 / 27</code>  </p>
 </table>
 <p>Adresse réseau : <code>192.168.4.192</code>  </p>
 <h4 id="calcul-de-la-1ere-adresse-attribuable">Calcul de la 1ere adresse attribuable</h4>
-<p>1ere adresse attribuable = Adresse réseau + 1<br />
+<p>1ere adresse attribuable = Adresse réseau + 1<br>
 1ere adresse attribuable = <code>192.168.4.193</code>  </p>
 <h4 id="calcul-du-masque-inverse">Calcul du masque inversé</h4>
-<p>Masque inversé = M̃ = 255.255.255.255 - Masque<br />
-Masque inversé = M̃ = <code>255-255 . 255-255 . 255-255 . 255-224</code><br />
+<p>Masque inversé = M̃ = 255.255.255.255 - Masque<br>
+Masque inversé = M̃ = <code>255-255 . 255-255 . 255-255 . 255-224</code><br>
 Masque inversé = M̃ = <code>0 . 0 . 0 . 31</code>  </p>
 <h4 id="calcul-de-ladresse-de-diffusion">Calcul de l'adresse de diffusion</h4>
 <p>Adresse de diffusion = Adresse Réseau + Masque inversé  </p>
 <p>Adresse de diffusion = <code>192.168.4.192 + 0.0.0.31</code>  </p>
 <p>Adresse de diffusion = <code>192.168.4.223</code>  </p>
 <h4 id="calcul-de-la-derniere-adresse-attribuable">Calcul de la dernière adresse attribuable</h4>
-<p>Dernière Adresse = Adresse de Diffusion – 1<br />
-Dernière Adresse = <code>192.168.4.223 - 1</code><br />
-Dernière Adresse = <code>192.168.4.222</code>  </p>
-              
-            </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../euro/" class="btn btn-neutral float-left" title="Section Euro"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../infranetwork/" class="btn btn-neutral float-right" title="Infrastructure Réseau">Next <span class="icon icon-circle-arrow-right"></span></a>
+<p>Dernière Adresse = Adresse de Diffusion – 1<br>
+Dernière Adresse = <code>192.168.4.223 - 1</code><br>
+Dernière Adresse = <code>192.168.4.222</code>  </p></div></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
     </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-          
+            <!-- endblock -->
         </div>
-      </div>
 
-    </section>
+    </main>
 
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../euro/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../infranetwork/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
-</div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
+        <script>var base_url = '..';</script>
+        <script src="../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/mkdocs.js"></script>
 
 </body>
+
 </html>
