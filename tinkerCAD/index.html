@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>Raspberry Pi - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+        <title>TinkerCAD - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,8 +73,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="../tinkerCAD/"
-                    class="
+                <a href="./"
+                    class=" active 
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     TinkerCAD
                 </a>
@@ -171,8 +171,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="./"
-                    class=" active 
+                <a href="../raspberrypi/"
+                    class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     Raspberry Pi
                 </a>
@@ -219,13 +219,13 @@
         <div class="container">
             <div class="row row-preview">
                 <div class="col">
-                    <a href="../esp_mqtt_nodered/"
+                    <a href=".."
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </div>
                 <div class="col">
-                    <a href="../ipphone/"
+                    <a href="../proxmox/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
@@ -257,99 +257,9 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><div><h1 id="raspberry-pi">Raspberry Pi</h1>
-<p><img alt="" src="../img/raspberry-pi-5.jpg"></p>
-<h2 id="videos-presentation">Vidéos présentation</h2>
-<iframe title="Lecontrôletechnique_leRaspberryPi2" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/2b01c0b1-e339-49a6-8af9-5aeae1eea637" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
-
-<iframe title="LE NOUVEAU RASPBERRY PI 3 !!! (Modèle B+)" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/0b04727c-68e3-4018-86ed-f15db7352701" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
-
-<h2 id="differents-types-de-raspberry-pi">Différents types de Raspberry Pi</h2>
-<p>Le Raspberry Pi est un nano-ordinateur monocarte à processeur ARM.</p>
-<p><img alt="" src="../img/raspberry-pi-type.jpg"></p>
-<h3 id="raspberrypi-zero">RaspberryPi Zero</h3>
-<p><img src="/img/raspberry-pi-connector-zero.webp" alt="image" width="50%" height="auto"></p>
-<h3 id="raspberrypi-2">RaspberryPi 2</h3>
-<p><img src="/img/raspberry-pi-connector-2.jpg" alt="image" width="50%" height="auto"></p>
-<h3 id="raspberrypi-3">RaspberryPi 3</h3>
-<p><img src="/img/raspberry-pi-connector-3.png" alt="image" width="50%" height="auto"></p>
-<h3 id="raspberrypi-3b">RaspberryPi 3b+</h3>
-<p><img src="/img/raspberry-pi-connector-3b+.jpg" alt="image" width="100%" height="auto"></p>
-<h3 id="raspberrypi-4">RaspberryPi 4</h3>
-<p><img src="/img/raspberry-pi-connector-4.png" alt="image" width="100%" height="auto"></p>
-<h3 id="raspberrypi-5">RaspberryPi 5</h3>
-<p><img src="/img/raspberry-pi-connector-5.png" alt="image" width="100%" height="auto"></p>
-<h2 id="gpio">GPIO</h2>
-<p>Ce connecteur à 40 points est le moyen fourni par les créateurs du Raspberry Pi pour nous permettre d’accéder aux ports d’entrée/sortie du processeur BCM2837.
-GPIO signifie « General Purpose Input/Output » (entrée/sortie à usage général). 
-Ce sont les 40 broches que vous pouvez voir sur le Raspberry Pi, près du bord de la carte  </p>
-<p><img alt="" src="../img/raspberry-pi-gpio.png"></p>
-<h2 id="configuration-initiale-premier-demarrage">Configuration initiale : Premier démarrage</h2>
-<p>L’utilisateur par défaut est : <strong>pi</strong><br>
-Le mot de passe par défaut est : <strong>raspberry</strong><br>
-ATTENTION sous un système Linux les mots de passe n’apparaissent pas quand on les tape au clavier dans le terminal.<br>
-Remarque : le système RaspiOS est en évolution et toujours en développement, les menus et les logiciels peuvent changer d’une version à l’autre.  </p>
-<h2 id="serveur-graphique-sous-linux">Serveur Graphique sous Linux</h2>
-<p>Les notions de serveur graphique, de bureau et de gestionnaire de fenêtre.<br>
-Le serveur graphique est le programme qui permet de passer en « mode graphique » GUI en utilisant les fonctions avancées de la carte graphique. Il gère notamment le clavier, la souris, les polices de caractères, l'écran (résolution, nombre de couleurs, etc.) et la carte graphique, et fournit aux programmes qui le demandent un affichage et un contrôle. Sous Debian, c'est le serveur X.Org qui est utilisé.<br>
-Le bureau est le programme qui s'occupe d'afficher un menu, une barre de lancement, une barre des tâches, des icônes sur le bureau, etc… Il existe également de nombreux bureaux sous Linux, mais les deux plus connus sont GNOME et KDE.<br>
-Le gestionnaire de fenêtre s'occupe de « décorer » les fenêtres, en leur ajoutant des bordures, une barre de titre, et des boutons de contrôle pour pouvoir les réduire, les fermer ou les agrandir. Les bureaux graphiques fournissent normalement leur propre gestionnaire de fenêtres : celui de GNOME s'appelle Metacity, mais il est possible d'en utiliser une autre.<br>
-Avoir un serveur graphique et un gestionnaire de fenêtre est obligatoire pour travailler « en mode graphique » ; mais on n'est pas obligé d'avoir un bureau ! Certains gestionnaires de fenêtre font aussi office de bureau minimaliste (Windows Maker affiche par exemple un menu de lancement rapide). Normalement, l'utilisateur peut choisir n'importe quelle combinaison de gestionnaire de fenêtres et de bureau, mais certains bureaux recommandent un gestionnaire de fenêtres particulier.<br>
-Vous pouvez toujours démarrer le bureau en tapant « startx » dans le terminal. Une fois lancée, pour quitter l’interface graphique il vous suffit simplement de vous déconnecter de la session.  </p>
-<h2 id="le-gestionnaire-de-paquet">Le gestionnaire de paquet</h2>
-<p>Sous le système d’exploitation RaspiOS, pour installer un logiciel, il faut utiliser un gestionnaire de paquet nommé APT (Advanced Packaging Tool).  </p>
-<p>Ce logiciel permet d’installer, de mettre à jour et de désinstaller les applications disponibles pour votre Raspberry Pi.  </p>
-<h2 id="les-commandes-utiles">Les commandes utiles</h2>
-<p>Toutes les commandes suivantes sont à exécuter dans un terminal (exemple LXTerminal).<br>
-Pour chercher un logiciel, vous pouvez utiliser la commande suivante avec des mots clés de recherche :  </p>
-<pre><code>apt search nom_du_logiciel_recherché   
-</code></pre>
-<p>Une liste de logiciel contenant le mot du logiciel apparait : Avec le nom puis une description : nom - description. <br>
-Une fois que vous connaissez le nom exact du logiciel, vous pouvez l’installer de cette manière :   </p>
-<pre><code>sudo est nécessaire pour vous donner les droits d’administrateur
-</code></pre>
-<p>L’installation nécessite parfois une autorisation où l’on peut répondre O pour Oui ou n pour Non.  </p>
-<pre><code>sudo apt install nom_du_logiciel
-</code></pre>
-<p>Pour en supprimer un, faites ceci :  </p>
-<pre><code>sudo apt remove nom_du_logiciel
-</code></pre>
-<p>Pour mettre à jour la liste des logiciels disponibles, il faut régulièrement saisir la commande suivante :  </p>
-<pre><code>sudo apt update
-</code></pre>
-<p>Pour mettre à jour les logiciels, une seule commande suffit :  </p>
-<pre><code>sudo apt upgrade
-</code></pre>
-<p>Avec ces 5 commandes, vous devriez pouvoir vous en sortir facilement :)  </p>
-<p>Petit conseil les touches flèches haut/bas permettent de voir les commandes déjà tapées.  </p>
-<h2 id="activer-le-controle-par-ssh">Activer le contrôle par SSH</h2>
-<p>Le protocole Secure Shell (SSH) est une méthode permettant d'envoyer en toute sécurité des commandes à un ordinateur sur un réseau non sécurisé. SSH a recours à la cryptographie pour authentifier et chiffrer les connexions entre les appareils.  </p>
-<h3 id="activer-ssh-sur-la-carte-raspberry-pi">Activer SSH sur la carte raspberry pi</h3>
-<p>Démarrez le Raspberry Pi et connectez-le au réseau.
-Il ne nous reste plus qu'à accéder aux paramètres de configuration du Raspberry Pi en exécutant la commande suivante dans le terminal :<br>
-<code>sudo raspi-config</code>  </p>
-<p>Déplacez-vous dans le menu "Interface Options" puis "SSH" et activez-le.
-Pour terminer, sélectionner "Finish" et rebooter le Raspberry Pi.  </p>
-<h3 id="depuis-un-autre-pc">Depuis un autre PC</h3>
-<p>Depuis une autre machine (PC, Téléphone, …), lancer un logiciel de connexion SSH comme le logiciel Putty et en entrant :<br>
-    - L’adresse IP de la carte et le port 22,<br>
-    - Cliquez sur Open,<br>
-    - Le nom d’utilisateur et le mot de passe.<br>
-<img alt="" src="../img/putty.png"></p>
-<h2 id="activer-le-controle-par-vnc">Activer le contrôle par VNC</h2>
-<p>VNC est un système de visualisation et de contrôle de l'environnement de bureau d'un ordinateur distant. Il permet au logiciel client VNC de transmettre les informations de saisie du clavier et de la souris à l'ordinateur distant, possédant un logiciel serveur VNC à travers un réseau informatique.  </p>
-<h3 id="activer-vnc-sur-la-carte-raspberry-pi">Activer VNC sur la carte raspberry pi</h3>
-<p>Démarrez le Raspberry Pi et connectez-le au réseau.
-Il ne nous reste plus qu'à accéder aux paramètres de configuration du Raspberry Pi en exécutant la commande suivante dans le terminal :<br>
-<code>sudo raspi-config</code>  </p>
-<p>Déplacez-vous dans le menu "Interface Options" puis "VNC" et activez-le.
-Pour terminer, sélectionner "Finish" et rebooter le Raspberry Pi.  </p>
-<h3 id="depuis-un-autre-pc_1">Depuis un autre PC</h3>
-<p>Depuis une autre machine (PC, Téléphone, …), lancer un logiciel de connexion SSH comme le logiciel Putty et en entrant :<br>
-    - L’adresse IP de la carte et le port 22,<br>
-    - Cliquez sur Open,<br>
-    - Le nom d’utilisateur et le mot de passe.<br>
-<img alt="" src="../img/vnc.png"></p></div></p>
+        <p><div><h1 id="tinkercad">TinkerCAD</h1>
+<h2 id="activite">Activité</h2>
+<p><embed alt="Alt text" src="../extra/IntroTinkerCAD.pdf" style="min-height:1000vh;width:100%" type="application/pdf"></embed></p></div></p>
     </article>
 </section>
             <!-- endblock -->
