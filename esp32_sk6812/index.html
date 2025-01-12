@@ -319,6 +319,38 @@ void loop()
   strip.clear(); //Set to off all leds
 
   strip.color(0,255,0,0,0); //Switch on the red on first led
+  strip.color(1,0,255,0,0); //Switch on the green on second led
+  strip.color(2,0,0,255,0); //Switch on the blue on third led
+  strip.color(3,0,0,0,255); //Switch on the white on forth led
+  strip.color(4,255,255,255,255); //Switch on the RGBW on fifth led
+
+  strip.show(); //send the order to the leds
+  delay(1000);
+
+}
+
+
+</code></pre>
+<h3 id="code-avec-different-mode-pour-tester">Code avec différent mode pour tester</h3>
+<pre><code>#include &lt;sk.h&gt; //source : gitpeut/SK6812-RGBW-ESP32
+
+sk strip; //Create an object to manipulate leds SK6812-RGBW
+int led_count = 5; //Define the number of leds
+int led_pin = 4; //Set the data pin
+
+void setup()
+{
+  strip.begin(led_pin, led_count); //Initialize the strip
+  strip.clear(); //Set to off all leds
+  delay(100);
+}
+
+
+void loop()
+{
+  strip.clear(); //Set to off all leds
+
+  strip.color(0,255,0,0,0); //Switch on the red on first led
   strip.show(); //send the order to the leds
   delay(1000);
 
