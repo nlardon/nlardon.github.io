@@ -212,6 +212,13 @@
                     ESP32 LED SK6812
                 </a>
             </li>
+            <li class="drac-box">
+                <a href="../esp32_ws2812B/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP32 LED WS2812B
+                </a>
+            </li>
         </ul>
         <!-- endblock -->
     </div>
@@ -246,8 +253,8 @@
                     </a>
                 </div>
                 <div class="col">
-                    <a 
-                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
+                    <a href="../esp32_ws2812B/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -377,6 +384,68 @@ void loop()
   strip.show();
   delay(1000);
 
+}
+
+
+</code></pre>
+<h3 id="code-avec-if-et-boucle-3-boutons">Code avec if et boucle + 3 boutons</h3>
+<pre><code>#include &lt;sk.h&gt; //source : gitpeut/SK6812-RGBW-ESP32
+
+sk strip; //Create an object to manipulate leds SK6812-RGBW
+int led_count = 120; //Define the number of leds
+int led_pin = 4; //Set the data pin
+
+const int button1 = 12; 
+const int button2 = 14; 
+const int button3 = 27; 
+
+bool etat_button1; 
+bool etat_button2; 
+bool etat_button3; 
+
+void setup() {
+
+    strip.begin(led_pin, led_count); //Initialize the strip
+    strip.clear(); //Set to off all leds
+
+    pinMode(button1, INPUT_PULLUP);
+    pinMode(button2, INPUT_PULLUP);
+    pinMode(button3, INPUT_PULLUP);
+    delay(100);
+
+}
+
+void loop() {
+
+    etat_button1 = digitalRead(button1);
+    etat_button2 = digitalRead(button2);
+    etat_button3 = digitalRead(button3);
+
+    if (etat _button1 == LOW) {
+        for(int i = 0 ; i &lt; 5 ; i++) {
+        strip.color(i,255,0,0,0); 
+        } 
+    } 
+
+    else if (etat _button2 == LOW) {
+        for(int i = 0 ; i &lt; 5 ; i++) { 
+        strip.color(i,0,255,0,0); 
+        }
+    }
+    else if (etat _button3 == LOW) {
+        for(int i = 0 ; i &lt; 5 ; i++) { 
+        strip.color(i,0,0,255,0); 
+        }
+    }
+    else {
+        for(int i = 0 ; i &lt; 5 ; i++) {
+        strip.color(i,0,0,0,0); 
+        }
+    }
+
+    strip.show(); //send the order to the leds
+
+    delay(10);
 }
 
 

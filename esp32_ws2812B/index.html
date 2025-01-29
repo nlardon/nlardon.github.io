@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>ESP32 Lire DHT11 C++ - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+        <title>ESP32 LED WS2812B - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -157,8 +157,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="./"
-                    class=" active 
+                <a href="../read_temp_dht11_c/"
+                    class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     ESP32 Lire DHT11 C++
                 </a>
@@ -213,8 +213,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="../esp32_ws2812B/"
-                    class="
+                <a href="./"
+                    class=" active 
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     ESP32 LED WS2812B
                 </a>
@@ -247,14 +247,14 @@
         <div class="container">
             <div class="row row-preview">
                 <div class="col">
-                    <a href="../read_temp_dht11_python/"
+                    <a href="../esp32_sk6812/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </div>
                 <div class="col">
-                    <a href="../esp_mqtt_nodered/"
-                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                    <a 
+                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -285,168 +285,47 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><div><h1 id="utilisation-de-arduino-ide-c-esp32-et-un-capteur-dht11">Utilisation de Arduino IDE, C++, ESP32 et un capteur DHT11</h1>
-<p><img src="/img/capteur-de-temperature-dht11.jpg" alt="image" width="50%" height="auto"></p>
-<p>Prérequis :  </p>
-<ul>
-<li>firmware ESP32 flashé avec le firmware Arduino IDE   </li>
-</ul>
-<h2 id="lecture-simple-du-capteur">Lecture simple du capteur</h2>
-<p><em>source : https://www.upesy.fr/blogs/tutorials/dht11-humidity-temperature-sensor-with-arduino-code-on-esp32-board</em>  </p>
-<p>Le capteur DHT11 est très populaire parmi les makers et les adeptes du DIY. Il est, en effet, si prisé qu’il est inclus par défaut dans MicroPython. Son prix avantageux et sa simplicité d’utilisation en sont les principales raisons.</p>
-<h3 id="correspondance-des-broches">Correspondance des broches :</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Module DHT11</th>
-<th style="text-align: center;">ESP32</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1 - GND</td>
-<td style="text-align: center;">GND</td>
-</tr>
-<tr>
-<td style="text-align: center;">2 - DATA</td>
-<td style="text-align: center;">GPIO 17</td>
-</tr>
-<tr>
-<td style="text-align: center;">3 - Vcc</td>
-<td style="text-align: center;">3,3V</td>
-</tr>
-</tbody>
-</table>
-<p><em>Attention : Selon votre ESP32, la GPIO 17 n'est pas placée au même endroit.
-ESP32.</em><br>
-<em>Attention : Si le module ne comporte pas de résistance de pullup, il faut en ajouter une entre 4.7kΩ (ou 10kΩ) entre les broches 3V3 et le signal (GPIO17 ).</em> <br>
-<em>Attention : Vérifier que vous alimentez bien le module en 3.3V et non 5V pour avoir un signal de données de 3.3V également.</em></p>
-<h3 id="mesurer-la-temperature-et-lhumidite-ambiante-du-dht11">Mesurer la température et l’humidité ambiante du DHT11</h3>
-<p>Puisque le DHT11 utilise un protocole propriétaire, il est indispensable d’utiliser une librairie pour communiquer facilement avec le capteur. Je vous conseille d’utiliser la librairie DHT Sensor d’Adafruit qui fonctionne correctement sur l’ESP32 .</p>
-<p>Dans le gestionnaire de bibliothèque (Library Manager), rechercher et installer (Install ALL) " DHT sensor library " de Adafruit.</p>
-<p>Une fois que la librairie est installée on utilise le code suivant qui récupère la température et le taux d’humidité du DHT11.</p>
-<pre><code>#include "DHT.h"
+        <p><div><h1 id="controle-bandeau-led-ws2812b-avec-une-carte-esp32">Contrôle bandeau LED WS2812B avec une carte ESP32</h1>
+<h2 id="led-sk6812">LED SK6812</h2>
+<p>Caractéristiques principales :<br>
+- Adressable individuellement : Chaque LED WS2812B contient son propre circuit intégré (CI), ce qui permet de contrôler la couleur et la luminosité de chaque LED indépendamment.<br>
+- Plusieurs options de couleurs : Outre les couleurs rouge, vert et bleu (RGB).<br>
+- Type de LED : Généralement de type SMD 5050, ce qui signifie qu'elle mesure 5,0 mm x 5,0 mm.<br>
+- Communication : Utilise un protocole de communication série unipolaire, ce qui signifie qu'un seul fil de données est nécessaire pour contrôler plusieurs LED en cascade.<br>
+- Tension de fonctionnement : Généralement 5V ou 12V DC, selon le modèle.<br>
+- Intensité variable : Chaque couleur (rouge, vert, bleu) peut être modulée en intensité sur 256 niveaux (8 bits par couleur), offrant ainsi une large gamme de couleurs et d'effets de gradation.  </p>
+<p><img alt="" src="../img/esp32-sk6812/sk6812_schematic.webp"></p>
+<p><img src="/img/esp32-sk6812/41Lg+WShE5L.jpg" alt="image" width="50%" height="auto"></p>
+<h2 id="utilisation-avec-une-carte-esp32">Utilisation avec une carte ESP32</h2>
+<p>Il faut ajouter une bibliothéque à l'IDE Arduino pour utiliser ces LEDs. On pourrait coder sans blibliotéque suplémentaire mais le code serait complexe et difficilement lisible.  </p>
+<p>Nous allons la bibliothèque "ESP32_WS2812_Lib" à ajouter dans Arduino IDE. Ce travail nous simplifira le controle des LEDs.</p>
+<h3 id="ajout-de-la-bibliotheque-library-et-ouvrir-les-exemples-de-code">Ajout de la bibliothéque (library) et ouvrir les exemples de code</h3>
+<p><img alt="" src="../img/esp32-ws2812b/ws2812b_library.gif"></p>
+<p>Ajouter la bibliotèque dans l'IDE Arduino.  </p>
+<h3 id="code-pour-tester-exemple-breathing">Code pour tester : exemple : Breathing</h3>
+<pre><code>#include "ESP32_WS2812_Lib.h"
 
-#define DHTPIN 17
-#define DHTTYPE DHT11
-//DHTTYPE = DHT11, mais il existe aussi le DHT22 et 21
+#define LEDS_COUNT 8
+#define LEDS_PIN   2
+#define CHANNEL    0
 
-DHT dht(DHTPIN, DHTTYPE); // constructeur pour déclarer notre capteur
+ESP32_WS2812 strip = ESP32_WS2812(LEDS_COUNT, LEDS_PIN, CHANNEL, TYPE_GRB);
 
 void setup() {
-  Serial.begin(115200);
-  dht.begin();
+  strip.begin();
+  strip.setBrightness(0);
+  strip.setAllLedsColor(0, 0, 255);
+  strip.show();
 }
-
 void loop() {
-  delay(1000);
-  // Le DHT11 renvoie au maximum une mesure toute les 1s
-  float h = dht.readHumidity();
-  //Lis le taux d'humidite en %
-  float t = dht.readTemperature();
-  //Lis la température en degré celsius
-
-  Serial.print("Humidite: ");
-  Serial.print(h);
-  Serial.print("%  Temperature: ");
-  Serial.print(t);
-  Serial.println("°C, ");
-  // Transmet les mesures reçues dans le moniteur série
-}
-
-</code></pre>
-<p>Retour dans la console/monitor  </p>
-<pre><code>Humidite: 49.00%  Temperature: 23.00°C, 73.40°F
-Humidite: 49.00%  Temperature: 23.00°C, 73.40°F
-Humidite: 49.00%  Temperature: 23.00°C, 73.40°F
-Humidite: 49.00%  Temperature: 23.00°C, 73.40°F
-</code></pre>
-<h2 id="lecture-du-capteur-et-envoie-sur-une-page-web">Lecture du capteur et envoie sur une page web</h2>
-<p><em>source : https://randomnerdtutorials.com/esp32-dht11-dht22-temperature-humidity-web-server-arduino-ide/</em>  </p>
-<pre><code>#include &lt;WiFi.h&gt;
-#include &lt;WebServer.h&gt;
-#include "DHT.h"
-
-#define DHTTYPE DHT11 // DHT 11
-
-/*Put your SSID &amp; Password*/
-const char* ssid = "YourNetworkName";  // Enter SSID here
-const char* password = "YourPassword";  //Enter Password here
-
-WebServer server(80);
-
-// DHT Sensor
-uint8_t DHTPin = 17; 
-
-// Initialize DHT sensor.
-DHT dht(DHTPin, DHTTYPE);                
-
-float Temperature;
-float Humidity;
-
-void setup() {
-  Serial.begin(115200);
-  delay(100);
-
-  pinMode(DHTPin, INPUT);
-
-  dht.begin();              
-
-  Serial.println("Connecting to ");
-  Serial.println(ssid);
-
-  //connect to your local wi-fi network
-  WiFi.begin(ssid, password);
-
-  //check wi-fi is connected to wi-fi network
-  while (WiFi.status() != WL_CONNECTED) {
-  delay(1000);
-  Serial.print(".");
+  for (int i = 0; i &lt; 50; i++) {
+    strip.setBrightness(i);
+    delay(20);
   }
-  Serial.println("");
-  Serial.println("WiFi connected..!");
-  Serial.print("Got IP: ");  Serial.println(WiFi.localIP());
-
-  server.on("/", handle_OnConnect);
-  server.onNotFound(handle_NotFound);
-
-  server.begin();
-  Serial.println("HTTP server started");
-
-}
-void loop() {
-
-  server.handleClient();
-
-}
-
-void handle_OnConnect() {
-
-  Temperature = dht.readTemperature(); // Gets the values of the temperature
-  Humidity = dht.readHumidity(); // Gets the values of the humidity 
-  server.send(200, "text/html", SendHTML(Temperature,Humidity)); 
-}
-
-void handle_NotFound(){
-  server.send(404, "text/plain", "Not found");
-}
-
-String SendHTML(float Temperaturestat,float Humiditystat){
-  String ptr = "&lt;!DOCTYPE html&gt; &lt;html&gt;\n";
-  ptr +="&lt;head&gt;\n";
-  ptr +="&lt;title&gt;ESP32 Weather Report&lt;/title&gt;\n";
-  ptr +="&lt;/head&gt;\n";
-  ptr +="&lt;body&gt;\n";
-  ptr +="&lt;h1&gt;ESP32 Weather Report&lt;/h1&gt;\n";
-  ptr +="&lt;p&gt;Temperature: ";
-  ptr +=(int)Temperaturestat;
-  ptr +="&amp;deg;C&lt;/p&gt;";
-  ptr +="&lt;p&gt;Humidity: ";
-  ptr +=(int)Humiditystat;
-  ptr +="%&lt;/p&gt;";
-  ptr +="&lt;/body&gt;\n";
-  ptr +="&lt;/html&gt;\n";
-  return ptr;
+  for (int i = 50; i &gt;= 0; i--) {
+    strip.setBrightness(i);
+    delay(20);
+  }
 }
 
 </code></pre></div></p>
