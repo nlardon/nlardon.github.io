@@ -302,10 +302,10 @@
 <h3 id="ajout-de-la-bibliotheque-library-et-ouvrir-les-exemples-de-code">Ajout de la bibliothéque (library) et ouvrir les exemples de code</h3>
 <p><img alt="" src="../img/esp32-ws2812b/ws2812b_library.gif"></p>
 <p>Ajouter la bibliotèque dans l'IDE Arduino.  </p>
-<h3 id="code-pour-tester-exemple-breathing">Code pour tester : exemple : Breathing</h3>
+<h3 id="code-pour-tester">Code pour tester :</h3>
 <pre><code>#include "ESP32_WS2812_Lib.h"
 
-#define LEDS_COUNT 8
+#define LEDS_COUNT 120
 #define LEDS_PIN   2
 #define CHANNEL    0
 
@@ -314,18 +314,14 @@ ESP32_WS2812 strip = ESP32_WS2812(LEDS_COUNT, LEDS_PIN, CHANNEL, TYPE_GRB);
 void setup() {
   strip.begin();
   strip.setBrightness(0);
-  strip.setAllLedsColor(0, 0, 255);
-  strip.show();
 }
 void loop() {
-  for (int i = 0; i &lt; 50; i++) {
-    strip.setBrightness(i);
+  for (int i = 0; i &lt; LEDS_COUNT; i++) {
+    setLedColorData(i,255,0,255);
     delay(20);
   }
-  for (int i = 50; i &gt;= 0; i--) {
-    strip.setBrightness(i);
-    delay(20);
-  }
+  strip.show(); 
+  delay(20);
 }
 
 </code></pre></div></p>
