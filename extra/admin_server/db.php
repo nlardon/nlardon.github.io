@@ -1,6 +1,6 @@
 <html>
 	<head>
-			<title>Test Site SN</title>
+			<title>Test Site CIEL</title>
 	</head>
 	<body>
 		<?php echo '<p>Bonjour le monde</p>'; ?>
