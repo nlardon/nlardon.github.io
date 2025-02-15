@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>Cordon RJ45 - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+        <title>Admin Server - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,8 +87,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="../admin_server/"
-                    class="
+                <a href="./"
+                    class=" active 
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     Admin Server
                 </a>
@@ -199,8 +199,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="./"
-                    class=" active 
+                <a href="../cordonrj45/"
+                    class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     Cordon RJ45
                 </a>
@@ -254,13 +254,13 @@
         <div class="container">
             <div class="row row-preview">
                 <div class="col">
-                    <a href="../reseau/"
+                    <a href="../proxmox/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </div>
                 <div class="col">
-                    <a href="../esp32_server/"
+                    <a href="../linux/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
@@ -292,15 +292,26 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><div><h1 id="realiser-un-cordon-rj45">Réaliser un cordon RJ45</h1>
-<p><img alt="" src="../img/cordonrj45/pince_rj45.jpg"></p>
-<h2 id="realisation-cordon-droit">Réalisation "cordon droit"</h2>
-<iframe title="_TUTO-VIDEO-realisation-cordon-ethernet-rj45-droit" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/w/7hGyqCA9Utdvy2G1iZ8yHW" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+        <p><div><h1 id="administration-dun-serveur">Administration d'un serveur</h1>
+<h2 id="acces-dun-serveur-en-ssh-avec-putty">Accès d'un serveur en SSH avec Putty</h2>
+<iframe title="ssh_putty" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/2ef88abb-c340-459c-a8ef-fadb16f66389" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
 
-<h2 id="les-cables-reseaux-utilises-en-cablage-cuivre">Les câbles réseaux utilisés en "Câblage Cuivre"</h2>
-<iframe title="Atelier 05 - Bien câbler une installation multimédia" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/w/wEJehFRN7jP1gjxtHKfcnR" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+<h2 id="acces-dun-serveur-en-ssh-en-ligne-de-commande">Accès d'un serveur en SSH en ligne de commande</h2>
+<iframe title="ssh_commandlinux" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/364d284e-1a07-4134-b9b4-cc4221148551" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
 
-<h3 id="documents-ressources">Documents ressources</h3></div></p>
+<pre><code>ssh user@hote -p port
+</code></pre>
+<h2 id="tranfert-dun-fichier-sur-un-serveur-avec-winscp">Tranfert d'un fichier sur un serveur avec WinSCP</h2>
+<iframe title="transfert_file_winscp" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/77ae7efc-51b2-4b2c-87e8-6117f6fcbbe9" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+
+<h2 id="tranfert-dun-fichier-sur-un-serveur-en-ligne-de-commande">Tranfert d'un fichier sur un serveur en ligne de commande</h2>
+<iframe title="transfert_file_scp" width="560" height="315" src="https://tube-enseignement-professionnel.apps.education.fr/videos/embed/afeaf8a6-9e3d-45ff-81ce-b5a7006c5aeb" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+
+<pre><code>scp fichier_source user@hote:destination
+</code></pre>
+<h2 id="ressources-php-serveur-web">Ressources .php : serveur web</h2>
+<p><a href="/extra/admin_server/index.php">index.php</a>  </p>
+<p><a href="/extra/admin_server/db.php">db.php</a>  </p></div></p>
     </article>
 </section>
             <!-- endblock -->
