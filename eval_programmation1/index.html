@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>ESP32 LED WS2812B - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+        <title>Evaluation Programmation 1 - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,8 +101,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="../eval_programmation1/"
-                    class="
+                <a href="./"
+                    class=" active 
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     Evaluation Programmation 1
                 </a>
@@ -248,8 +248,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="./"
-                    class=" active 
+                <a href="../esp32_ws2812B/"
+                    class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     ESP32 LED WS2812B
                 </a>
@@ -282,14 +282,14 @@
         <div class="container">
             <div class="row row-preview">
                 <div class="col">
-                    <a href="../esp32_sk6812/"
+                    <a href="../eval_infranetwork/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </div>
                 <div class="col">
-                    <a 
-                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
+                    <a href="../tinkerCAD/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -320,46 +320,10 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><div><h1 id="controle-bandeau-led-ws2812b-avec-une-carte-esp32">Contrôle bandeau LED WS2812B avec une carte ESP32</h1>
-<h2 id="led-sk6812">LED SK6812</h2>
-<p>Caractéristiques principales :<br>
-- Adressable individuellement : Chaque LED WS2812B contient son propre circuit intégré (CI), ce qui permet de contrôler la couleur et la luminosité de chaque LED indépendamment.<br>
-- Plusieurs options de couleurs : Outre les couleurs rouge, vert et bleu (RGB).<br>
-- Type de LED : Généralement de type SMD 5050, ce qui signifie qu'elle mesure 5,0 mm x 5,0 mm.<br>
-- Communication : Utilise un protocole de communication série unipolaire, ce qui signifie qu'un seul fil de données est nécessaire pour contrôler plusieurs LED en cascade.<br>
-- Tension de fonctionnement : Généralement 5V ou 12V DC, selon le modèle.<br>
-- Intensité variable : Chaque couleur (rouge, vert, bleu) peut être modulée en intensité sur 256 niveaux (8 bits par couleur), offrant ainsi une large gamme de couleurs et d'effets de gradation.  </p>
-<p><img alt="" src="../img/esp32-sk6812/sk6812_schematic.webp"></p>
-<p><img src="/img/esp32-sk6812/41Lg+WShE5L.jpg" alt="image" width="50%" height="auto"></p>
-<h2 id="utilisation-avec-une-carte-esp32">Utilisation avec une carte ESP32</h2>
-<p>Il faut ajouter une bibliothéque à l'IDE Arduino pour utiliser ces LEDs. On pourrait coder sans blibliotéque suplémentaire mais le code serait complexe et difficilement lisible.  </p>
-<p>Nous allons la bibliothèque "ESP32_WS2812_Lib" à ajouter dans Arduino IDE. Ce travail nous simplifira le controle des LEDs.</p>
-<h3 id="ajout-de-la-bibliotheque-library-et-ouvrir-les-exemples-de-code">Ajout de la bibliothéque (library) et ouvrir les exemples de code</h3>
-<p><img alt="" src="../img/esp32-ws2812b/ws2812b_library.gif"></p>
-<p>Ajouter la bibliotèque dans l'IDE Arduino.  </p>
-<h3 id="code-pour-tester">Code pour tester :</h3>
-<pre><code>#include "ESP32_WS2812_Lib.h"
-
-#define LEDS_COUNT 120
-#define LEDS_PIN   2
-#define CHANNEL    0
-
-ESP32_WS2812 strip = ESP32_WS2812(LEDS_COUNT, LEDS_PIN, CHANNEL, TYPE_GRB);
-
-void setup() {
-  strip.begin();
-  strip.setBrightness(0);
-}
-void loop() {
-  for (int i = 0; i &lt; LEDS_COUNT; i++) {
-    setLedColorData(i,255,0,255);
-    delay(20);
-  }
-  strip.show(); 
-  delay(20);
-}
-
-</code></pre></div></p>
+        <p><div><h1 id="evaluation-programmation-2ciel">Evaluation Programmation 2CIEL</h1>
+<p>1 - Evaluation Intro TinkerCAD</p>
+<p><embed alt="Alt text" src="../extra/programmation1/Activit%C3%A9%20NL%20-%20Eval%20Intro%20TinkerCAD%20v2025.pdf" style="min-height:100vh;width:100%" type="application/pdf"></embed></p>
+<p>2 - (bientôt)</p></div></p>
     </article>
 </section>
             <!-- endblock -->
