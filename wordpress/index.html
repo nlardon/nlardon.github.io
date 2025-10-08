@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>ESP32 Lire DHT11 Python - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+        <title>Wordpress - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -192,8 +192,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="./"
-                    class=" active 
+                <a href="../read_temp_dht11_python/"
+                    class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     ESP32 Lire DHT11 Python
                 </a>
@@ -262,8 +262,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="../wordpress/"
-                    class="
+                <a href="./"
+                    class=" active 
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     Wordpress
                 </a>
@@ -296,14 +296,14 @@
         <div class="container">
             <div class="row row-preview">
                 <div class="col">
-                    <a href="../micropython-webserver/"
+                    <a href="../esp32_ws2812B/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </div>
                 <div class="col">
-                    <a href="../read_temp_dht11_c/"
-                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                    <a 
+                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -334,161 +334,74 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><div><h1 id="utilisation-de-micropython-esp32-et-un-capteur-dht11">Utilisation de MicroPython, ESP32 et un capteur DHT11</h1>
-<p><img src="/img/capteur-de-temperature-dht11.jpg" alt="image" width="50%" height="auto"></p>
-<p>Prérequis :  </p>
-<ul>
-<li>firmware ESP32 flashé avec le firmware MicroPython   </li>
-</ul>
-<h2 id="lecture-simple-du-capteur">Lecture simple du capteur</h2>
-<p><em>source : https://randomnerdtutorials.com/esp32-esp8266-dht11-dht22-micropython-temperature-humidity-sensor/</em>  </p>
-<p>Le capteur DHT11 est très populaire parmi les makers et les adeptes du DIY. Il est, en effet, si prisé qu’il est inclus par défaut dans MicroPython. Son prix avantageux et sa simplicité d’utilisation en sont les principales raisons.</p>
-<h3 id="correspondance-des-broches">Correspondance des broches :</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Module DHT11</th>
-<th style="text-align: center;">ESP32</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1 - GND</td>
-<td style="text-align: center;">GND</td>
-</tr>
-<tr>
-<td style="text-align: center;">2 - DATA</td>
-<td style="text-align: center;">GPIO 17</td>
-</tr>
-<tr>
-<td style="text-align: center;">3 - Vcc</td>
-<td style="text-align: center;">3,3V</td>
-</tr>
-</tbody>
-</table>
-<p><em>Attention : Selon votre ESP32, la GPIO 17 n'est pas placée au même endroit.
-ESP32.</em><br>
-<em>Attention : Si le module ne comporte pas de résistance de pullup, il faut en ajouter une entre 4.7kΩ (ou 10kΩ) entre les broches 3V3 et le signal (GPIO17 ).</em></p>
-<h3 id="mesurer-la-temperature-et-lhumidite-ambiante-du-dht11-avec-micropython">Mesurer la température et l’humidité ambiante du DHT11 avec MicroPython</h3>
-<p>Puisque le DHT11 utilise un protocole propriétaire, il est nécessaire d’utiliser une bibliothèque pour communiquer facilement avec le capteur. Heureusement, elle est incluse par défaut dans MicroPython, donc il n’y a pas besoin de télécharger une bibliothèque externe supplémentaire.  </p>
-<p>Le code à utiliser est très simple : il suffit d’instancier un objet dht avec un numéro de pin et d’utiliser la fonction capteur.measure() .<br>
-On peut voir d'après le code la sortie GPIO est bien 17.<br>
-Le résultat est affiché dans le terminal de l’IDE Thonny. La température est exprimée en degrés Celsius, tandis que l’humidité est exprimée en pourcentage.  </p>
-<pre><code>from machine import Pin
-from time import sleep
-import dht 
+        <p><div><h1 id="configuration-of-wordpress">Configuration of Wordpress</h1>
+<h2 id="install-docker-and-its-components">Install Docker and its components</h2>
+<pre><code>Go « root » with the command : su -  
 
-sensor = dht.DHT11(Pin(17))
+Install docker-compose : apt install docker-compose  
 
-while True:
-    sleep(2)
-    sensor.measure()
-    temp = sensor.temperature()
-    hum = sensor.humidity()
-    print('Temperature: %3.1f C' %temp)
-    print('Humidity: %3.1f %%' %hum)
+Create a file docker-compose.yml : nano docker-compose.yml  
+
+Paste inside the configuration given below
+
+Install the docker : docker-compose up -d  
+
+Access to the page « server IP:8989 »  
+  - Configure Wordpress in English  
+  - Site Title : Euro  
+  - Username :   
+  - Password :   
+  - Email : euroedison@yopmail.com  
 
 </code></pre>
-<h2 id="lecture-du-capteur-et-envoie-sur-une-page-web">Lecture du capteur et envoie sur une page web</h2>
-<p><em>source : https://randomnerdtutorials.com/esp32-esp8266-micropython-web-server/   https://randomnerdtutorials.com/micropython-esp32-esp8266-dht11-dht22-web-server/</em></p>
-<p>Par défaut, lorsque vous flasher le firmware MicroPython, un fichier boot.py est créé.</p>
-<p>Pour ce projet, vous aurez besoin d'un fichier boot.py et d'un fichier main.py.<br>
-- Le fichier boot.py contient le code qui ne doit être exécuté qu'une seule fois au démarrage. Il s'agit de l'importation des bibliothèques, des identifiants réseau, de l'instanciation des broches, de la connexion au réseau et d'autres configurations.</p>
-<ul>
-<li>Le fichier main.py contient le code qui exécute le serveur web pour servir des fichiers et effectuer des tâches en fonction des demandes reçues par le client.</li>
-</ul>
-<h3 id="creation-du-fichier-bootpy">Création du fichier <em>boot.py</em></h3>
-<p>Dans ce code :
-- Crée un client wifi (STA = Station) (on pourrait faire la même chose en AP = Access Point)<br>
-- Se connecte au wifi donné<br>
-- Renvoie dans le terminal/console les informations du réseau données par le serveur DHCP (IP, Masque, Passerelle, DNS)
-- Configure les GPIO
-    - GPIO 17 : pour le capteur DHT11</p>
-<p><em>boot.py</em></p>
-<pre><code>try:
-    import usocket as socket
-except:
-    import socket
+<h2 id="wordpress-docker-configuaration">Wordpress Docker Configuaration :</h2>
+<p>docker-compose.yml  </p>
+<pre><code>version: '3.1'
 
-import network
-from machine import Pin
-import dht
+services:
 
-import esp
-esp.osdebug(None)
+  wordpress:
+    image: wordpress
+    container_name: wordpress
+    restart: always
+    ports:
+      - 8989:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: Edison38130
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - /srv/appdata/wordpress:/var/www/html
 
-import gc
-gc.collect()
+  redis:
+    image: redis:latest
+    hostname: redis
+    container_name: redis
+    restart: always
+    expose:
+      - 6379
+    command:
+      - redis-server
+      - --save 60 1
+      - --loglevel warning
+      - --maxmemory 128mb
+      - --maxmemory-policy allkeys-lru
+    volumes:
+      - /srv/appdata/wordpress/redis:/var/lib/redis
+      - /srv/appdata/wordpress/redis/data:/data
+      #- ./redis.conf:/usr/local/etc/redis/redis.conf
 
-ssid = 'REPLACE_WITH_YOUR_SSID'
-password = 'REPLACE_WITH_YOUR_PASSWORD'
-
-station = network.WLAN(network.STA_IF)
-
-station.active(True)
-station.connect(ssid, password)
-
-while station.isconnected() == False:
-    pass
-
-print('Connection successful')
-print(station.ifconfig())
-
-sensor = dht.DHT11(Pin(17))
-</code></pre>
-<p>Retour dans la console  </p>
-<pre><code>Connection successful
-('192.168.1.59', '255.255.255.0', '192.168.1.1', '192.168.1.1')
-</code></pre>
-<h3 id="creation-du-fichier-mainpy">Création du fichier <em>main.py</em></h3>
-<p>Dans ce code :
-- Défini une fonction pour lire le capteur<br>
-- Défini une fonction pour créer la page html<br>
-- Gére les connections au serveur web</p>
-<p><em>main.py</em></p>
-<pre><code>def read_sensor():
-    global temp, hum
-    temp = hum = 0.0
-    try:
-        sensor.measure()
-        temp = f'{sensor.temperature():3.2f}'
-        hum = f'{sensor.humidity():3.1f}'
-        return 0
-    except OSError as e:
-        return('Failed to read sensor.')
-
-
-def web_page():
-    html = """&lt;!DOCTYPE HTML&gt;&lt;html&gt;
-&lt;head&gt;
-
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h2&gt;ESP DHT Server&lt;/h2&gt;
-  &lt;p&gt;Temp: &lt;strong&gt;""" + str(temp) + """ &amp;deg;C&lt;/strong&gt;&lt;/p&gt;
-  &lt;p&gt;Hum: &lt;strong&gt;""" + str(hum) + """ %&lt;/strong&gt;&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;"""
-    return html
-
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind(('', 80))
-s.listen(5)
-
-while True:
-    conn, addr = s.accept()
-    print('Got a connection from %s' % str(addr))
-    request = conn.recv(1024)
-    print('Content = %s' % str(request))
-    mes = read_sensor()
-    response = web_page()
-    conn.send('HTTP/1.1 200 OK\n')
-    conn.send('Content-Type: text/html\n')
-    conn.send('Connection: close\n\n')
-    conn.sendall(response)
-    conn.close()
-
-
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: Edison38130
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - /srv/appdata/wordpress/db:/var/lib/mysql
 </code></pre></div></p>
     </article>
 </section>
