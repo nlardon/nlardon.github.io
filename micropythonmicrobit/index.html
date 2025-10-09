@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>ESP32 Server - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+        <title>IDE MicroPython Microbit - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -185,8 +185,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="../micropythonmicrobit/"
-                    class="
+                <a href="./"
+                    class=" active 
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     IDE MicroPython Microbit
                 </a>
@@ -248,8 +248,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="./"
-                    class=" active 
+                <a href="../esp32_server/"
+                    class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     ESP32 Server
                 </a>
@@ -303,13 +303,13 @@
         <div class="container">
             <div class="row row-preview">
                 <div class="col">
-                    <a href="../cordonrj45/"
+                    <a href="../micropython/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </div>
                 <div class="col">
-                    <a href="../esp32_sk6812/"
+                    <a href="../micropython-webserver/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
@@ -341,223 +341,195 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><div><h1 id="esp32-web-server">ESP32 Web Server</h1>
-<p><img alt="" src="../img/esp32server/esp32-we-server.webp"></p>
-<p><em>source : randomnerdtutorials.com/esp32-web-server-arduino-ide/</em>  </p>
-<p>In this project you’ll create a standalone web server with an ESP32 that controls outputs (two LEDs) using the Arduino IDE programming environment. The web server is mobile responsive and can be accessed with any device that as a browser on the local network. We’ll show you how to create the web server and how the code works step-by-step.</p>
-<h2 id="watch-the-video-tutorial">Watch the Video Tutorial</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ApGwxX6VVzk?si=vIXXsLms5zQ3lZ0W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-<h2 id="project-overview">Project Overview</h2>
-<p>Before going straight to the project, it is important to outline what our web server will do, so that it is easier to follow the steps later on.  </p>
-<p>The web server you’ll build controls two LEDs connected to the ESP32 GPIO 26 and GPIO 27;<br>
-You can access the ESP32 web server by typing the ESP32 IP address on a browser in the local network;<br>
-By clicking the buttons on your web server you can instantly change the state of each LED.<br>
-This is just a simple example to illustrate how to build a web server that controls outputs, the idea is to replace those LEDs with a relay, or any other electronic components you want.  </p>
-<h2 id="parts-required">Parts Required</h2>
-<p>For this tutorial you’ll need the following parts:</p>
-<p><img alt="" src="../img/esp32server/esp32-web-server-arduino-ide-parts-required.webp"></p>
+        <p><div><h1 id="utilisation-de-micropython-et-microbit">Utilisation de MicroPython et Microbit</h1>
+<p><img alt="" src="../img/micropython_start.svg"></p>
+<p>Pour comprendre : principe général de l'utilisation de MicroPython  </p>
+<p>Le principe général est le suivant :</p>
 <ul>
-<li>ESP32 development board  </li>
-<li>2x 5mm LED</li>
-<li>2x 330 Ohm resistor</li>
-<li>Breadboard</li>
-<li>Jumper wires</li>
+<li>on connecte la carte avec Micropython sur le port USB : un port série lui est attribué : /dev/ttyACM0 par exemple sous Gnu/Linux  </li>
+<li>avec un interpréteur comme Thonny, on peut envoyer le code dans la carte.</li>
 </ul>
-<h2 id="schematic">Schematic</h2>
-<p>Start by building the circuit.<br>
-Connect two LEDs to the ESP32 as shown in the following schematic diagram – one LED connected to GPIO 26, and the other to GPIO 27.  </p>
-<p><img alt="" src="../img/esp32server/esp32_web_server_schematic.webp"></p>
-<h2 id="esp32-web-server-code">ESP32 Web Server Code</h2>
-<p>Here we provide the code that creates the ESP32 web server. Copy the following code to your Arduino IDE, but don’t upload it yet. You need to make some changes to make it work for you.</p>
-<p>Programme test :</p>
-<pre><code class="language-arduino">/*********
-  Rui Santos
-  Complete project details at http://randomnerdtutorials.com  
-*********/
+<h2 id="preparer-le-materiel-pour-micropython">Préparer le matériel pour MicroPython</h2>
+<p>Les cartes Arduino, les cartes type ESP32/ESP8266 ou les cartes Micro:bit, ont un firmware (mini-OS) permettant de charger du code.<br>
+Nous devons modifier ce firmware pour fonctionner en MicroPython.  </p>
+<p>Nous allons flasher le firmware MicroPython avec Thonny IDE.  </p>
+<p>La méthode la plus simple pour installer et utiliser MicroPython sur Micro:bit (et autre microcontrôleur) est d’utiliser le logiciel Thonny IDE. En effet vous pouvez installer le firmware à partir de l’interface du logiciel et l’utiliser pour développer votre code et le téléverser sur la carte.  </p>
+<p>Dans le logiciel, Thonny IDE, sélectionner le Menu : Exécuter puis Configurer l'interpréteur...<br>
+<img alt="" src="../img/micropython_flash-firmware-1.png"></p>
+<p>Cliquer sur Installer ou mettre à jour MicroPython  </p>
+<p><img alt="" src="../img/micropython_flash-firmware-2-microbit.png"></p>
+<p>Sélectionner le bon port.
+Pour une carte Carte Micro:bit :  </p>
+<ul>
+<li>MicroPython family : nRF52  </li>
+<li>Variant : BBC - micro:bit v2  </li>
+</ul>
+<p>Puis installer, le firmware va se charger dans la carte.</p>
+<p><img alt="" src="../img/micropython_flash-firmware-3-microbit.png"></p>
+<h2 id="televerser-un-programme">Téléverser un programme</h2>
+<p>Dans le logiciel, Thony IDE, sélectionner le Menu : Exécuter puis Configurer l'interpréteur...<br>
+Choisir le bon port (exemple : /dev/ttyUSB0 ou /dev/ttyACM0 )  </p>
+<h3 id="programme-test">Programme test</h3>
+<pre><code># Microbit Test Program
 
-// Load Wi-Fi library
-#include &lt;WiFi.h&gt;
+# Import required modules, including the new pins for pedestrian lights.
+from microbit import sleep, running_time, pin1, pin8
 
-// Replace with your network credentials
-const char* ssid = "REPLACE_WITH_YOUR_SSID";
-const char* password = "REPLACE_WITH_YOUR_PASSWORD";
+# --- Pin Assignments ---
+RED_LED = pin1
+GREEN_LED = pin8
 
-// Set web server port number to 80
-WiFiServer server(80);
+# --- Configuration ---
+RED_TIME_MS = 6000     # 6 seconds
+GREEN_TIME_MS = 7000   # 7 seconds
 
-// Variable to store the HTTP request
-String header;
+# --- Helper Functions ---
+def all_lights_off():
+    """Ensures all pins are turned off."""
+    RED_LED.write_digital(0)
+    GREEN_LED.write_digital(0)
 
-// Auxiliar variables to store the current output state
-String output26State = "off";
-String output27State = "off";
+# Initialize by ensuring all lights and the buzzer are off
+all_lights_off()
 
-// Assign output variables to GPIO pins
-const int output26 = 26;
-const int output27 = 27;
+# Main traffic light loop
+while True:
+    all_lights_off()
+    RED_LED.write_digital(1)    #  Red ON
+    sleep(RED_TIME_MS) # Brief warning
 
-// Current time
-unsigned long currentTime = millis();
-// Previous time
-unsigned long previousTime = 0; 
-// Define timeout time in milliseconds (example: 2000ms = 2s)
-const long timeoutTime = 2000;
+    all_lights_off()
+    GREEN_LED.write_digital(1) # Green ON
+    sleep(GREEN_TIME_MS)
 
-void setup() {
-  Serial.begin(115200);
-  // Initialize the output variables as outputs
-  pinMode(output26, OUTPUT);
-  pinMode(output27, OUTPUT);
-  // Set outputs to LOW
-  digitalWrite(output26, LOW);
-  digitalWrite(output27, LOW);
-
-  // Connect to Wi-Fi network with SSID and password
-  Serial.print("Connecting to ");
-  Serial.println(ssid);
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  // Print local IP address and start web server
-  Serial.println("");
-  Serial.println("WiFi connected.");
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
-  server.begin();
-}
-
-void loop(){
-  WiFiClient client = server.available();   // Listen for incoming clients
-
-  if (client) {                             // If a new client connects,
-    currentTime = millis();
-    previousTime = currentTime;
-    Serial.println("New Client.");          // print a message out in the serial port
-    String currentLine = "";                // make a String to hold incoming data from the client
-    while (client.connected() &amp;&amp; currentTime - previousTime &lt;= timeoutTime) {  // loop while the client's connected
-      currentTime = millis();
-      if (client.available()) {             // if there's bytes to read from the client,
-        char c = client.read();             // read a byte, then
-        Serial.write(c);                    // print it out the serial monitor
-        header += c;
-        if (c == '\n') {                    // if the byte is a newline character
-          // if the current line is blank, you got two newline characters in a row.
-          // that's the end of the client HTTP request, so send a response:
-          if (currentLine.length() == 0) {
-            // HTTP headers always start with a response code (e.g. HTTP/1.1 200 OK)
-            // and a content-type so the client knows what's coming, then a blank line:
-            client.println("HTTP/1.1 200 OK");
-            client.println("Content-type:text/html");
-            client.println("Connection: close");
-            client.println();
-
-            // turns the GPIOs on and off
-            if (header.indexOf("GET /26/on") &gt;= 0) {
-              Serial.println("GPIO 26 on");
-              output26State = "on";
-              digitalWrite(output26, HIGH);
-            } else if (header.indexOf("GET /26/off") &gt;= 0) {
-              Serial.println("GPIO 26 off");
-              output26State = "off";
-              digitalWrite(output26, LOW);
-            } else if (header.indexOf("GET /27/on") &gt;= 0) {
-              Serial.println("GPIO 27 on");
-              output27State = "on";
-              digitalWrite(output27, HIGH);
-            } else if (header.indexOf("GET /27/off") &gt;= 0) {
-              Serial.println("GPIO 27 off");
-              output27State = "off";
-              digitalWrite(output27, LOW);
-            }
-
-            // Display the HTML web page
-            client.println("&lt;!DOCTYPE html&gt;&lt;html&gt;");
-            client.println("&lt;head&gt;&lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt;");
-            client.println("&lt;link rel=\"icon\" href=\"data:,\"&gt;");
-            // CSS to style the on/off buttons 
-            // Feel free to change the background-color and font-size attributes to fit your preferences
-            client.println("&lt;style&gt;html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}");
-            client.println(".button { background-color: #4CAF50; border: none; color: white; padding: 16px 40px;");
-            client.println("text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}");
-            client.println(".button2 {background-color: #555555;}&lt;/style&gt;&lt;/head&gt;");
-
-            // Web Page Heading
-            client.println("&lt;body&gt;&lt;h1&gt;ESP32 Web Server&lt;/h1&gt;");
-
-            // Display current state, and ON/OFF buttons for GPIO 26  
-            client.println("&lt;p&gt;GPIO 26 - State " + output26State + "&lt;/p&gt;");
-            // If the output26State is off, it displays the ON button       
-            if (output26State=="off") {
-              client.println("&lt;p&gt;&lt;a href=\"/26/on\"&gt;&lt;button class=\"button\"&gt;ON&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
-            } else {
-              client.println("&lt;p&gt;&lt;a href=\"/26/off\"&gt;&lt;button class=\"button button2\"&gt;OFF&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
-            } 
-
-            // Display current state, and ON/OFF buttons for GPIO 27  
-            client.println("&lt;p&gt;GPIO 27 - State " + output27State + "&lt;/p&gt;");
-            // If the output27State is off, it displays the ON button       
-            if (output27State=="off") {
-              client.println("&lt;p&gt;&lt;a href=\"/27/on\"&gt;&lt;button class=\"button\"&gt;ON&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
-            } else {
-              client.println("&lt;p&gt;&lt;a href=\"/27/off\"&gt;&lt;button class=\"button button2\"&gt;OFF&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
-            }
-            client.println("&lt;/body&gt;&lt;/html&gt;");
-
-            // The HTTP response ends with another blank line
-            client.println();
-            // Break out of the while loop
-            break;
-          } else { // if you got a newline, then clear currentLine
-            currentLine = "";
-          }
-        } else if (c != '\r') {  // if you got anything else but a carriage return character,
-          currentLine += c;      // add it to the end of the currentLine
-        }
-      }
-    }
-    // Clear the header variable
-    header = "";
-    // Close the connection
-    client.stop();
-    Serial.println("Client disconnected.");
-    Serial.println("");
-  }
-}
+    # Loop back to
 </code></pre>
-<h2 id="setting-your-network-credentials">Setting Your Network Credentials</h2>
-<p>You need to modify the following lines with your network credentials: SSID and password. The code is well commented on where you should make the changes.  </p>
-<pre><code class="language-arduino">
-// Replace with your network credentials
-const char* ssid     = "REPLACE_WITH_YOUR_SSID";
-const char* password = "REPLACE_WITH_YOUR_PASSWORD";
+<p>Réaliser ce montage :  </p>
+<p><img alt="" src="../img/schema_microbit_led.png">  </p>
+<h3 id="programme-trafic-light">Programme Trafic Light</h3>
+<pre><code># Microbit Traffic Light Simulator with Pedestrian Buzzer (External LED Pins)
+#
+# This program simulates a four-state traffic light cycle using external
+# components connected via the micro:bit edge connector.
+#
+# Hardware Setup Summary:
+# - Vehicle Red LED: **Pin 1 (P1)**
+# - Vehicle Amber LED: **Pin 2 (P2)**
+# - Vehicle Green LED: **Pin 8 (P8)**
+# - Pedestrian Red LED (STOP): **Pin 12 (P12)**
+# - Pedestrian Green LED (WALK): **Pin 13 (P13)**
+# - Passive Buzzer/Speaker: **Pin 0 (P0)** (Buzzes only during P-WALK)
+
+# Import required modules, including the new pins for pedestrian lights.
+from microbit import sleep, running_time, pin0, pin1, pin2, pin8, pin13, pin14
+
+# --- Pin Assignments ---
+# Vehicle Lights
+RED_LED = pin1
+AMBER_LED = pin2
+GREEN_LED = pin8
+# Pedestrian Lights
+P_RED_LED = pin13
+P_GREEN_LED = pin14
+# Buzzer
+BUZZER = pin0
+
+# --- Configuration ---
+RED_TIME_MS = 6000     # 6 seconds (Pedestrian crossing time)
+RED_AMBER_TIME_MS = 1000 # 1 second (Warning before Green)
+GREEN_TIME_MS = 7000   # 7 seconds (Vehicle go time)
+AMBER_TIME_MS = 2000   # 2 seconds (Warning before Red)
+
+# Buzzer settings for the "Walk" signal
+BUZZ_DURATION = 200   # 200 ms per beep (time buzzer is ON)
+BUZZ_PAUSE = 300      # 300 ms pause between beeps (time buzzer is OFF)
+
+# --- Helper Functions ---
+
+def all_lights_off():
+    """Ensures all vehicle and pedestrian traffic light pins are turned off."""
+    RED_LED.write_digital(0)
+    AMBER_LED.write_digital(0)
+    GREEN_LED.write_digital(0)
+    P_RED_LED.write_digital(0)
+    P_GREEN_LED.write_digital(0)
+
+def buzz_walk_signal(duration_ms):
+    """Generates an intermittent buzz signal using Pin 0 for the pedestrian crossing phase."""
+    end_time = running_time() + duration_ms
+    while running_time() &lt; end_time:
+        # Simple Buzz ON: Set Pin 0 to high (3.3V)
+        BUZZER.write_digital(1)
+        sleep(BUZZ_DURATION)
+
+        # Simple Buzz OFF: Set Pin 0 to low (0V)
+        BUZZER.write_digital(0)
+        # Pause briefly
+        sleep(BUZZ_PAUSE)
+
+# Initialize by ensuring all lights and the buzzer are off
+all_lights_off()
+BUZZER.write_digital(0)
+
+# Main traffic light loop
+while True:
+
+    # ----------------------------------------------------------------------
+    # 1. VEHICLE RED (Stop) &amp; PEDESTRIAN GREEN (Walk) + BUZZING
+    # ----------------------------------------------------------------------
+    all_lights_off()
+    RED_LED.write_digital(1)    # Vehicle Red ON
+    P_GREEN_LED.write_digital(1) # Pedestrian Green ON (WALK)
+
+    # Start the buzzer signal for blind people
+    buzz_walk_signal(RED_TIME_MS)
+
+    # Stop the buzzer and wait briefly
+    BUZZER.write_digital(0)
+    sleep(100) # Short pause
+
+    # ----------------------------------------------------------------------
+    # 2. VEHICLE RED + AMBER (Prepare Go) &amp; PEDESTRIAN RED (Stop)
+    # ----------------------------------------------------------------------
+    # Turn OFF Pedestrian Green, Turn ON Pedestrian Red
+    P_GREEN_LED.write_digital(0)
+    P_RED_LED.write_digital(1) # Pedestrian Red ON (STOP)
+
+    # Vehicle Red stays ON, Amber turns ON
+    AMBER_LED.write_digital(1)
+    sleep(RED_AMBER_TIME_MS) # Brief warning
+
+    # ----------------------------------------------------------------------
+    # 3. VEHICLE GREEN (Go) &amp; PEDESTRIAN RED (Stop)
+    # ----------------------------------------------------------------------
+    all_lights_off()
+    GREEN_LED.write_digital(1) # Vehicle Green ON
+    P_RED_LED.write_digital(1) # Pedestrian Red stays ON
+    sleep(GREEN_TIME_MS)
+
+    # ----------------------------------------------------------------------
+    # 4. VEHICLE AMBER (Prepare Stop) &amp; PEDESTRIAN RED (Stop)
+    # ----------------------------------------------------------------------
+    all_lights_off()
+    AMBER_LED.write_digital(1) # Vehicle Amber ON
+    P_RED_LED.write_digital(1) # Pedestrian Red stays ON
+    sleep(AMBER_TIME_MS)
+
+    # Loop back to Vehicle Red / Pedestrian Green (WALK)
 
 </code></pre>
-<h2 id="uploading-the-code">Uploading the Code</h2>
-<p>Now, you can upload the code and and the web server will work straight away. Follow the next steps to upload code to the ESP32:  </p>
-<p>1) Plug your ESP32 board in your computer;  </p>
-<p>2) In the Arduino IDE select your board in Tools &gt; Board (in our case we’re using the ESP32 DEV Module);  </p>
-<p>3) Select the COM port in Tools &gt; Port.</p>
-<p>4) Press the Upload button in the Arduino IDE and wait a few seconds while the code compiles and uploads to your board.</p>
-<p>5) Wait for the “Done uploading” message.</p>
-<h2 id="finding-the-esp-ip-address">Finding the ESP IP Address</h2>
-<p>After uploading the code, open the Serial Monitor at a baud rate of 115200.</p>
-<p><img alt="" src="../img/esp32server/serial-monitor.webp"></p>
-<p>Press the ESP32 EN button (reset). The ESP32 connects to Wi-Fi, and outputs the ESP IP address on the Serial Monitor. Copy that IP address, because you need it to access the ESP32 web server.</p>
-<p><img alt="" src="../img/esp32server/ESP-IP-address-1.webp"></p>
-<h2 id="accessing-the-web-server">Accessing the Web Server</h2>
-<p>To access the web server, open your browser, paste the ESP32 IP address, and you’ll see the following page. In our case it is 192.168.1.135.</p>
-<p><img alt="" src="../img/esp32server/esp32-web-server-outputs.webp"></p>
-<p>If you take a look at the Serial Monitor, you can see what’s happening on the background. The ESP receives an HTTP request from a new client (in this case, your browser).</p>
-<p><img alt="" src="../img/esp32server/new-client.webp"></p>
-<p>You can also see other information about the HTTP request.</p>
-<h2 id="testing-the-web-server">Testing the Web Server</h2>
-<p>Now you can test if your web server is working properly. Click the buttons to control the LEDs.</p>
-<p>At the same time, you can take a look at the Serial Monitor to see what’s going on in the background. For example, when you click the button to turn GPIO 26 ON, ESP32 receives a request on the /26/on URL.  </p>
-<p>When the ESP32 receives that request, it turns the LED attached to GPIO 26 ON and updates its state on the web page.  </p>
-<p>The button for GPIO 27 works in a similar way. Test that it is working properly.  </p></div></p>
+<p>Réaliser ce montage :  </p>
+<p><img alt="" src="../img/schema_microbit_trafic_light.png">  </p>
+<h2 id="remettre-le-materiel-pour-microbit-web">Remettre le matériel pour Micro:bit "web"</h2>
+<p>Télécharger le fichier .hex<br>
+<a href="../extra/microbit/Meet%20the%20microbit.hex">Meet the microbit.hex</a>  </p>
+<p>Step 1: Connect your BBC micro:bit to your computer  </p>
+<p><img alt="" src="../extra/microbit/microbit_transfer.gif"></p>
+<p>Connect the small end of the USB cable to the micro USB port on your BBC micro:bit<br>
+Connect the other end of the USB cable to a USB port on your computer.  </p>
+<p>On computers running Windows, MICROBIT appears as a drive under Devices and drives.     </p>
+<p>On Linux MICROBIT will be mounted as a drive eg at /media/pi/MICROBIT</p>
+<p>Copier le fichier .hex sur la carte.</p></div></p>
     </article>
 </section>
             <!-- endblock -->
