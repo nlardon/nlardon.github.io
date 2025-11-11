@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>Wordpress - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+        <title>Windows Server - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -269,15 +269,15 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="./"
-                    class=" active 
+                <a href="../wordpress/"
+                    class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     Wordpress
                 </a>
             </li>
             <li class="drac-box">
-                <a href="../windowsserver/"
-                    class="
+                <a href="./"
+                    class=" active 
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     Windows Server
                 </a>
@@ -310,14 +310,14 @@
         <div class="container">
             <div class="row row-preview">
                 <div class="col">
-                    <a href="../esp32_ws2812B/"
+                    <a href="../wordpress/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </div>
                 <div class="col">
-                    <a href="../windowsserver/"
-                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                    <a 
+                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -348,75 +348,7 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><div><h1 id="configuration-of-wordpress">Configuration of Wordpress</h1>
-<h2 id="install-docker-and-its-components">Install Docker and its components</h2>
-<pre><code>Go « root » with the command : su -  
-
-Install docker-compose : apt install docker-compose  
-
-Create a file docker-compose.yml : nano docker-compose.yml  
-
-Paste inside the configuration given below
-
-Install the docker : docker-compose up -d  
-
-Access to the page « server IP:8989 »  
-  - Configure Wordpress in English  
-  - Site Title : Euro  
-  - Username :   
-  - Password :   
-  - Email : euroedison@yopmail.com  
-
-</code></pre>
-<h2 id="wordpress-docker-configuaration">Wordpress Docker Configuaration :</h2>
-<p>docker-compose.yml  </p>
-<pre><code>version: '3.1'
-
-services:
-
-  wordpress:
-    image: wordpress
-    container_name: wordpress
-    restart: always
-    ports:
-      - 8989:80
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: Edison38130
-      WORDPRESS_DB_NAME: wordpress
-    volumes:
-      - /srv/appdata/wordpress:/var/www/html
-
-  redis:
-    image: redis:latest
-    hostname: redis
-    container_name: redis
-    restart: always
-    expose:
-      - 6379
-    command:
-      - redis-server
-      - --save 60 1
-      - --loglevel warning
-      - --maxmemory 128mb
-      - --maxmemory-policy allkeys-lru
-    volumes:
-      - /srv/appdata/wordpress/redis:/var/lib/redis
-      - /srv/appdata/wordpress/redis/data:/data
-      #- ./redis.conf:/usr/local/etc/redis/redis.conf
-
-  db:
-    image: mysql:8.0
-    restart: always
-    environment:
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: Edison38130
-      MYSQL_RANDOM_ROOT_PASSWORD: '1'
-    volumes:
-      - /srv/appdata/wordpress/db:/var/lib/mysql
-</code></pre></div></p>
+        <p><h1 id="configuration-windows-server">Configuration Windows Server</h1></p>
     </article>
 </section>
             <!-- endblock -->
