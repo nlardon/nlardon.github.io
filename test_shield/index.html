@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>Shield Arduino - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../assets/css/darcula-highlight.min.css">
+
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../assets/css/mkdocs.min.css">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href=".."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Home
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../programmation1/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Programmation 1
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../reconditionnement/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Reconditionnement PC
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../infranetwork/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Infrastructure Réseau
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../eval_tciel/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Evaluation TCIEL
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../eval_1ciel/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Evaluation 1CIEL
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../eval_2ciel/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Evaluation 2CIEL
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../tinkerCAD/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    TinkerCAD
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../proxmox/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Proxmox
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../admin_server/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Admin Server
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../linux/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Linux
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../euro/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Section Euro
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../adresseip/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Adresse IP
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../esp/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Carte ESP32/ESP8622
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../arduino/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Carte Arduino
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../ide-arduino/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    IDE Arduino
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="./"
+                    class=" active 
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Shield Arduino
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../micropython/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    IDE MicroPython ESP32
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../micropythonmicrobit/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    IDE MicroPython Microbit
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../micropython-webserver/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP32 GPIO Python Webserver
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../read_temp_dht11_python/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP32 Lire DHT11 Python
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../read_temp_dht11_c/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP32 Lire DHT11 C++
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../esp_mqtt_nodered/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP, MQTT, Node-RED
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../raspberrypi/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Raspberry Pi
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../ipphone/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Téléphonie IP
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../reseau/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Réseau
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../cordonrj45/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Cordon RJ45
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../esp32_server/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP32 Server
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../esp32_sk6812/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP32 LED SK6812
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../esp32_ws2812B/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ESP32 LED WS2812B
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../wordpress/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Wordpress
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../windowsserver/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Windows Server
+                </a>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../ide-arduino/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="../micropython/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item">
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><div><h1 id="test-stem-shield-for-arduino">Test STEM shield for Arduino</h1>
+<p><img src="/img/shield/wsedu10_standup.jpg" alt="image" width="50%" height="auto"></p>
+<h2 id="the-shield">The SHIELD</h2>
+<p><img src="/img/shield/001.jpg" alt="image" width="50%" height="auto"></p>
+<h2 id="test-leds">Test LEDs</h2>
+<p>test_LEDs.ino</p>
+<pre><code>const int SW1 = 8;
+const int SW2 = 9;
+const int SW3 = 10;
+const int SW4 = 11;
+const int SW5 = 12;
+const int TRIMMER = A0;
+const int NTC = A1;
+const int PHOTO = A2;
+
+const int IRLED = 7;
+const int RED1 = A3;
+const int ORANGE1 = A4;
+const int GREEN1 = 2;
+const int RED2 = 3;
+const int ORANGE2 = 4;
+const int GREEN2 = 5;
+const int BUZZER = 13;
+const int SERVO = 6;
+
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(RED1, OUTPUT);
+  pinMode(ORANGE1, OUTPUT);
+  pinMode(GREEN1, OUTPUT);
+  pinMode(RED2, OUTPUT);
+  pinMode(ORANGE2, OUTPUT);
+  pinMode(GREEN2, OUTPUT);
+  pinMode(IRLED, OUTPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  digitalWrite(RED1, LOW);
+  digitalWrite(ORANGE1, LOW);
+  digitalWrite(GREEN1, LOW);
+  digitalWrite(RED2, LOW);
+  digitalWrite(ORANGE2, LOW);
+  digitalWrite(GREEN2, LOW);
+  digitalWrite(IRLED, LOW);
+  delay(200);
+  digitalWrite(RED1, HIGH);
+  digitalWrite(ORANGE1, HIGH);
+  digitalWrite(GREEN1, HIGH);
+  digitalWrite(RED2, HIGH);
+  digitalWrite(ORANGE2, HIGH);
+  digitalWrite(GREEN2, HIGH);
+  digitalWrite(IRLED, HIGH);
+  delay(200);
+
+}
+
+</code></pre>
+<h2 id="test-inputs">Test Inputs</h2>
+<p>test_INPUTS.ino</p>
+<pre><code>const int SW1 = 8;
+const int SW2 = 9;
+const int SW3 = 10;
+const int SW4 = 11;
+const int SW5 = 12;
+const int TRIMMER = A0;
+const int NTC = A1;
+const int PHOTO = A2;
+
+const int IRLED = 7;
+const int RED1 = A3;
+const int ORANGE1 = A4;
+const int GREEN1 = 2;
+const int RED2 = 3;
+const int ORANGE2 = 4;
+const int GREEN2 = 5;
+const int BUZZER = 13;
+const int SERVO = 6;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  Serial.println("--- Test STEM Shield ---");
+
+  pinMode(SW1, INPUT);
+  pinMode(SW2, INPUT);
+  pinMode(SW3, INPUT);
+  pinMode(SW4, INPUT);
+  pinMode(SW5, INPUT);
+  pinMode(TRIMMER, INPUT);
+  pinMode(NTC, INPUT);
+  pinMode(PHOTO, INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  // Test Trimmer
+  int valuePot = analogRead(TRIMMER);
+  Serial.print("Value Trimmer : ");
+  Serial.println(valuePot);
+
+  if (digitalRead(SW1) == HIGH) Serial.println("SW1 Switched ON !");
+  if (digitalRead(SW2) == HIGH) Serial.println("SW2 Pressed !");
+  if (digitalRead(SW3) == HIGH) Serial.println("SW3 Pressed !");
+  if (digitalRead(SW4) == HIGH) Serial.println("SW4 Pressed !");
+  if (digitalRead(SW5) == HIGH) Serial.println("SW5 Pressed !");
+
+  Serial.print("Value NTC : ");
+  Serial.println( analogRead(NTC)  ) ;
+
+  Serial.print("Value Photo : ");
+  Serial.println( analogRead(PHOTO)  ) ;
+
+  delay(500);
+
+}
+
+</code></pre>
+<h2 id="test-7-segments-display">Test 7 segments display</h2>
+<p>test_7seg.ino</p>
+<pre><code>const int SW1 = 8;
+const int SW2 = 9;
+const int SW3 = 10;
+const int SW4 = 11;
+const int SW5 = 12;
+const int TRIMMER = A0;
+const int NTC = A1;
+const int PHOTO = A2;
+
+const int IRLED = 7;
+const int RED1 = A3;
+const int ORANGE1 = A4;
+const int GREEN1 = 2;
+const int RED2 = 3;
+const int ORANGE2 = 4;
+const int GREEN2 = 5;
+const int BUZZER = 13;
+const int SERVO = 6;
+
+const int dot = 7;
+const int a = A3;
+const int b = A4;
+const int c = 2;
+const int d = 3;
+const int e = 4;
+const int f = 5;
+const int g = 6;
+
+//display number 1
+void display1(void) 
+{
+  digitalWrite(dot,HIGH);
+  digitalWrite(a,HIGH);
+  digitalWrite(b,LOW);
+  digitalWrite(c,LOW);
+  digitalWrite(d,HIGH);
+  digitalWrite(e,HIGH);
+  digitalWrite(f,HIGH);
+  digitalWrite(g,HIGH);
+} 
+//display number2
+void display2(void) 
+{
+  digitalWrite(dot,HIGH);
+  digitalWrite(a,LOW);
+  digitalWrite(b,LOW);
+  digitalWrite(c,HIGH);
+  digitalWrite(d,LOW);
+  digitalWrite(e,LOW);
+  digitalWrite(f,HIGH);
+  digitalWrite(g,LOW);
+}
+
+// display number3
+void display3(void) 
+{ 
+  digitalWrite(dot,HIGH);
+  digitalWrite(a,LOW);
+  digitalWrite(b,LOW);
+  digitalWrite(c,LOW);
+  digitalWrite(d,LOW);
+  digitalWrite(e,HIGH);
+  digitalWrite(f,HIGH);
+  digitalWrite(g,LOW);
+} 
+// display number4
+void display4(void) 
+{
+  digitalWrite(dot,HIGH);
+  digitalWrite(a,HIGH);
+  digitalWrite(b,LOW);
+  digitalWrite(c,LOW);
+  digitalWrite(d,HIGH);
+  digitalWrite(e,HIGH);
+  digitalWrite(f,LOW);
+  digitalWrite(g,LOW);
+} 
+// display number5
+void display5(void) 
+{ 
+  digitalWrite(dot,HIGH);
+  digitalWrite(a,LOW);
+  digitalWrite(b,HIGH);
+  digitalWrite(c,LOW);
+  digitalWrite(d,LOW);
+  digitalWrite(e,HIGH);
+  digitalWrite(f,LOW);
+  digitalWrite(g,LOW);
+} 
+// display number6
+void display6(void) 
+{
+  digitalWrite(dot,HIGH);
+  digitalWrite(a,LOW);
+  digitalWrite(b,HIGH);
+  digitalWrite(c,LOW);
+  digitalWrite(d,LOW);
+  digitalWrite(e,LOW);
+  digitalWrite(f,LOW);
+  digitalWrite(g,LOW);  
+} 
+// display number7
+void display7(void)
+{   
+  digitalWrite(dot,HIGH);
+  digitalWrite(a,LOW);
+  digitalWrite(b,LOW);
+  digitalWrite(c,LOW);
+  digitalWrite(d,HIGH);
+  digitalWrite(e,HIGH);
+  digitalWrite(f,HIGH);
+  digitalWrite(g,HIGH);
+}
+
+// display number8
+void display8(void) 
+{ 
+  digitalWrite(dot,HIGH);
+  digitalWrite(a,LOW);
+  digitalWrite(b,LOW);
+  digitalWrite(c,LOW);
+  digitalWrite(d,LOW);
+  digitalWrite(e,LOW);
+  digitalWrite(f,LOW);
+  digitalWrite(g,LOW);  
+} 
+void display9(void)
+{ 
+  digitalWrite(dot,HIGH);
+  digitalWrite(a,LOW);
+  digitalWrite(b,LOW);
+  digitalWrite(c,LOW);
+  digitalWrite(d,LOW);
+  digitalWrite(e,HIGH);
+  digitalWrite(f,LOW);
+  digitalWrite(g,LOW);
+} 
+void display0(void) 
+{ 
+  digitalWrite(dot,HIGH);
+  digitalWrite(a,LOW);
+  digitalWrite(b,LOW);
+  digitalWrite(c,LOW);
+  digitalWrite(d,LOW);
+  digitalWrite(e,LOW);
+  digitalWrite(f,LOW);
+  digitalWrite(g,HIGH);
+} 
+void displaydot(void) 
+{ 
+  digitalWrite(dot,LOW);
+  digitalWrite(a,HIGH);
+  digitalWrite(b,HIGH);
+  digitalWrite(c,HIGH);
+  digitalWrite(d,HIGH);
+  digitalWrite(e,HIGH);
+  digitalWrite(f,HIGH);
+  digitalWrite(g,HIGH);
+} 
+void clearDisplay(void) 
+{ 
+  digitalWrite(dot,HIGH);
+  digitalWrite(a,HIGH);
+  digitalWrite(b,HIGH);
+  digitalWrite(c,HIGH);
+  digitalWrite(d,HIGH);
+  digitalWrite(e,HIGH);
+  digitalWrite(f,HIGH);
+  digitalWrite(g,HIGH);
+} 
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  Serial.println("--- Test du STEM Shield Initialisé ---");
+
+  pinMode(dot, OUTPUT);
+  pinMode(a, OUTPUT);
+  pinMode(b, OUTPUT);
+  pinMode(c, OUTPUT);
+  pinMode(d, OUTPUT);
+  pinMode(e, OUTPUT);
+  pinMode(f, OUTPUT);
+  pinMode(g, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  while(1) 
+
+    {   clearDisplay();
+        display0(); 
+        delay(1000); 
+        clearDisplay();
+
+        display1(); 
+        delay(1000); 
+        clearDisplay();
+        display2();
+
+        delay(1000); 
+        clearDisplay();
+        display3(); 
+
+        delay(1000);
+        clearDisplay();
+        display4(); 
+        delay(1000);
+
+        clearDisplay(); 
+        display5(); 
+        delay(1000);
+        clearDisplay();
+
+        display6(); 
+        delay(1000);
+        clearDisplay(); 
+
+        display7(); 
+        delay(1000); 
+        clearDisplay();
+        display8();
+
+        delay(1000); 
+        clearDisplay();  
+        display9(); 
+
+        delay(1000); 
+        clearDisplay();  
+        displaydot(); 
+
+        delay(1000);      
+    }
+
+}
+
+</code></pre>
+<h2 id="test-other">Test Other</h2>
+<p>test_OTHER.ino</p>
+<pre><code>#include &lt;Servo.h&gt;
+
+const int SW1 = 8;
+const int SW2 = 9;
+const int SW3 = 10;
+const int SW4 = 11;
+const int SW5 = 12;
+const int TRIMMER = A0;
+const int NTC = A1;
+const int PHOTO = A2;
+
+const int IRLED = 7;
+const int RED1 = A3;
+const int ORANGE1 = A4;
+const int GREEN1 = 2;
+const int RED2 = 3;
+const int ORANGE2 = 4;
+const int GREEN2 = 5;
+const int BUZZER = 13;
+const int SERVO = 6;
+
+Servo myservo;  // create Servo object to control a servo
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  Serial.println("--- Test  STEM Shield  ---");
+
+  pinMode(TRIMMER, INPUT);
+  myservo.attach(SERVO);  // attaches the servo on pin 6 to the Servo object
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  // Test Trimmer
+  int valuePot = analogRead(TRIMMER);
+  Serial.print("Value Trimmer : ");
+  Serial.println(valuePot);
+
+  int thisPitch = map(valuePot, 400, 1000, 120, 1500);
+
+  // play the pitch:
+  tone(BUZZER, thisPitch, 10);
+  delay(1);  // delay in between reads for stability
+
+  int val = map(valuePot, 0, 1023, 0, 180);     // scale it for use with the servo (value between 0 and 180)
+  myservo.write(valuePot);                  // sets the servo position according to the scaled value
+  delay(15);                           // waits for the servo to get there
+
+}
+
+</code></pre>
+<h2 id="the-schematic">The Schematic</h2>
+<p><img src="/img/shield/002.jpg" alt="image" width="100%" height="auto"></p>
+<h2 id="the-components">The Components</h2>
+<p>WHAT'S IN THE BOX  </p>
+<p>1 x PCB<br>
+1 x  resistor 2K2<br>
+14 x  resistor 180Ohm<br>
+1 x  resistor 220E<br>
+6 x  resistor 100K<br>
+1 x  resistor 100Ohm<br>
+1 x NTC 100K (NTC104LAF)<br>
+2 x red 3mm LED<br>
+2 x green 3mm LED<br>
+2 x orange 3mm LED<br>
+1 x 3mm photo transistor (L-32ROPT1C)<br>
+1 x 3mm IR emitter (L-934F3C)<br>
+1 x slide switch (TS-13PLC)<br>
+1 x trimmer 100K with 1 x spindle (5mm)<br>
+4 x tactile switch (TS-04PV)<br>
+1 x single digit display (SA39-11SRWA)<br>
+2 x 8-pin female header<br>
+1 x 10-pin female header<br>
+8 x 6-pin header<br>
+1 x sounder<br>
+17 x programming shunt  </p>
+<h2 id="assembly-manual">Assembly manual</h2>
+<p><a href="../img/shield/Assembly%20manual.pdf">Assembly manual</a>  </p></div></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '..';</script>
+        <script src="../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/mkdocs.js"></script>
+
+</body>
+
+</html>
