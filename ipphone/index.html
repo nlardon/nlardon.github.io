@@ -355,27 +355,22 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><div><h1 id="configuration-dun-serveur-telephonique">Configuration d'un serveur Téléphonique</h1>
+        <p><div><h1 id="configuration-voip-telephonie-ip">Configuration VoIP (téléphonie IP)</h1>
 <div class="toc">
 <ul>
-<li><a href="#configuration-dun-serveur-telephonique">Configuration d'un serveur Téléphonique</a><ul>
-<li><a href="#installation-existante">Installation existante</a></li>
-<li><a href="#plan-adressage-du-serveur-dhcp">Plan adressage du serveur DHCP</a></li>
+<li><a href="#configuration-voip-telephonie-ip">Configuration VoIP (téléphonie IP)</a><ul>
+<li><a href="#serveur-de-telephonie-ip">Serveur de téléphonie IP</a></li>
+<li><a href="#plan-adressage-du-reseaux-ciel">Plan adressage du Réseaux CIEL</a></li>
 <li><a href="#acceder-au-serveur-telephonique">Accéder au serveur téléphonique</a></li>
-<li><a href="#reinitialiser-un-telephone-ip-cisco">Réinitialiser un téléphone IP Cisco</a></li>
-<li><a href="#afficher-ladresse-ip-dun-telephone-ip-cisco">Afficher l’adresse IP d’un téléphone IP Cisco</a></li>
-<li><a href="#afficher-ladresse-mac-dun-telephone-ip-cisco">Afficher l’adresse MAC d’un téléphone IP Cisco</a></li>
-<li><a href="#configurer-un-telephone-ip">Configurer un téléphone IP</a></li>
-<li><a href="#transferer-un-appel">Transférer un appel</a></li>
+<li><a href="#telephone-ip-cisco-303">Téléphone IP Cisco 303</a></li>
+<li><a href="#telephone-ip-grandstream-gxv3350">Téléphone IP GRANDSTREAM GXV3350</a></li>
+<li><a href="#configuration-softphone">Configuration Softphone</a></li>
 <li><a href="#asterisk-freepbx-feature-code-reference">Asterisk FreePBX Feature Code Reference</a></li>
-<li><a href="#configuration-dun-softphone-sur-pc-microsip">Configuration d'un softphone sur PC : MicroSIP</a></li>
-<li><a href="#configuration-dun-softphone-sur-telephone-android-ou-ios-linphone">Configuration d'un softphone sur téléphone (Android ou IOS) : Linphone</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h2 id="installation-existante">Installation existante</h2>
-<h3 id="serveur-de-telephonie-ip">Serveur de téléphonie IP</h3>
+<h2 id="serveur-de-telephonie-ip">Serveur de téléphonie IP</h2>
 <table>
 <thead>
 <tr>
@@ -462,7 +457,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="plan-adressage-du-serveur-dhcp">Plan adressage du serveur DHCP</h2>
+<h2 id="plan-adressage-du-reseaux-ciel">Plan adressage du Réseaux CIEL</h2>
 <table>
 <thead>
 <tr>
@@ -474,6 +469,10 @@
 <tr>
 <td style="text-align: center;">Plage DHCP</td>
 <td style="text-align: center;">172.31.8.1 - 172.31.8.255</td>
+</tr>
+<tr>
+<td style="text-align: center;">Serveur Hyperviseur</td>
+<td style="text-align: center;">172.31.9.1 - 172.31.9.255</td>
 </tr>
 <tr>
 <td style="text-align: center;">Point d'accès Wifi</td>
@@ -489,28 +488,31 @@
 </tr>
 </tbody>
 </table>
+<p><img alt="" src="../img/ipphone/plan_net_ipphone.png">  </p>
 <h2 id="acceder-au-serveur-telephonique">Accéder au serveur téléphonique</h2>
 <p>Accédez à la page de configuration du serveur depuis un navigateur en entrant l’adresse IP du serveur dans la barre url d’un navigateur.<br>
     • Accédez au menu Admin : « Administration de FreePBX »<br>
     • Dans Applications,<br>
     • puis Postes (extensions en anglais), vous aurez accès à la configuration des postes.  </p>
-<p><img alt="" src="../img/freepbx1.png">
-<img alt="" src="../img/freepbx2.png"></p>
-<h2 id="reinitialiser-un-telephone-ip-cisco">Réinitialiser un téléphone IP Cisco</h2>
+<p><img alt="" src="../img/ipphone/freepbx1.png">
+<img alt="" src="../img/ipphone/freepbx2.png"></p>
+<h2 id="telephone-ip-cisco-303">Téléphone IP Cisco 303</h2>
+<h3 id="reinitialiser">Réinitialiser</h3>
 <p>Sur le téléphone IP :<br>
-    • Appuyer sur la touche configuration (feuille cornée)<br>
+    • Appuyer sur la touche configuration (feuille cornée  voir image )<br>
     • Naviguer sur le menu Factoy Reset<br>
     • Puis valider le choix  </p>
-<h2 id="afficher-ladresse-ip-dun-telephone-ip-cisco">Afficher l’adresse IP d’un téléphone IP Cisco</h2>
-<p>Sur le téléphone IP :<br>
+<h3 id="afficher-ladresse-ip-mac">Afficher l’adresse IP / MAC</h3>
+<p>| Adresse IP |<br>
+Sur le téléphone IP :<br>
     • Appuyer sur la touche configuration (feuille cornée)<br>
     • Naviguer sur le menu Network  </p>
-<h2 id="afficher-ladresse-mac-dun-telephone-ip-cisco">Afficher l’adresse MAC d’un téléphone IP Cisco</h2>
-<p>Sur le téléphone IP :<br>
+<p>| Adresse MAC |<br>
+Sur le téléphone IP :<br>
     • Appuyer sur la touche configuration (feuille cornée)<br>
     • Naviguer sur le menu Product Info  </p>
-<p><img alt="" src="../img/ciscoipphone1.png"></p>
-<h2 id="configurer-un-telephone-ip">Configurer un téléphone IP</h2>
+<p><img alt="" src="../img/ipphone/ciscoipphone1.png"></p>
+<h3 id="configurer-un-telephone">Configurer un téléphone</h3>
 <p>Accédez à la page de configuration du téléphone depuis un navigateur en entrant l’adresse IP du téléphone dans la barre url d’un navigateur.<br>
     • Accédez au menu Admin : « Admin Login »<br>
     • Dans Ext1, Adaptez la configuration à votre cas.<br>
@@ -518,17 +520,76 @@
         ◦ Display Name = Nom à afficher<br>
         ◦ User ID = Numéro d’appel<br>
         ◦ Password = Mot de passe ou “secret”  </p>
-<p><img alt="" src="../img/ciscoipphone2.png"></p>
-<h2 id="transferer-un-appel">Transférer un appel</h2>
-<p>Dans le cas où nous avons au moins 3 postes. Exemple : Accueil, Bureau et Atelier.
-Si le poste Atelier veut appeler le Bureau mais ne connait pas le numéro, il peut passer par le poste Accueil où celui-ci pourra transférer l’appel.
+<p><img alt="" src="../img/ipphone/ciscoipphone2.png"></p>
+<h3 id="transferer-un-appel-telephone-ip-cisco-303">Transférer un appel : Téléphone IP Cisco 303</h3>
+<p>Dans le cas où nous avons au moins 3 postes. Exemple : Accueil, Bureau et Atelier.<br>
+Si le poste Atelier veut appeler le Bureau mais ne connait pas le numéro, il peut passer par le poste Accueil où celui-ci pourra transférer l’appel.<br>
 Exemple :<br>
-    • Atelier appelle Accueil,<br>
-    • Accueil décroche, puis appui sur la touche “xfer” (sous l’écran) et compose le poste à joindre Bureau,<br>
-    • Pendant ce temps Atelier est en attende,<br>
-    • Si Bureau accepte l’appel, Accueil appui de nouveau sur “xfer”<br>
+    - Atelier appelle Accueil,<br>
+    - Accueil décroche, puis appui sur la touche “xfer” (sous l’écran) et compose le poste à joindre Bureau,<br>
+    - Pendant ce temps Atelier est en attende,<br>
+    - Si Bureau accepte l’appel, Accueil appui de nouveau sur “xfer”<br>
 À tout moment Accueil peut basculer d’un poste à l’autre en appuyant sur la touche rouge.<br>
-La même chose est possible avec la touche “conf”, où les 3 postes peuvent communiquer ensemble.</p>
+La même chose est possible avec la touche “conf”, où les 3 postes peuvent communiquer ensemble.  </p>
+<h2 id="telephone-ip-grandstream-gxv3350">Téléphone IP GRANDSTREAM GXV3350</h2>
+<h3 id="reinitialiser-un-telephone-ip-grandstream-gxv3350">Réinitialiser un téléphone IP GRANDSTREAM GXV3350</h3>
+<p>Aller dans le menu Paramètres -&gt; Sécurité du système -&gt; Rétablir Config. par défaut  </p>
+<p><img alt="" src="../img/ipphone/ipphone_GRANDSTREAM-GXV3350_reset.png"></p>
+<h3 id="afficher-ladresse-ip-et-adresse-mac-dun-telephone-ip-grandstream-gxv3350">Afficher l’adresse IP et adresse MAC d’un téléphone IP GRANDSTREAM GXV3350</h3>
+<p>Aller dans le menu Paramètres -&gt; Etat du réseau  </p>
+<p><img alt="" src="../img/ipphone/ipphone_GRANDSTREAM-GXV3350_ipmac.png"></p>
+<h3 id="configurer-un-telephone-ip-grandstream-gxv33503">Configurer un téléphone IP GRANDSTREAM GXV33503</h3>
+<p>Accédez à la page de configuration du téléphone depuis un navigateur en entrant l’adresse IP du téléphone dans la barre url d’un navigateur.<br>
+Se connecter :<br>
+    - Login : admin<br>
+    - Password : Indiquer sous le téléphone  </p>
+<p>Dans le menu Account, Account 1, General Settings. Adaptez la configuration à votre cas :<br>
+    - Account Active = cochée<br>
+    - Account Name = Numéro d’appel<br>
+    - SIP Server = Adresse IP de votre serveur téléphonique<br>
+    - SIP User ID = Numéro d’appel<br>
+    - SIP Authentication ID = Numéro d’appel<br>
+    - SIP Authentication Password = Secret<br>
+    - Display Name = Nom à afficher  </p>
+<p><img alt="" src="../img/ipphone/ipphone_GRANDSTREAM-GXV3350_config.png"></p>
+<h2 id="configuration-softphone">Configuration Softphone</h2>
+<h3 id="softphone-sur-pc-microsip">Softphone sur PC : MicroSIP</h3>
+<p>Nom du compte = Nom à afficher<br>
+Serveur SIP = Adresse IP de votre serveur téléphonique : Port SIP (5060)<br>
+<em>- Exemple : 192.168.1.142:5060 </em><br>
+Nom d’utilisateur = Numéro d’appel<br>
+Domaine = Adresse IP de votre serveur téléphonique : Port SIP (5060)<br>
+Login = Numéro d’appel<br>
+Mot de Passe = Mot de passe ou “secret”  </p>
+<p>Si erreur “Externe”, dans W10 aller dans les paramètres -&gt; Confidentialité -&gt; Microphone, et activer l’autorisation d’autres applications à utiliser le microphone.  </p>
+<p><img alt="" src="../img/ipphone/microsip.png"></p>
+<h3 id="softphone-sur-telephone-portable-android-ou-ios-linphone">Softphone sur téléphone portable (Android ou IOS) : Linphone</h3>
+<p>Utiliser un compte SIP :<br>
+    - Nom d’utilisateur = Numéro d’appel / Numéro de poste<br>
+    - Password = Mot de passe ou “secret”<br>
+    - Domaine = Adresse IP de votre serveur téléphonique<br>
+    - Transport = UDP<br>
+Pour réaliser un appel composer « le numéro de poste » @ « IP du serveur téléphonique »  </p>
+<p><img alt="" src="../img/ipphone/linphone.png"></p>
+<h3 id="softphone-sur-pc-de-appels-ou-calls-linux-gnome">Softphone sur PC de Appels ou Calls (Linux – Gnome)</h3>
+<p>Pour réaliser un appel composer « le numéro de poste » @ « IP du serveur téléphonique »  </p>
+<p><img alt="" src="../img/ipphone/calls_config.png"></p>
+<p>Utiliser un compte SIP :<br>
+    - Serveur = Adresse IP de votre serveur téléphonique<br>
+    - Nom d’affichage = Nom affiché<br>
+    - Identifiant = Numéro d’appel / Numéro de poste<br>
+    - Mot de passe = Mot de passe ou “secret”<br>
+    - Port = 5060<br>
+    - Transport = UDP<br>
+Pour réaliser un appel composer « le numéro de poste » @ « IP du serveur téléphonique ».<br>
+Si vous avez un seul serveur le numéro de poste suffit.  </p>
+<h3 id="softphone-sur-telephone-portable-de-mizudroid-sip-voip-softphone-android">Softphone sur téléphone portable de MizuDroid SIP VOIP Softphone (Android)</h3>
+<p><img alt="" src="../img/ipphone/mizudroid.png">  </p>
+<p>Serveur SIP = Adresse IP de votre serveur téléphonique : Port SIP (5060)<br>
+<em>- Exemple : 192.168.1.142:5060 </em><br>
+Username = Numéro d’appel<br>
+Password = Mot de passe ou “secret”<br>
+Proxy address = Adresse IP de votre serveur téléphonique  </p>
 <h2 id="asterisk-freepbx-feature-code-reference">Asterisk FreePBX Feature Code Reference</h2>
 <h3 id="info-services">Info Services</h3>
 <pre><code> *69 – Call Trace
@@ -565,25 +626,7 @@ La même chose est possible avec la touche “conf”, où les 3 postes peuvent 
 <h3 id="call-waiting">Call Waiting</h3>
 <pre><code> *70 – Call Waiting – Activate
  *71 – Call Waiting – Deactivate
-</code></pre>
-<h2 id="configuration-dun-softphone-sur-pc-microsip">Configuration d'un softphone sur PC : MicroSIP</h2>
-<p>Nom du compte = Nom à afficher<br>
-Serveur SIP = Adresse IP de votre serveur téléphonique : Port SIP (5060)<br>
-<em> Exemple : 192.168.1.142:5060 </em><br>
-Nom d’utilisateur = Numéro d’appel<br>
-Domaine = Adresse IP de votre serveur téléphonique : Port SIP (5060)<br>
-Login = Numéro d’appel<br>
-Mot de Passe = Mot de passe ou “secret”  </p>
-<p>Si erreur “Externe”, dans W10 aller dans les paramètres -&gt; Confidentialité -&gt; Microphone, et activer l’autorisation d’autres applications à utiliser le microphone.</p>
-<p><img alt="" src="../img/microsip.png"></p>
-<h2 id="configuration-dun-softphone-sur-telephone-android-ou-ios-linphone">Configuration d'un softphone sur téléphone (Android ou IOS) : Linphone</h2>
-<p>Utiliser un compte SIP :<br>
-    • Nom d’utilisateur = Numéro d’appel / Numéro de poste<br>
-    • Password = Mot de passe ou “secret”<br>
-    • Domaine = Adresse IP de votre serveur téléphonique<br>
-    • Transport = UDP<br>
-Pour réaliser un appel composer « le numéro de poste » @ « IP du serveur téléphonique »</p>
-<p><img alt="" src="../img/linphone.png"></p></div></p>
+</code></pre></div></p>
     </article>
 </section>
             <!-- endblock -->
