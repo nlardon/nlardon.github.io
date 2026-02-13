@@ -241,13 +241,6 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="../reseau/"
-                    class="
-                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-                    Réseau
-                </a>
-            </li>
-            <li class="drac-box">
                 <a href="../cordonrj45/"
                     class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
@@ -356,7 +349,7 @@
                 <section class="p-md-5 section-content">
     <article>
         <p><div><h1 id="utilisation-de-micropython">Utilisation de MicroPython</h1>
-<p><img alt="" src="../img/micropython_start.svg"></p>
+<p><img alt="" src="../extra/micropython/micropython_start.svg"></p>
 <p>Pour comprendre : principe général de l'utilisation de MicroPython  </p>
 <p>Le principe général est le suivant :</p>
 <ul>
@@ -390,9 +383,9 @@ Nous devons modifier ce firmware pour fonctionner en MicroPython.  </p>
 <p>Nous allons flasher le firmware MicroPython avec Thonny IDE.  </p>
 <p>La méthode la plus simple pour installer et utiliser MicroPython sur ESP32 (et autre microcontrôleur) est d’utiliser le logiciel Thonny IDE. En effet vous pouvez installer le firmware à partir de l’interface du logiciel et l’utiliser pour développer votre code et le téléverser sur la carte.  </p>
 <p>Dans le logiciel, Thonny IDE, sélectionner le Menu : Exécuter puis Configurer l'interpréteur...<br>
-<img alt="" src="../img/micropython_flash-firmware-1.png"></p>
+<img alt="" src="../extra/micropython/micropython_flash-firmware-1.png"></p>
 <p>Cliquer sur Installer ou mettre à jour MicroPython (esptool.)</p>
-<p><img alt="" src="../img/micropython_flash-firmware-2.png"></p>
+<p><img alt="" src="../extra/micropython/micropython_flash-firmware-2.png"></p>
 <p>Sélectionner le bon port.
 Pour une carte Carte Espressif ESP32-WROOM-32E :  </p>
 <ul>
@@ -400,11 +393,11 @@ Pour une carte Carte Espressif ESP32-WROOM-32E :  </p>
 <li>Variant : Espressif ESP32 / VROOM  </li>
 </ul>
 <p>Puis instaler, le firmware va se charger dans la carte.</p>
-<p><img alt="" src="../img/micropython_flash-firmware-3.png"></p>
+<p><img alt="" src="../extra/micropython/micropython_flash-firmware-3.png"></p>
 <h2 id="televerser-un-programme">Téléverser un programme</h2>
 <p>Dans le logiciel, Thony IDE, sélectionner le Menu : Exécuter puis Configurer l'interpréteur...<br>
 Choisir le bon port (exemple : /dev/ttyUSB0 ou /dev/ttyACM0 )<br>
-<img alt="" src="../img/micropython_load-1.png"></p>
+<img alt="" src="../extra/micropython/micropython_load-1.png"></p>
 <h3 id="programme-test">Programme test</h3>
 <pre><code>from machine import Pin
 import time
@@ -424,15 +417,15 @@ while True:
     pin_led2.off()
     time.sleep(1)
 </code></pre>
-<p><img alt="" src="../img/micropython_load-2.gif"></p>
+<p><img alt="" src="../extra/micropython/micropython_load-2.gif"></p>
 <p>Réaliser ce montage :  </p>
-<p><img alt="" src="../img/schema_esp_led.png">  </p>
+<p><img alt="" src="../extra/micropython/schema_esp_led.png">  </p>
 <h2 id="remettre-le-materiel-pour-arduino-ide">Remettre le matériel pour Arduino IDE</h2>
 <p>Dans le logiciel, Arduino IDE, sélectionner le Menu : Tools puis Board -&gt; esp32 -&gt; ESP32 Dev Module  </p>
-<p><img alt="" src="../img/arduino-firmware-1.png"></p>
+<p><img alt="" src="../extra/micropython/arduino-firmware-1.png"></p>
 <p>Dans le Menu : Tools puis Programmer, sélectionner Esptool<br>
 Dans le Menu : Tools puis Burn Bootloader<br>
-<img alt="" src="../img/arduino-firmware-2.png"></p>
+<img alt="" src="../extra/micropython/arduino-firmware-2.png"></p>
 <h3 id="programme-test_1">Programme test</h3>
 <pre><code>void setup() {
   pinMode(2, OUTPUT);
@@ -452,7 +445,7 @@ void loop() {
 
 }
 </code></pre>
-<p><img alt="" src="../img/micropython_load-2.gif"></p></div></p>
+<p><img alt="" src="../extra/micropython/micropython_load-2.gif"></p></div></p>
     </article>
 </section>
             <!-- endblock -->

@@ -241,13 +241,6 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="../reseau/"
-                    class="
-                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-                    Réseau
-                </a>
-            </li>
-            <li class="drac-box">
                 <a href="../cordonrj45/"
                     class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
@@ -356,7 +349,7 @@
                 <section class="p-md-5 section-content">
     <article>
         <p><div><h1 id="chaine-iot-esp-mqtt-et-node-red">Chaîne IOT : ESP, MQTT et Node-Red</h1>
-<p><img alt="" src="../img/esp_mqtt_nodered.png"></p>
+<p><img alt="" src="../extra/esp_mqtt/esp_mqtt_nodered.png"></p>
 <h2 id="presentation-du-systeme">Présentation du système</h2>
 <p>Les modules terminaux de l'internet des objets sont généralement alimentés par batterie. Dans ce cas l'utilisation d'un nano-ordinateur est impossible, l'autonomie serait trop faible. (Un nano-ordinateur Raspberry Pi alimenté par 3 piles de 1,5v a une autonomie de 3h à 6h).<br>
 L'utilisation d'un microcontrôleur à faible consommation est généralement la solution utilisée dans l'IOT embarqué.  </p>
@@ -522,7 +515,7 @@ Modifier :   </p>
 Compiler le code  si aucune erreur uploader le code dans la carte.  </li>
 </ul>
 <p>Dans le serial monitor, vous devez voir la connexion réussie au wifi puis les températures envoyées au serveur MQTT.  </p>
-<p><img alt="" src="../img/esp_mqtt.png"></p>
+<p><img alt="" src="../extra/esp_mqtt/esp_mqtt.png"></p>
 <p>Depuis le serveur Mosquitto (MQTT) entrer la commande suivante pour observer les données arrivant sur le serveur :  </p>
 <pre><code>mosquitto_sub -h localhost -t "esp/temp" -u edison -P edison
 </code></pre>
@@ -531,7 +524,7 @@ Compiler le code  si aucune erreur uploader le code dans la carte.  </li>
 <pre><code>mosquitto_pub -h localhost -t "esp/onoffbutton" -u edison -P edison -m "test la connection est OK"
 </code></pre>
 <p>Dans le serial monitor, vous devez voir la reception du message récupérer sur le serveur MQTT.<br>
-<img alt="" src="../img/esp_pub_test.png"></p>
+<img alt="" src="../extra/esp_mqtt/esp_pub_test.png"></p>
 <h2 id="etape-3-installation-du-serveur-mqtt-mosquitto">Etape 3 : Installation du serveur MQTT (Mosquitto)</h2>
 <p>Se connecter à un serveur/noeud en SSH.<br>
 Installer RED-Node en lançant se script :   </p>

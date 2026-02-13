@@ -241,13 +241,6 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="../reseau/"
-                    class="
-                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-                    Réseau
-                </a>
-            </li>
-            <li class="drac-box">
                 <a href="../cordonrj45/"
                     class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
@@ -366,16 +359,16 @@ Elle est similaire à la populaire WS2812B, mais offre des options de couleurs s
 - Communication : Utilise un protocole de communication série unipolaire, ce qui signifie qu'un seul fil de données est nécessaire pour contrôler plusieurs LED en cascade.<br>
 - Tension de fonctionnement : Généralement 5V ou 12V DC, selon le modèle.<br>
 - Intensité variable : Chaque couleur (rouge, vert, bleu et blanc) peut être modulée en intensité sur 256 niveaux (8 bits par couleur), offrant ainsi une large gamme de couleurs et d'effets de gradation.  </p>
-<p><img alt="" src="../img/esp32-sk6812/sk6812_schematic.webp"></p>
-<p><img src="/img/esp32-sk6812/41Lg+WShE5L.jpg" alt="image" width="50%" height="auto"></p>
+<p><img alt="" src="../extra/esp32-sk6812/sk6812_schematic.webp"></p>
+<p><img src="/extra/esp32-sk6812/41Lg+WShE5L.jpg" alt="image" width="50%" height="auto"></p>
 <h2 id="utilisation-avec-une-carte-esp32">Utilisation avec une carte ESP32</h2>
 <p>Il faut ajouter une bibliothéque à l'IDE Arduino pour utiliser ces LEDs. On pourrait coder sans blibliotéque suplémentaire mais le code serait complexe et difficilement lisible.  </p>
 <p>Nous allons utliser le travail du développeur "gitpeut" sur github. Ce travail nous simplifira le controle des LEDs.</p>
 <h3 id="ajout-de-la-bibliotheque-library">Ajout de la bibliothéque (library)</h3>
 <p>Téléchager le projet du développeur : https://github.com/gitpeut/SK6812-RGBW-ESP32</p>
-<p><img alt="" src="../img/esp32-sk6812/add_library_github.gif"></p>
+<p><img alt="" src="../extra/esp32-sk6812/add_library_github.gif"></p>
 <p>Ajouter la bibliotèque dans l'IDE Arduino.  </p>
-<p><img alt="" src="../img/esp32-sk6812/add_library_arduinoide.gif"></p>
+<p><img alt="" src="../extra/esp32-sk6812/add_library_arduinoide.gif"></p>
 <h3 id="code-pour-tester">Code pour tester</h3>
 <pre><code>#include &lt;sk.h&gt; //source : gitpeut/SK6812-RGBW-ESP32
 
