@@ -495,7 +495,36 @@ void loop() {
 
 }
 
-</code></pre></div></p>
+</code></pre>
+<h2 id="exercice-1-le-drapeau-francais">Exercice 1 : Le Drapeau Français 🇫🇷</h2>
+<p>Objectif : Diviser ton Anneau (16 LEDs) en trois zones de couleurs fixes pour former le drapeau français.  </p>
+<ul>
+<li>LEDs 0 à 4 : Bleu (0, 0, 255)  </li>
+<li>LEDs 5 à 10 : Blanc (255, 255, 255)  </li>
+<li>LEDs 11 à 15 : Rouge (255, 0, 0)  </li>
+</ul>
+<h2 id="exercice-2-le-remplissage-aller-retour">Exercice 2 : Le Remplissage "Aller-Retour"</h2>
+<p>Objectif : Remplir le Bandeau (5 LEDs) une par une en vert, puis les éteindre une par une en partant de la fin.  </p>
+<p>Étape 1 : Une boucle for de 0 à 4 qui allume en vert avec un delay(200).  </p>
+<p>Étape 2 : Une deuxième boucle for qui part de 4 et descend vers 0 ( for(int i=4; i&gt;=0; i--) ) pour éteindre les LEDs (couleur 0, 0, 0).  </p>
+<h2 id="exercice-3-le-clignotement-alterne-pair-impair">Exercice 3 : Le Clignotement Alterné (Pair / Impair)</h2>
+<p>Objectif : Créer un effet de balise sur l'Anneau (16 LEDs).  </p>
+<p>Allume toutes les LEDs d'index pair (0, 2, 4...) en jaune (255, 255, 0).  </p>
+<p>Attends 500ms.  </p>
+<p>Éteins les paires et allume toutes les LEDs d'index impair (1, 3, 5...) en violet (150, 0, 255).  </p>
+<p>Indice : Dans ta boucle, utilise i = i + 2 au lieu de i++.  </p>
+<h2 id="exercice-4-le-gradateur-de-luminosite-fade">Exercice 4 : Le Gradateur de Luminosité (Fade)</h2>
+<p>Objectif : Faire varier l'intensité de tout le Bandeau (5 LEDs).  </p>
+<p>Choisis une couleur fixe (ex: Orange : 255, 165, 0).  </p>
+<p>Utilise une boucle pour faire varier une variable intensite de 0 à 200.  </p>
+<p>Applique cette variable dans strip.setBrightness(intensite) puis fais strip.show().  </p>
+<p>Attention : N'oublie pas un petit delay() pour que l'œil humain puisse voir la progression !  </p>
+<h2 id="exercice-5-le-scanner-k2000-cylons">Exercice 5 : Le "Scanner" (K2000 / Cylons)</h2>
+<p>Objectif : Faire circuler une seule LED rouge qui fait des allers-retours sur l'Anneau.  </p>
+<p>La LED n°0 s'allume, attend 50ms, s'éteint.  </p>
+<p>La LED n°1 s'allume, attend 50ms, s'éteint... et ainsi de suite jusqu'à 15.  </p>
+<p>Arrivé à 15, le mouvement repart en arrière vers 0.  </p>
+<p>Le défi : Assure-toi qu'une seule LED reste allumée à la fois.  </p></div></p>
     </article>
 </section>
             <!-- endblock -->
