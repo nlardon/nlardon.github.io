@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>ESP32 GPIO Python Webserver - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
+        <title>Etude carte mère Motherboard - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -199,8 +199,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="./"
-                    class=" active 
+                <a href="../micropython-webserver/"
+                    class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     ESP32 GPIO Python Webserver
                 </a>
@@ -290,8 +290,8 @@
                 </a>
             </li>
             <li class="drac-box">
-                <a href="../motherboard/"
-                    class="
+                <a href="./"
+                    class=" active 
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     Etude carte mère Motherboard
                 </a>
@@ -324,14 +324,14 @@
         <div class="container">
             <div class="row row-preview">
                 <div class="col">
-                    <a href="../micropythonmicrobit/"
+                    <a href="../windowsserver/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </div>
                 <div class="col">
-                    <a href="../read_temp_dht11_python/"
-                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                    <a 
+                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -362,109 +362,23 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><div><h1 id="utilisation-de-micropython-et-webserver">Utilisation de MicroPython et Webserver</h1>
-<p>Prérequis :  </p>
-<ul>
-<li>firmware ESP32 flashé avec le firmware MicroPython   </li>
-</ul>
-<h2 id="controler-unse-sortie">Contrôler unse sortie</h2>
-<p><em>source : https://randomnerdtutorials.com/esp32-esp8266-micropython-web-server/</em>  </p>
-<p>Par défaut, lorsque vous flasher le firmware MicroPython, un fichier boot.py est créé.</p>
-<p>Pour ce projet, vous aurez besoin d'un fichier boot.py et d'un fichier main.py.<br>
-- Le fichier boot.py contient le code qui ne doit être exécuté qu'une seule fois au démarrage. Il s'agit de l'importation des bibliothèques, des identifiants réseau, de l'instanciation des broches, de la connexion au réseau et d'autres configurations.</p>
-<ul>
-<li>Le fichier main.py contient le code qui exécute le serveur web pour servir des fichiers et effectuer des tâches en fonction des demandes reçues par le client.</li>
-</ul>
-<h3 id="creation-du-fichier-bootpy">Création du fichier <em>boot.py</em></h3>
-<p>Dans ce code :
-- Crée un client wifi (STA = Station) (on pourrait faire la même chose en AP = Access Point)<br>
-- Se connecte au wifi donné<br>
-- Renvoie dans le terminal/console les informations du réseau données par le serveur DHCP (IP, Masque, Passerelle, DNS)
-- Configure les GPIO</p>
-<p><em>boot.py</em></p>
-<pre><code>try:
-  import usocket as socket
-except:
-  import socket
-
-from machine import Pin
-import network
-
-import esp
-esp.osdebug(None)
-
-import gc
-gc.collect()
-
-ssid = 'REPLACE_WITH_YOUR_SSID'
-password = 'REPLACE_WITH_YOUR_PASSWORD'
-
-station = network.WLAN(network.STA_IF)
-
-station.active(True)
-station.connect(ssid, password)
-
-while station.isconnected() == False:
-  pass
-
-print('Connection successful')
-print(station.ifconfig())
-
-led = Pin(2, Pin.OUT)
-</code></pre>
-<p>Retour dans la console  </p>
-<pre><code>Connection successful
-('192.168.1.59', '255.255.255.0', '192.168.1.1', '192.168.1.1')
-</code></pre>
-<h3 id="creation-du-fichier-mainpy">Création du fichier <em>main.py</em></h3>
-<p>Dans ce code :
-- Défini une fonction pour lire le statue des gpio et crée la page html<br>
-- Gére les connections au serveur web</p>
-<p><em>main.py</em></p>
-<pre><code>def web_page():
-    if led.value() == 1:
-        gpio_state="ON"
-    else:
-        gpio_state="OFF"
-
-    html ="""&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;ESP Web Server&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;h1&gt;ESP Web Server&lt;/h1&gt; 
-        &lt;p&gt;GPIO state: &lt;strong&gt;""" + gpio_state + """&lt;/strong&gt;&lt;/p&gt;
-        &lt;p&gt;&lt;a href="/?led=on"&gt;&lt;button class="button1"&gt;ON&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
-        &lt;p&gt;&lt;a href="/?led=off"&gt;&lt;button class="button2"&gt;OFF&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
-    &lt;/body&gt;
-    &lt;/html&gt;"""
-    return html
-
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind(('', 80))
-s.listen(5)
-
-while True:
-    conn, addr = s.accept()
-    print('Got a connection from %s' % str(addr))
-    request = conn.recv(1024)
-    request = str(request)
-    print('Content = %s' % request)
-    led_on = request.find('/?led=on')
-    led_off = request.find('/?led=off')
-    if led_on == 6:
-        print('LED ON')
-        led.value(1)
-    if led_off == 6:
-        print('LED OFF')
-        led.value(0)
-    response = web_page()
-    conn.send('HTTP/1.1 200 OK\n')
-    conn.send('Content-Type: text/html\n')
-    conn.send('Connection: close\n\n')
-    conn.sendall(response)
-    conn.close()
-</code></pre></div></p>
+        <p><div><h1 id="carte-mere-motherboard">Carte Mère : Motherboard</h1>
+<h2 id="documentations">Documentations</h2>
+<h3 id="msi">MSI</h3>
+<p><a href="../extra/pc/motherboard/B860GAMINGPLUSWIFI_English.pdf"> MSI B860 GAMING PLUS WIFI </a>  </p>
+<p><a href="../extra/pc/motherboard/PROB760-PWIFIDDR4.pdf"> MSI PRO B760-P WIFI DDR4 </a>  </p>
+<p><a href="../extra/pc/motherboard/MAGB850TOMAHAWKMAXWIFI_English.pdf"> MSI MAG B850 TOMAHAWK MAX WIFI </a>  </p>
+<p><a href="../extra/pc/motherboard/B550-APRO_EN.pdf">MSI B550 A PRO</a>  </p>
+<h3 id="asus">ASUS</h3>
+<p><a href="../extra/pc/motherboard/E26406_ROG_STRIX_X870-F_GAMING_WIFI_EM_V2_WEB.pdf"> ASUS ROG STRIX X870-F GAMING WIFI </a>  </p>
+<p><a href="../extra/pc/motherboard/E26847_PRIME_B860-PLUS_WIFI_EM_v2_WEB.pdf"> ASUS PRIME B860-PLUS WIFI  </a>  </p>
+<p><a href="../extra/pc/motherboard/TUF_GAMING_B450-PLUS_II.pdf">ASUS GAMING B450 PLUS II</a>  </p>
+<p><a href="../extra/pc/motherboard/E16576_TUF_GAMING_B550-PLUS_UM_WEB.pdf">ASUS B550 A PRO</a>  </p>
+<h3 id="gigabyte">GIGABYTE</h3>
+<p><a href="../extra/pc/motherboard/mb_manual_z890-gaming-x-wf7_1002_e.pdf"> GIGABYTE Z890 GAMING X WIFI7 </a>  </p>
+<p><a href="../extra/pc/motherboard/mb_manual_x870e-aorus-pro-x3d-ice_1002_e.pdf"> Gigabyte X870E AORUS PRO X3D </a>  </p>
+<h3 id="asrock">ASRock</h3>
+<p><a href="../extra/pc/motherboard/B860%20Pro%20RS.pdf">ASRock B860 Pro RS</a>  </p></div></p>
     </article>
 </section>
             <!-- endblock -->
