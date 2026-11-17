@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
         <title>Wordpress - Cybersécurité, Informatique et Réseaux, Électronique - Thomas Edison</title>
@@ -373,27 +373,25 @@
 <h2 id="install-docker-and-its-components">Install Docker and its components</h2>
 <pre><code>Go « root » with the command : su -  
 
-Install docker-compose : apt install docker-compose  
+Install docker-compose : apt install docker-compose  
 
-Create a file docker-compose.yml : nano docker-compose.yml  
+Create a file docker-compose.yml : nano docker-compose.yml  
 
-Paste inside the configuration given below
+Paste inside the configuration given below
 
-Install the docker : docker-compose up -d  
+Install the docker : docker-compose up -d  
 
-Access to the page « server IP:8989 »  
+Access to the page « server IP:8989 »  
   - Configure Wordpress in English  
-  - Site Title : Euro  
-  - Username :   
-  - Password :   
-  - Email : euroedison@yopmail.com  
+  - Site Title : Euro  
+  - Username :   
+  - Password :   
+  - Email : euroedison@yopmail.com  
 
 </code></pre>
 <h2 id="wordpress-docker-configuaration">Wordpress Docker Configuaration :</h2>
 <p>docker-compose.yml  </p>
-<pre><code>version: '3.1'
-
-services:
+<pre><code>services:
 
   wordpress:
     image: wordpress
@@ -443,7 +441,8 @@ services:
             <!-- endblock -->
 
             <!-- block footer -->
-                <footer>
+                
+                    <footer>
     <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
         <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
             class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
@@ -451,6 +450,7 @@ services:
         </a>
     </div>
 </footer>
+                
             <!-- endblock -->
         </div>
 
